@@ -39,3 +39,4 @@ zenbot/
 **/tmp/
 sensitive_info.txt
 */tmp/*
+**/*.pyc
