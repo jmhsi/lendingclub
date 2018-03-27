@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # reflects feb 2018 change of open_il_6m to open_act_il
 # %load ../dataprep_and_modeling/modeling_utils/data_prep_new.py
+=======
+>>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 import pandas as pd
 import numpy as np
 from sklearn.externals import joblib
@@ -61,7 +64,11 @@ def prep_data_cols(df):
                                'mths_since_last_record_isnull', 'revol_util_isnull',
                                'mths_since_last_major_derog_isnull', 'annual_inc_joint_isnull',
                                'dti_joint_isnull', 'tot_coll_amt_isnull', 'tot_cur_bal_isnull',
+<<<<<<< HEAD
                                'open_acc_6m_isnull', 'open_act_il_isnull', 'open_il_12m_isnull',
+=======
+                               'open_acc_6m_isnull', 'open_il_6m_isnull', 'open_il_12m_isnull',
+>>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
                                'open_il_24m_isnull', 'mths_since_rcnt_il_isnull',
                                'total_bal_il_isnull', 'il_util_isnull', 'open_rv_12m_isnull',
                                'open_rv_24m_isnull', 'max_bal_bc_isnull', 'all_util_isnull',
@@ -85,7 +92,11 @@ def prep_data_cols(df):
                                'total_il_high_credit_limit_isnull', 'revol_bal_joint_isnull',
                                'sec_app_inq_last_6mths_isnull', 'sec_app_mort_acc_isnull',
                                'sec_app_open_acc_isnull', 'sec_app_revol_util_isnull',
+<<<<<<< HEAD
                                'sec_app_open_act_il_isnull', 'sec_app_num_rev_accts_isnull',
+=======
+                               'sec_app_open_il_6m_isnull', 'sec_app_num_rev_accts_isnull',
+>>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
                                'sec_app_chargeoff_within_12_mths_isnull',
                                'sec_app_collections_12_mths_ex_med_isnull',
                                'sec_app_mths_since_last_major_derog_isnull',
@@ -99,7 +110,11 @@ def prep_data_cols(df):
     to_null_or_not = [
         'mths_since_last_delinq', 'mths_since_last_record', 'revol_util',
         'mths_since_last_major_derog', 'annual_inc_joint', 'dti_joint',
+<<<<<<< HEAD
         'tot_coll_amt', 'tot_cur_bal', 'open_acc_6m', 'open_act_il',
+=======
+        'tot_coll_amt', 'tot_cur_bal', 'open_acc_6m', 'open_il_6m',
+>>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
         'open_il_12m', 'open_il_24m', 'mths_since_rcnt_il', 'total_bal_il',
         'il_util', 'open_rv_12m', 'open_rv_24m', 'max_bal_bc', 'all_util',
         'total_rev_hi_lim', 'inq_fi', 'total_cu_tl', 'inq_last_12m',
@@ -115,7 +130,11 @@ def prep_data_cols(df):
         'pub_rec_bankruptcies', 'tot_hi_cred_lim', 'total_bal_ex_mort',
         'total_bc_limit', 'total_il_high_credit_limit', 'revol_bal_joint',
         'sec_app_inq_last_6mths', 'sec_app_mort_acc', 'sec_app_open_acc',
+<<<<<<< HEAD
         'sec_app_revol_util', 'sec_app_open_act_il', 'sec_app_num_rev_accts',
+=======
+        'sec_app_revol_util', 'sec_app_open_il_6m', 'sec_app_num_rev_accts',
+>>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
         'sec_app_chargeoff_within_12_mths',
         'sec_app_collections_12_mths_ex_med',
         'sec_app_mths_since_last_major_derog'
