@@ -38,4 +38,4 @@ zenbot/
 **/model_dump/
 **/tmp/
 sensitive_info.txt
-
+*/tmp/*
