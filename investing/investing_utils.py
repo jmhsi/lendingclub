@@ -6,7 +6,6 @@ import numpy as np
 import datetime as dt
 import lendingclub.account_info as acc_info
 import pause
-<<<<<<< HEAD
 from fastai.imports import *
 from fastai.structured import *
 from fastai.column_data import *
@@ -165,11 +164,6 @@ def add_dateparts(df):
         if date_col not in special_cols:
             add_datepart(df, date_col, drop=True)
     return [col for col in date_cols if col not in special_cols]    
-=======
-
-inv_acc_id = acc_info.investor_id
-
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 
 def pause_until_time(test=False):
     # pause 3 seconds, then print hello world
@@ -208,11 +202,7 @@ def get_loans_and_ids(header, exclude_already=True):
         filter_id = get_already_invested_filter_id(header)
         payload = {'showAll': 'true', 'filterId': filter_id}
         resp = requests.get(
-<<<<<<< HEAD
             'https://api.lendingclub.com/api/investor/v1/loans/listing', headers=header, params=payload) #'https://api.lendingclub.com/api/investor/v1/loans/listing'
-=======
-            'https://api.lendingclub.com/api/investor/v1/loans/listing', headers=header, params=payload)
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
         loans_list = json.loads(resp.content)['loans']
     if not exclude_already:
         payload = {'showAll': 'true'}
@@ -353,7 +343,6 @@ def verify_df_base_cols(api_loans, test_loans):
             print(key, val)
             return None
     return True
-<<<<<<< HEAD
 
 def make_CIs(preds):
     means = np.mean(preds, axis=0)
@@ -374,5 +363,3 @@ data_save_path = f'{datapath}{platform}/'
 training_type = 'all'
 regr_version_RF = '0.2.2'
 regr_version_NN = '1.0.1'
-=======
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792

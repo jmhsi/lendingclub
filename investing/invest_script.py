@@ -1,17 +1,11 @@
-<<<<<<< HEAD
-=======
-#!/home/justin/anaconda3/bin/python
-
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 print('From DL Server, wait invest')
 import requests as requests
 import json as json
 import lendingclub.account_info as acc_info
 import re as re
 from sklearn.externals import joblib
-import lendingclub.dataprep_and_modeling.modeling_utils.data_prep_new as data_prep
+# import lendingclub.dataprep_and_modeling.modeling_utils.data_prep_new as data_prep
 import lendingclub.investing.investing_utils as investing_utils
-<<<<<<< HEAD
 from investing_utils import StandardScalerJustin
 import pandas as pd
 import numpy as np
@@ -21,40 +15,18 @@ import pickle as pickle
 
 
 # constants
-=======
-import pandas as pd
-import numpy as np
-import math as math
-from lendingclub.dataprep_and_modeling.model_dump.nn_1_0_1 import net_class
-import torch
-
-
-# constants
-nn_path = '/home/justin/justin_tinkering/data_science/lendingclub/dataprep_and_modeling/model_dump/nn_1_0_1/1.0.1_e600'
-rf_path = '/home/justin/justin_tinkering/data_science/lendingclub/dataprep_and_modeling/model_dump/model_0.2.1.pkl'
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 token = acc_info.token
 inv_acc_id = acc_info.investor_id
 portfolio_id = acc_info.portfolio_id
 header = {
     'Authorization': token,
     'Content-Type': 'application/json',
-<<<<<<< HEAD
     'X-LC-LISTING-VERSION': '1.3'
 }
-=======
-    'X-LC-LISTING-VERSION': '1.2'
-}
-
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 acc_summary_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
     str(inv_acc_id) + '/summary'
 order_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
     str(inv_acc_id) + '/orders'
-<<<<<<< HEAD
-=======
-
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 min_score = -0.02  # -0.04599714276994965  # -0.035764345824470828
 inv_amt = 25.00
 cash_limit = 0.00
@@ -64,7 +36,6 @@ summary_dict = json.loads(requests.get(
     acc_summary_url, headers=header).content)
 cash_to_invest = summary_dict['availableCash']
 
-<<<<<<< HEAD
 # Load models and things for models
 # RF
 rf = investing_utils.load_RF()
@@ -121,44 +92,14 @@ api_yhat = (nn_api_yhat + rf_api_yhat)/2
 ids_and_scores = pd.DataFrame(pd.Series(dict(zip(api_ids, api_yhat))))
 def get_preds(RF): return RF.predict(X_test.iloc[:-1,:])
 preds = np.stack(investing_utils.parallel_trees(rf, get_preds))
-CIs = investing_utils.make_CIs(preds)
+# CIs = investing_utils.make_CIs(preds)
 ids_and_scores = pd.DataFrame(ids_and_scores)
 ids_and_scores.rename(columns={0:'3.0.0_score'}, inplace=True)
-ids_and_scores['rf_mean'] = CIs['mean'].values
-ids_and_scores['rf_std_dev'] = CIs['std_dev'].values
+# ids_and_scores['rf_mean'] = CIs['mean'].values
+# ids_and_scores['rf_std_dev'] = CIs['std_dev'].values
 ids_and_scores = ids_and_scores.sort_values('3.0.0_score',ascending=False)
 loans_to_pick_from = ids_and_scores[ids_and_scores['3.0.0_score'] >= min_score]
 loans_to_pick_from = loans_to_pick_from.sort_values('3.0.0_score', ascending=False)
-=======
-# Load models
-net = net_class.Net()
-net.load_state_dict(torch.load(nn_path))
-rf = joblib.load(rf_path)
-
-# wait until it is time to do the api call. I'm rate limited to 1 call a second
-investing_utils.pause_until_time(test=False)
-
-api_loans, api_ids = investing_utils.get_loans_and_ids(
-    header, exclude_already=True)
-api_loans = investing_utils.match_col_names(api_loans)
-api_loans = investing_utils.match_existing_cols_to_csv(api_loans)
-api_loans = investing_utils.make_missing_cols_and_del_dates(api_loans)
-api_X, _ = data_prep.process_data_test(api_loans)
-
-# score the api_loans, filter to min score
-# net score
-nn_api_yhat = net_class.torch_version(api_X, net)
-# rf score
-rf_api_yhat = rf.predict(api_X)
-
-#combined score
-api_yhat = (nn_api_yhat + rf_api_yhat)/2
-
-ids_and_scores = pd.Series(dict(zip(api_ids, api_yhat)))
-ids_and_scores = ids_and_scores.sort_values(ascending=False)
-loans_to_pick_from = ids_and_scores[ids_and_scores >= min_score]
-loans_to_pick_from = loans_to_pick_from.sort_values(ascending=False)
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 
 # See how many loans to pick from, set up order
 n_to_pick = int(math.floor(cash_to_invest / inv_amt))
@@ -177,10 +118,6 @@ else:
     print('Cash to invest is ${0}. Waiting for at least ${1} cash before investing'.format(
         cash_to_invest, cash_limit))
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
 print('Ran investment round.')
 print('Cash to invest: ${0}, meaning {1} possible notes to invest in at ${2} each.'.format(
     cash_to_invest, n_to_pick, inv_amt))
@@ -192,8 +129,4 @@ try:
     print(order_response, order_response.content)
 except:
     print('No response because no POST of orders')
-<<<<<<< HEAD
 print('reached end of invest_script_instant.py')
-=======
-print('reached end of invest_script.py')
->>>>>>> 10e1c43f58f5811bcf1be2f2aa27dd87afa57792
