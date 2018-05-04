@@ -28,7 +28,7 @@ acc_summary_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
 order_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
     str(inv_acc_id) + '/orders'
 min_score = -0.02  # -0.04599714276994965  # -0.035764345824470828
-inv_amt = 25.00
+inv_amt = 50.00
 cash_limit = 0.00
 
 # First check if I have enough money that I want to invest. min 10 notes so 250
