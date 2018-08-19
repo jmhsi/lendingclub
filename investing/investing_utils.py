@@ -176,9 +176,9 @@ def pause_until_time(test=False):
         # if testing, wait 2 seconds and print('will pause 2 seconds')
         pause_until = dt.datetime(
             now.year, now.month, now.day, now.hour, now.minute, now.second + 2)
-        print('will pause 2 seconds')
-    print('right now it is {0}, pausing until {1}'.format(
-        now.strftime('%H:%M:%S'), pause_until.strftime('%H:%M:%S')))
+#         print('will pause 2 seconds')
+#     print('right now it is {0}, pausing until {1}'.format(
+#         now.strftime('%H:%M:%S'), pause_until.strftime('%H:%M:%S')))
     pause.until(pause_until)
 
 
