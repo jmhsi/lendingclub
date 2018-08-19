@@ -1,8 +1,8 @@
-print('From DL Server, wait invest')
-import requests as requests
-import json as json
+# print('From DL Server, wait invest')
+import requests
+import json
 import lendingclub.account_info as acc_info
-import re as re
+import re
 from sklearn.externals import joblib
 # import lendingclub.dataprep_and_modeling.modeling_utils.data_prep_new as data_prep
 import lendingclub.investing.investing_utils as investing_utils
@@ -12,24 +12,44 @@ import numpy as np
 import math as math
 import torch
 import pickle as pickle
+import datetime
+import smtplib
+import gspread
+import google.auth
+from google.oauth2 import service_account
+from google.auth.transport.requests import AuthorizedSession
 
 
-# constants
+# constants and setup for various accounts and APIs
+now = datetime.datetime.now()
 token = acc_info.token
 inv_acc_id = acc_info.investor_id
 portfolio_id = acc_info.portfolio_id
+my_gmail_account = acc_info.from_email_throwaway
+my_gmail_password = acc_info.password_throwaway+'!@'
+my_recipients = acc_info.to_emails_throwaway
 header = {
     'Authorization': token,
     'Content-Type': 'application/json',
     'X-LC-LISTING-VERSION': '1.3'
 }
+
 acc_summary_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
     str(inv_acc_id) + '/summary'
 order_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
     str(inv_acc_id) + '/orders'
 min_score = -0.02  # -0.04599714276994965  # -0.035764345824470828
-inv_amt = 50.00
+inv_amt = 25.00
 cash_limit = 0.00
+creds = service_account.Credentials.from_service_account_file(acc_info.project_path+'creds.json')
+scope = ['https://spreadsheets.google.com/feeds']
+creds = creds.with_scopes(scope)
+gc = gspread.Client(auth=creds)
+gc.session = AuthorizedSession(creds)
+invest_ss_key = '1kaowlmHw92ZcThz0Do0q6RcW3UhNaLsCF-19j8I2MCg'
+investins_ss_key = '1AOXKQnxNf0ydTLElRUVoPLJ3jigZKZfRUq-iOlZcKN0'
+sheet = gc.open_by_key(invest_ss_key).sheet1
+sheetins = gc.open_by_key(investins_ss_key).sheet1
 
 # First check if I have enough money that I want to invest. min 10 notes so 250
 summary_dict = json.loads(requests.get(
@@ -47,6 +67,8 @@ with open(f'{investing_utils.data_save_path}/for_proc_df_model_loading.pkl', 'rb
 investing_utils.pause_until_time(test=True)
 
 # get the loans and process the dataframe
+_, all_loan_count = investing_utils.get_loans_and_ids(
+    header, exclude_already=False)
 api_loans, api_ids = investing_utils.get_loans_and_ids(
     header, exclude_already=True)
 
@@ -115,18 +137,36 @@ payload = json.dumps(orders_dict)
 if cash_to_invest >= cash_limit:
     order_response = requests.post(order_url, headers=header, data=payload)
 else:
-    print('Cash to invest is ${0}. Waiting for at least ${1} cash before investing'.format(
-        cash_to_invest, cash_limit))
+    pass
+#     print('Cash to invest is ${0}. Waiting for at least ${1} cash before investing'.format(
+#         cash_to_invest, cash_limit))
 
-print('Ran investment round.')
-print('Cash to invest: ${0}, meaning {1} possible notes to invest in at ${2} each.'.format(
-    cash_to_invest, n_to_pick, inv_amt))
-print('{0} loans seen through api, of which {1} could be ordered due to score or cash available. Min score cutoff is {2}'.format(
-    len(api_loans), len(to_order_loan_ids), min_score))
-print('Scores from this batch was: {0}'.format(ids_and_scores))
-print('Below is from response')
-try:
-    print(order_response, order_response.content)
-except:
-    print('No response because no POST of orders')
-print('reached end of invest_script_instant.py')
+ids_and_scores.index.name = 'loan_id'    
+
+def send_emails():
+    subject = now.strftime("%Y-%m-%d %H:%M:%S.%f") + ' Investment Round'
+    smtpserver = smtplib.SMTP('smtp.gmail.com',587)
+    smtpserver.ehlo()
+    smtpserver.starttls()
+    smtpserver.login(my_gmail_account, my_gmail_password)
+    message = '''
+Ran investment round.
+Cash to invest: ${0}, meaning {1} possible notes to invest in at ${2} each.
+{3} loans seen through api in total.
+{4} loans seen through api excluding already invested. 
+{5} could be ordered due to score or cash available. Min score cutoff is {6}
+Response: {7}, {8}
+Scores from this batch:
+{9}
+    '''.format(cash_to_invest, n_to_pick, inv_amt, len(all_loan_count), len(api_loans), len(to_order_loan_ids), min_score, order_response, order_response.content, ids_and_scores)
+    msg = """From: %s\nTo: %s\nSubject: %s\n\n%s""" % (my_gmail_account, my_recipients, subject, message)
+    smtpserver.sendmail(my_gmail_account, my_recipients, msg)
+    smtpserver.close()
+    
+    
+# send out the e-mails
+send_emails()
+
+# write some stats to a google spreadsheet
+# TODO from https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
+sheetins.append_row([now.strftime("%Y-%m-%d %H:%M:%S.%f"), len(all_loan_count)])
