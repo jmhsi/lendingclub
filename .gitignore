@@ -40,3 +40,4 @@ zenbot/
 sensitive_info.txt
 */tmp/*
 **/*.pyc
+creds.json
