@@ -1,3 +1,4 @@
+#invest_script_instant.py  
 # print('From DL Server, wait invest')
 import requests
 import json
@@ -28,6 +29,9 @@ portfolio_id = acc_info.portfolio_id
 my_gmail_account = acc_info.from_email_throwaway
 my_gmail_password = acc_info.password_throwaway+'!@'
 my_recipients = acc_info.to_emails_throwaway
+invest_ss_key = acc_info.invest_ss_key
+investins_ss_key = acc_info.investins_ss_key
+
 header = {
     'Authorization': token,
     'Content-Type': 'application/json',
@@ -41,13 +45,11 @@ order_url = 'https://api.lendingclub.com/api/investor/v1/accounts/' + \
 min_score = -0.02  # -0.04599714276994965  # -0.035764345824470828
 inv_amt = 25.00
 cash_limit = 0.00
-creds = service_account.Credentials.from_service_account_file(acc_info.project_path+'creds.json')
+creds = service_account.Credentials.from_service_account_file(acc_info.project_path+'credentials.json')
 scope = ['https://spreadsheets.google.com/feeds']
 creds = creds.with_scopes(scope)
 gc = gspread.Client(auth=creds)
 gc.session = AuthorizedSession(creds)
-invest_ss_key = '1kaowlmHw92ZcThz0Do0q6RcW3UhNaLsCF-19j8I2MCg'
-investins_ss_key = '1AOXKQnxNf0ydTLElRUVoPLJ3jigZKZfRUq-iOlZcKN0'
 sheet = gc.open_by_key(invest_ss_key).sheet1
 sheetins = gc.open_by_key(investins_ss_key).sheet1
 
@@ -169,4 +171,4 @@ send_emails()
 
 # write some stats to a google spreadsheet
 # TODO from https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
-sheet.append_row([now.strftime("%Y-%m-%d %H:%M:%S.%f"), len(all_loan_count)])
+sheets.append_row([now.strftime("%Y-%m-%d %H:%M:%S.%f"), len(all_loan_count)])
