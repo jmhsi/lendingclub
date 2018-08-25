@@ -171,4 +171,4 @@ send_emails()
 
 # write some stats to a google spreadsheet
 # TODO from https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
-sheets.append_row([now.strftime("%Y-%m-%d %H:%M:%S.%f"), len(all_loan_count)])
+sheet.append_row([now.strftime("%Y-%m-%d %H:%M:%S.%f"), len(all_loan_count)])
