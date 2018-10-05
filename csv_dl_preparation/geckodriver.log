@@ -4067,3 +4067,62 @@ JavaScript error: https://www.lendingclub.com/mainapp/scripts/c5a3c14/combo/5e7f
 1538676273750	addons.productaddons	INFO	Completed downloading document
 1538676273752	addons.xpi	INFO	Retaining existing updated system add-ons.
 1538676273759	addons.manager	DEBUG	Background update check complete
+1538759554934	addons.manager	DEBUG	Background update check beginning
+1538759554948	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538759554955	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538759555046	addons.productaddons	INFO	Completed downloading document
+1538759555061	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538759555071	addons.manager	DEBUG	Background update check complete
+1538759757682	addons.manager	DEBUG	Background update check beginning
+1538759757684	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538759757685	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538759757798	addons.productaddons	INFO	Completed downloading document
+1538759757800	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538759757807	addons.manager	DEBUG	Background update check complete
+1538759962067	addons.manager	DEBUG	Background update check beginning
+1538759962068	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538759962069	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538759962150	addons.productaddons	INFO	Completed downloading document
+1538759962154	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538759962162	addons.manager	DEBUG	Background update check complete
+1538759970141	addons.manager	DEBUG	Background update check beginning
+1538759970144	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538759970144	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538759970229	addons.productaddons	INFO	Completed downloading document
+1538759970231	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538759970237	addons.manager	DEBUG	Background update check complete
+1538760779507	addons.manager	DEBUG	Background update check beginning
+1538760779509	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538760779510	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538760779596	addons.productaddons	INFO	Completed downloading document
+1538760779598	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538760779604	addons.manager	DEBUG	Background update check complete
+1538761684204	addons.manager	INFO	Skipping background update check
+1538761697039	addons.manager	INFO	Skipping background update check
+1538762255202	addons.manager	DEBUG	Background update check beginning
+1538762255204	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538762255205	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538762255358	addons.productaddons	INFO	Completed downloading document
+1538762255360	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538762255370	addons.manager	DEBUG	Background update check complete
+1538762294280	addons.manager	INFO	Skipping background update check
+1538762306924	addons.manager	INFO	Skipping background update check
+1538762351740	addons.manager	INFO	Skipping background update check
+1538762512475	addons.manager	DEBUG	Background update check beginning
+1538762512477	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538762512477	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538762512599	addons.productaddons	INFO	Completed downloading document
+1538762512601	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538762512607	addons.manager	DEBUG	Background update check complete
+1538762659238	addons.manager	DEBUG	Background update check beginning
+1538762659240	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538762659241	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538762659397	addons.productaddons	INFO	Completed downloading document
+1538762659399	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538762659406	addons.manager	DEBUG	Background update check complete
+1538762673666	addons.manager	DEBUG	Background update check beginning
+1538762673667	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538762673668	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538762673749	addons.productaddons	INFO	Completed downloading document
+1538762673750	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538762673756	addons.manager	DEBUG	Background update check complete
