@@ -2,7 +2,8 @@
 justin_credit_card/
 char-rnn/
 justin_tinker/
-**/to_delete/
+**/to_delete
+to_delete/
 **/lendingclub_csvs
 **/*.h5
 **/*.pkl

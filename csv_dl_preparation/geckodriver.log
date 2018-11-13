@@ -4126,3 +4126,882 @@ JavaScript error: https://www.lendingclub.com/mainapp/scripts/c5a3c14/combo/5e7f
 1538762673749	addons.productaddons	INFO	Completed downloading document
 1538762673750	addons.xpi	INFO	Retaining existing updated system add-ons.
 1538762673756	addons.manager	DEBUG	Background update check complete
+1538845955012	addons.manager	DEBUG	Background update check beginning
+1538845955017	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538845955020	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538845955167	addons.productaddons	INFO	Completed downloading document
+1538845955175	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538845955184	addons.manager	DEBUG	Background update check complete
+1538846157760	addons.manager	DEBUG	Background update check beginning
+1538846157776	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538846157784	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538846157933	addons.productaddons	INFO	Completed downloading document
+1538846157950	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538846157958	addons.manager	DEBUG	Background update check complete
+1538846362140	addons.manager	DEBUG	Background update check beginning
+1538846362152	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538846362160	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538846362340	addons.productaddons	INFO	Completed downloading document
+1538846362358	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538846362368	addons.manager	DEBUG	Background update check complete
+1538846370223	addons.manager	DEBUG	Background update check beginning
+1538846370237	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538846370246	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538846370351	addons.productaddons	INFO	Completed downloading document
+1538846370372	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538846370381	addons.manager	DEBUG	Background update check complete
+1538847179605	addons.manager	DEBUG	Background update check beginning
+1538847179617	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538847179625	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538847179748	addons.productaddons	INFO	Completed downloading document
+1538847179766	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538847179774	addons.manager	DEBUG	Background update check complete
+1538848084371	addons.manager	INFO	Skipping background update check
+1538848097178	addons.manager	INFO	Skipping background update check
+1538848655259	addons.manager	DEBUG	Background update check beginning
+1538848655264	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538848655265	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538848655347	addons.productaddons	INFO	Completed downloading document
+1538848655354	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538848655362	addons.manager	DEBUG	Background update check complete
+1538848694525	addons.manager	INFO	Skipping background update check
+1538848707061	addons.manager	INFO	Skipping background update check
+1538848751863	addons.manager	INFO	Skipping background update check
+1538848912532	addons.manager	DEBUG	Background update check beginning
+1538848912536	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538848912537	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538848912700	addons.productaddons	INFO	Completed downloading document
+1538848912705	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538848912712	addons.manager	DEBUG	Background update check complete
+1538849059311	addons.manager	DEBUG	Background update check beginning
+1538849059313	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538849059314	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538849059503	addons.productaddons	INFO	Completed downloading document
+1538849059505	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538849059509	addons.manager	DEBUG	Background update check complete
+1538849073738	addons.manager	DEBUG	Background update check beginning
+1538849073741	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538849073742	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538849073873	addons.productaddons	INFO	Completed downloading document
+1538849073875	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538849073880	addons.manager	DEBUG	Background update check complete
+1538932355135	addons.manager	DEBUG	Background update check beginning
+1538932355145	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538932355150	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538932355255	addons.productaddons	INFO	Completed downloading document
+1538932355263	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538932355272	addons.manager	DEBUG	Background update check complete
+1538932557895	addons.manager	DEBUG	Background update check beginning
+1538932557905	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538932557914	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538932558045	addons.productaddons	INFO	Completed downloading document
+1538932558056	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538932558065	addons.manager	DEBUG	Background update check complete
+1538932762236	addons.manager	DEBUG	Background update check beginning
+1538932762248	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538932762254	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538932762338	addons.productaddons	INFO	Completed downloading document
+1538932762348	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538932762357	addons.manager	DEBUG	Background update check complete
+1538932770325	addons.manager	DEBUG	Background update check beginning
+1538932770333	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538932770339	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538932770513	addons.productaddons	INFO	Completed downloading document
+1538932770522	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538932770531	addons.manager	DEBUG	Background update check complete
+1538933579689	addons.manager	DEBUG	Background update check beginning
+1538933579697	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538933579702	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538933579821	addons.productaddons	INFO	Completed downloading document
+1538933579832	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538933579843	addons.manager	DEBUG	Background update check complete
+1538934484527	addons.manager	INFO	Skipping background update check
+1538934497331	addons.manager	INFO	Skipping background update check
+1538935055372	addons.manager	DEBUG	Background update check beginning
+1538935055387	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538935055397	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538935055655	addons.productaddons	INFO	Completed downloading document
+1538935055673	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538935055685	addons.manager	DEBUG	Background update check complete
+1538935094678	addons.manager	INFO	Skipping background update check
+1538935107202	addons.manager	INFO	Skipping background update check
+1538935152010	addons.manager	INFO	Skipping background update check
+1538935312656	addons.manager	DEBUG	Background update check beginning
+1538935312670	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538935312680	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538935312807	addons.productaddons	INFO	Completed downloading document
+1538935312827	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538935312840	addons.manager	DEBUG	Background update check complete
+1538935459392	addons.manager	DEBUG	Background update check beginning
+1538935459403	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538935459410	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538935459547	addons.productaddons	INFO	Completed downloading document
+1538935459558	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538935459567	addons.manager	DEBUG	Background update check complete
+1538935473812	addons.manager	DEBUG	Background update check beginning
+1538935473824	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1538935473829	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1538935473915	addons.productaddons	INFO	Completed downloading document
+1538935473929	addons.xpi	INFO	Retaining existing updated system add-ons.
+1538935473937	addons.manager	DEBUG	Background update check complete
+1539018755201	addons.manager	DEBUG	Background update check beginning
+1539018755203	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539018755204	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539018755370	addons.productaddons	INFO	Completed downloading document
+1539018755372	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539018755378	addons.manager	DEBUG	Background update check complete
+1539018957968	addons.manager	DEBUG	Background update check beginning
+1539018957969	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539018957970	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539018958093	addons.productaddons	INFO	Completed downloading document
+1539018958094	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539018958100	addons.manager	DEBUG	Background update check complete
+1539019162298	addons.manager	DEBUG	Background update check beginning
+1539019162299	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539019162302	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539019162448	addons.productaddons	INFO	Completed downloading document
+1539019162450	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539019162458	addons.manager	DEBUG	Background update check complete
+1539019170384	addons.manager	DEBUG	Background update check beginning
+1539019170386	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539019170386	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539019170503	addons.productaddons	INFO	Completed downloading document
+1539019170504	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539019170510	addons.manager	DEBUG	Background update check complete
+1539019979761	addons.manager	DEBUG	Background update check beginning
+1539019979763	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539019979763	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539019979896	addons.productaddons	INFO	Completed downloading document
+1539019979898	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539019979905	addons.manager	DEBUG	Background update check complete
+1539020884600	addons.manager	INFO	Skipping background update check
+1539020897407	addons.manager	INFO	Skipping background update check
+1539021455450	addons.manager	DEBUG	Background update check beginning
+1539021455452	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539021455453	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539021455538	addons.productaddons	INFO	Completed downloading document
+1539021455540	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539021455547	addons.manager	DEBUG	Background update check complete
+1539021494750	addons.manager	INFO	Skipping background update check
+1539021507269	addons.manager	INFO	Skipping background update check
+1539021552077	addons.manager	INFO	Skipping background update check
+1539021712719	addons.manager	DEBUG	Background update check beginning
+1539021712722	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539021712723	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539021712852	addons.productaddons	INFO	Completed downloading document
+1539021712853	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539021712859	addons.manager	DEBUG	Background update check complete
+1539021859449	addons.manager	DEBUG	Background update check beginning
+1539021859451	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539021859451	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539021859531	addons.productaddons	INFO	Completed downloading document
+1539021859533	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539021859540	addons.manager	DEBUG	Background update check complete
+1539021873878	addons.manager	DEBUG	Background update check beginning
+1539021873880	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539021873882	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539021873973	addons.productaddons	INFO	Completed downloading document
+1539021873975	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539021873981	addons.manager	DEBUG	Background update check complete
+1539105155240	addons.manager	DEBUG	Background update check beginning
+1539105155243	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539105155244	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539105155347	addons.productaddons	INFO	Completed downloading document
+1539105155349	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539105155356	addons.manager	DEBUG	Background update check complete
+1539105358008	addons.manager	DEBUG	Background update check beginning
+1539105358011	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539105358011	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539105358099	addons.productaddons	INFO	Completed downloading document
+1539105358101	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539105358108	addons.manager	DEBUG	Background update check complete
+1539105562343	addons.manager	DEBUG	Background update check beginning
+1539105562346	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539105562346	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539105562433	addons.productaddons	INFO	Completed downloading document
+1539105562435	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539105562442	addons.manager	DEBUG	Background update check complete
+1539105570424	addons.manager	DEBUG	Background update check beginning
+1539105570428	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539105570429	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539105570590	addons.productaddons	INFO	Completed downloading document
+1539105570592	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539105570598	addons.manager	DEBUG	Background update check complete
+1539106379800	addons.manager	DEBUG	Background update check beginning
+1539106379802	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539106379803	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539106379935	addons.productaddons	INFO	Completed downloading document
+1539106379936	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539106379941	addons.manager	DEBUG	Background update check complete
+1539107284659	addons.manager	INFO	Skipping background update check
+1539107297465	addons.manager	INFO	Skipping background update check
+1539107855489	addons.manager	DEBUG	Background update check beginning
+1539107855491	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539107855492	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539107855580	addons.productaddons	INFO	Completed downloading document
+1539107855582	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539107855589	addons.manager	DEBUG	Background update check complete
+1539107894812	addons.manager	INFO	Skipping background update check
+1539107907331	addons.manager	INFO	Skipping background update check
+1539107952136	addons.manager	INFO	Skipping background update check
+1539108112758	addons.manager	DEBUG	Background update check beginning
+1539108112760	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539108112761	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539108112838	addons.productaddons	INFO	Completed downloading document
+1539108112840	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539108112846	addons.manager	DEBUG	Background update check complete
+1539108259500	addons.manager	DEBUG	Background update check beginning
+1539108259501	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539108259502	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539108259591	addons.productaddons	INFO	Completed downloading document
+1539108259593	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539108259600	addons.manager	DEBUG	Background update check complete
+1539108273932	addons.manager	DEBUG	Background update check beginning
+1539108273935	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539108273936	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539108274043	addons.productaddons	INFO	Completed downloading document
+1539108274045	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539108274052	addons.manager	DEBUG	Background update check complete
+1539191555278	addons.manager	DEBUG	Background update check beginning
+1539191555280	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539191555280	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539191555386	addons.productaddons	INFO	Completed downloading document
+1539191555412	addons.xpi	INFO	Installing new system add-on set
+1539191555416	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539191555438	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191555438	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.RXvBKDloCftF/features/{7f7aec30-04f2-4c4d-9f45-403901b3104b}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191555448	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191555456	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539191555486	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539191555488	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539191555515	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539191555515	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-c4d20f
+1539191555516	addons.manager	DEBUG	Background update check complete
+1539191555524	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539191555526	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539191555527	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.RXvBKDloCftF/features/{9e2d9575-6e63-457d-b1d2-bc730074e9a9}"}: /tmp/rust_mozprofile.RXvBKDloCftF/features/{9e2d9575-6e63-457d-b1d2-bc730074e9a9}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191555529	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{b2d91521-ca1a-4ad5-90f7-4c37cd8c407e}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539191555515,"updateDate":1539191555515,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.RXvBKDloCftF/features/{9e2d9575-6e63-457d-b1d2-bc730074e9a9}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-c4d20f","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539191555529	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-c4d20f completed.
+1539191555530	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.RXvBKDloCftF/features/{9e2d9575-6e63-457d-b1d2-bc730074e9a9}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191555534	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191555534	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.RXvBKDloCftF/features/{9e2d9575-6e63-457d-b1d2-bc730074e9a9}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191555534	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191555536	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-c4d20f removing temp file /tmp/tmpaddon-c4d20f
+1539191758047	addons.manager	DEBUG	Background update check beginning
+1539191758049	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539191758050	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539191758172	addons.productaddons	INFO	Completed downloading document
+1539191758197	addons.xpi	INFO	Installing new system add-on set
+1539191758201	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539191758230	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191758230	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.do9m7RQhaaWS/features/{0c474ce6-b8e4-47bd-9d77-7c189cca80ae}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191758244	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191758252	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539191758275	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539191758277	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539191758302	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539191758303	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-7d2a0f
+1539191758304	addons.manager	DEBUG	Background update check complete
+1539191758313	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539191758314	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539191758315	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.do9m7RQhaaWS/features/{1b16be2e-5c97-4e2d-b7e1-d3843c46a888}"}: /tmp/rust_mozprofile.do9m7RQhaaWS/features/{1b16be2e-5c97-4e2d-b7e1-d3843c46a888}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191758316	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{fcbcd294-681d-4bbe-80d8-5af316b1c2a6}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539191758303,"updateDate":1539191758303,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.do9m7RQhaaWS/features/{1b16be2e-5c97-4e2d-b7e1-d3843c46a888}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-7d2a0f","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539191758317	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-7d2a0f completed.
+1539191758317	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.do9m7RQhaaWS/features/{1b16be2e-5c97-4e2d-b7e1-d3843c46a888}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191758322	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191758322	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.do9m7RQhaaWS/features/{1b16be2e-5c97-4e2d-b7e1-d3843c46a888}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191758322	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191758325	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-7d2a0f removing temp file /tmp/tmpaddon-7d2a0f
+1539191962381	addons.manager	DEBUG	Background update check beginning
+1539191962383	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539191962384	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539191962476	addons.productaddons	INFO	Completed downloading document
+1539191962499	addons.xpi	INFO	Installing new system add-on set
+1539191962504	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539191962535	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191962535	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.Xhwieb41Es60/features/{f1753693-7c66-4a58-83c8-d77a0e93ab77}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191962546	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191962554	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539191962579	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539191962580	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539191962604	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539191962604	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-751429
+1539191962605	addons.manager	DEBUG	Background update check complete
+1539191962611	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539191962613	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539191962613	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.Xhwieb41Es60/features/{3e776b8d-9a36-48d0-b27c-d96d5e26b788}"}: /tmp/rust_mozprofile.Xhwieb41Es60/features/{3e776b8d-9a36-48d0-b27c-d96d5e26b788}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191962615	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{e563c0e0-e4fd-4523-a687-6ec84b8ba248}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539191962604,"updateDate":1539191962604,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.Xhwieb41Es60/features/{3e776b8d-9a36-48d0-b27c-d96d5e26b788}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-751429","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539191962616	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-751429 completed.
+1539191962616	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.Xhwieb41Es60/features/{3e776b8d-9a36-48d0-b27c-d96d5e26b788}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191962620	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191962620	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.Xhwieb41Es60/features/{3e776b8d-9a36-48d0-b27c-d96d5e26b788}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191962620	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191962621	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-751429 removing temp file /tmp/tmpaddon-751429
+1539191970462	addons.manager	DEBUG	Background update check beginning
+1539191970464	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539191970465	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539191970556	addons.productaddons	INFO	Completed downloading document
+1539191970578	addons.xpi	INFO	Installing new system add-on set
+1539191970582	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539191970615	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191970615	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.JrIVzidYmqn0/features/{129e125c-8514-4484-8325-277e4672bdef}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191970627	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191970636	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539191970658	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539191970659	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539191970682	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539191970682	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-48dd4c
+1539191970683	addons.manager	DEBUG	Background update check complete
+1539191970690	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539191970692	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539191970693	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.JrIVzidYmqn0/features/{bb012394-59dd-48e2-b150-3098325d833a}"}: /tmp/rust_mozprofile.JrIVzidYmqn0/features/{bb012394-59dd-48e2-b150-3098325d833a}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191970694	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{6978751d-e581-417b-bf9f-03758b584345}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539191970682,"updateDate":1539191970682,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.JrIVzidYmqn0/features/{bb012394-59dd-48e2-b150-3098325d833a}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-48dd4c","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539191970695	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-48dd4c completed.
+1539191970696	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.JrIVzidYmqn0/features/{bb012394-59dd-48e2-b150-3098325d833a}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191970700	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191970700	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.JrIVzidYmqn0/features/{bb012394-59dd-48e2-b150-3098325d833a}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539191970700	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539191970702	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-48dd4c removing temp file /tmp/tmpaddon-48dd4c
+1539192779841	addons.manager	DEBUG	Background update check beginning
+1539192779842	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539192779843	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539192779928	addons.productaddons	INFO	Completed downloading document
+1539192779951	addons.xpi	INFO	Installing new system add-on set
+1539192779956	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539192779979	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539192779979	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.HnV4RHKYVFxo/features/{621f9cc8-bc89-4c2d-8c8a-7135ae8291e1}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539192779990	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539192779997	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539192780033	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539192780035	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539192780044	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539192780045	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-4c60e0
+1539192780045	addons.manager	DEBUG	Background update check complete
+1539192780059	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539192780060	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539192780061	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.HnV4RHKYVFxo/features/{00052041-2fcf-47dd-8719-bf32c69f028e}"}: /tmp/rust_mozprofile.HnV4RHKYVFxo/features/{00052041-2fcf-47dd-8719-bf32c69f028e}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539192780062	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{8cbadfa6-f922-4b04-bcfa-1695a79e0711}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539192780044,"updateDate":1539192780044,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.HnV4RHKYVFxo/features/{00052041-2fcf-47dd-8719-bf32c69f028e}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-4c60e0","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539192780063	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-4c60e0 completed.
+1539192780063	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.HnV4RHKYVFxo/features/{00052041-2fcf-47dd-8719-bf32c69f028e}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539192780067	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539192780067	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.HnV4RHKYVFxo/features/{00052041-2fcf-47dd-8719-bf32c69f028e}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539192780067	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539192780069	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-4c60e0 removing temp file /tmp/tmpaddon-4c60e0
+1539193684715	addons.manager	INFO	Skipping background update check
+1539193697533	addons.manager	INFO	Skipping background update check
+1539194255527	addons.manager	DEBUG	Background update check beginning
+1539194255529	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539194255529	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539194255668	addons.productaddons	INFO	Completed downloading document
+1539194255691	addons.xpi	INFO	Installing new system add-on set
+1539194255696	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539194255717	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194255717	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.hpZWB54LqCmt/features/{87aca8d7-91a4-413f-aed9-2ded51a94fcf}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194255726	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194255733	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539194255760	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539194255761	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539194255787	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539194255788	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-ca9b30
+1539194255789	addons.manager	DEBUG	Background update check complete
+1539194255795	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539194255797	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539194255798	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.hpZWB54LqCmt/features/{54e5d6db-5aeb-40c1-9663-f42d8bfc01ee}"}: /tmp/rust_mozprofile.hpZWB54LqCmt/features/{54e5d6db-5aeb-40c1-9663-f42d8bfc01ee}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194255801	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{4ed4c8e8-36e5-4c05-85e4-0c7ceeabaa30}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539194255788,"updateDate":1539194255788,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.hpZWB54LqCmt/features/{54e5d6db-5aeb-40c1-9663-f42d8bfc01ee}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-ca9b30","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539194255802	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-ca9b30 completed.
+1539194255802	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.hpZWB54LqCmt/features/{54e5d6db-5aeb-40c1-9663-f42d8bfc01ee}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194255806	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194255806	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.hpZWB54LqCmt/features/{54e5d6db-5aeb-40c1-9663-f42d8bfc01ee}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194255806	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194255808	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-ca9b30 removing temp file /tmp/tmpaddon-ca9b30
+1539194294868	addons.manager	INFO	Skipping background update check
+1539194307399	addons.manager	INFO	Skipping background update check
+1539194352202	addons.manager	INFO	Skipping background update check
+1539194512797	addons.manager	DEBUG	Background update check beginning
+1539194512798	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539194512799	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539194512937	addons.productaddons	INFO	Completed downloading document
+1539194512960	addons.xpi	INFO	Installing new system add-on set
+1539194512966	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539194512994	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194512994	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.FQk5GLZzXhly/features/{6ec25738-8b35-4a38-b795-c54fe9e1ed09}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194513003	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194513010	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539194513029	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539194513030	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539194513054	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539194513055	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-7873f1
+1539194513055	addons.manager	DEBUG	Background update check complete
+1539194513064	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539194513066	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539194513067	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.FQk5GLZzXhly/features/{0c16f8a8-1061-469c-ac4c-ea7c88887d74}"}: /tmp/rust_mozprofile.FQk5GLZzXhly/features/{0c16f8a8-1061-469c-ac4c-ea7c88887d74}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194513070	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{0488d87d-2b55-4db6-ab8a-04010606c13d}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539194513054,"updateDate":1539194513054,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.FQk5GLZzXhly/features/{0c16f8a8-1061-469c-ac4c-ea7c88887d74}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-7873f1","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539194513072	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-7873f1 completed.
+1539194513072	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.FQk5GLZzXhly/features/{0c16f8a8-1061-469c-ac4c-ea7c88887d74}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194513077	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194513077	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.FQk5GLZzXhly/features/{0c16f8a8-1061-469c-ac4c-ea7c88887d74}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194513078	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194513079	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-7873f1 removing temp file /tmp/tmpaddon-7873f1
+1539194658544	addons.manager	DEBUG	Background update check beginning
+1539194658546	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539194658547	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539194658689	addons.productaddons	INFO	Completed downloading document
+1539194658714	addons.xpi	INFO	Installing new system add-on set
+1539194658721	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539194658749	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194658749	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.QkYIu02JTTgY/features/{a00744e3-d044-46b2-b8ae-cc448787d7bd}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194658764	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194658769	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539194658784	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539194658785	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539194658803	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539194658804	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-443d2d
+1539194658805	addons.manager	DEBUG	Background update check complete
+1539194658812	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539194658814	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539194658815	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.QkYIu02JTTgY/features/{755734b9-e13f-4c70-ace1-2a086318df10}"}: /tmp/rust_mozprofile.QkYIu02JTTgY/features/{755734b9-e13f-4c70-ace1-2a086318df10}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194658817	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{1e9ac077-880d-49b5-8830-19ebe6479bc1}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539194658804,"updateDate":1539194658804,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.QkYIu02JTTgY/features/{755734b9-e13f-4c70-ace1-2a086318df10}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-443d2d","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539194658817	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-443d2d completed.
+1539194658818	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.QkYIu02JTTgY/features/{755734b9-e13f-4c70-ace1-2a086318df10}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194658824	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194658825	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.QkYIu02JTTgY/features/{755734b9-e13f-4c70-ace1-2a086318df10}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194658825	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194658827	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-443d2d removing temp file /tmp/tmpaddon-443d2d
+1539194673977	addons.manager	DEBUG	Background update check beginning
+1539194673978	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539194673979	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539194674072	addons.productaddons	INFO	Completed downloading document
+1539194674095	addons.xpi	INFO	Installing new system add-on set
+1539194674101	addons.xpi	DEBUG	Calling bootstrap method shutdown on fxmonitor@mozilla.org version 2.3
+1539194674128	addons.xpi	DEBUG	Calling bootstrap method shutdown on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194674128	addons.xpi	DEBUG	Removing manifest for /tmp/rust_mozprofile.T7yQdD2WqLEg/features/{f20ff939-0931-49c4-8bd4-8c0d1e405703}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194674142	addons.xpi	DEBUG	Calling bootstrap method uninstall on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194674146	addons.xpi	DEBUG	Disabling XPIState for telemetry-coverage-bug1487578@mozilla.org
+1539194674160	addons.xpi	DEBUG	Calling bootstrap method uninstall on fxmonitor@mozilla.org version 2.3
+1539194674161	addons.xpi	DEBUG	Disabling XPIState for fxmonitor@mozilla.org
+1539194674176	addons.repository	DEBUG	cacheAddons: enabled false IDs ["telemetry-coverage-bug1487578@mozilla.org"]
+1539194674177	addons.xpi	DEBUG	Starting install of telemetry-coverage-bug1487578@mozilla.org from file:///tmp/tmpaddon-8f3327
+1539194674177	addons.manager	DEBUG	Background update check complete
+1539194674184	addons.xpi	DEBUG	Addon telemetry-coverage-bug1487578@mozilla.org will be installed as a packed xpi
+1539194674185	addons.xpi-utils	DEBUG	Make addon app-system-addons:telemetry-coverage-bug1487578@mozilla.org visible
+1539194674186	addons.xpi	DEBUG	XPIStates adding add-on telemetry-coverage-bug1487578@mozilla.org in {"addons":{},"staged":{},"path":"/tmp/rust_mozprofile.T7yQdD2WqLEg/features/{11d493b3-7d10-483d-b05a-ddb51a2c1bc8}"}: /tmp/rust_mozprofile.T7yQdD2WqLEg/features/{11d493b3-7d10-483d-b05a-ddb51a2c1bc8}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194674187	addons.xpi	DEBUG	Updating XPIState for {"id":"telemetry-coverage-bug1487578@mozilla.org","syncGUID":"{9921f9f5-adf0-4b63-87e6-5e7e857c6220}","version":"7.0","type":"extension","aboutURL":"https://bugzilla.mozilla.org/show_bug.cgi?id=1487578","defaultLocale":{"name":"Telemetry coverage","description":"Direct measurement of how many users have Telemetry disabled, using a small sample."},"visible":true,"active":true,"userDisabled":false,"appDisabled":false,"installDate":1539194674176,"updateDate":1539194674176,"applyBackgroundUpdates":1,"path":"/tmp/rust_mozprofile.T7yQdD2WqLEg/features/{11d493b3-7d10-483d-b05a-ddb51a2c1bc8}/telemetry-coverage-bug1487578@mozilla.org.xpi","skinnable":false,"sourceURI":"file:///tmp/tmpaddon-8f3327","releaseNotesURI":null,"softDisabled":false,"foreignInstall":false,"strictCompatibility":false,"locales":[],"targetApplications":[{"id":"{ec8030f7-c20a-464f-9b0e-13a3a9e97384}","minVersion":"44.0.*","maxVersion":"63.*"}],"targetPlatforms":[],"signedState":3,"seen":true,"dependencies":[],"hasEmbeddedWebExtension":false,"userPermissions":null,"icons":{},"blocklistState":0,"blocklistURL":null,"startupData":null,"location":"app-system-addons"}
+1539194674188	addons.xpi	DEBUG	Install of file:///tmp/tmpaddon-8f3327 completed.
+1539194674188	addons.xpi	DEBUG	Loading bootstrap scope from /tmp/rust_mozprofile.T7yQdD2WqLEg/features/{11d493b3-7d10-483d-b05a-ddb51a2c1bc8}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194674195	addons.xpi	DEBUG	Calling bootstrap method install on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194674195	addons.xpi	DEBUG	Registering manifest for /tmp/rust_mozprofile.T7yQdD2WqLEg/features/{11d493b3-7d10-483d-b05a-ddb51a2c1bc8}/telemetry-coverage-bug1487578@mozilla.org.xpi
+1539194674195	addons.xpi	DEBUG	Calling bootstrap method startup on telemetry-coverage-bug1487578@mozilla.org version 7.0
+1539194674197	addons.xpi	DEBUG	removeTemporaryFile: file:///tmp/tmpaddon-8f3327 removing temp file /tmp/tmpaddon-8f3327
+1539277955326	addons.manager	DEBUG	Background update check beginning
+1539277955328	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539277955329	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539277955487	addons.productaddons	INFO	Completed downloading document
+1539277955490	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539277955503	addons.manager	DEBUG	Background update check complete
+1539278158097	addons.manager	DEBUG	Background update check beginning
+1539278158099	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539278158100	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539278158212	addons.productaddons	INFO	Completed downloading document
+1539278158213	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539278158221	addons.manager	DEBUG	Background update check complete
+1539278362426	addons.manager	DEBUG	Background update check beginning
+1539278362427	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539278362429	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539278362551	addons.productaddons	INFO	Completed downloading document
+1539278362551	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539278362565	addons.manager	DEBUG	Background update check complete
+1539278370508	addons.manager	DEBUG	Background update check beginning
+1539278370509	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539278370512	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539278370693	addons.productaddons	INFO	Completed downloading document
+1539278370694	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539278370705	addons.manager	DEBUG	Background update check complete
+1539279179889	addons.manager	DEBUG	Background update check beginning
+1539279179891	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539279179892	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539279180022	addons.productaddons	INFO	Completed downloading document
+1539279180023	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539279180034	addons.manager	DEBUG	Background update check complete
+1539280084770	addons.manager	INFO	Skipping background update check
+1539280097592	addons.manager	INFO	Skipping background update check
+1539280655574	addons.manager	DEBUG	Background update check beginning
+1539280655576	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539280655576	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539280655666	addons.productaddons	INFO	Completed downloading document
+1539280655668	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539280655679	addons.manager	DEBUG	Background update check complete
+1539280694921	addons.manager	INFO	Skipping background update check
+1539280707461	addons.manager	INFO	Skipping background update check
+1539280752262	addons.manager	INFO	Skipping background update check
+1539280912843	addons.manager	DEBUG	Background update check beginning
+1539280912844	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539280912845	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539280912973	addons.productaddons	INFO	Completed downloading document
+1539280912975	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539280912988	addons.manager	DEBUG	Background update check complete
+1539281058594	addons.manager	DEBUG	Background update check beginning
+1539281058595	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539281058596	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539281058719	addons.productaddons	INFO	Completed downloading document
+1539281058720	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539281058729	addons.manager	DEBUG	Background update check complete
+1539281074029	addons.manager	DEBUG	Background update check beginning
+1539281074030	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539281074032	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539281074186	addons.productaddons	INFO	Completed downloading document
+1539281074187	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539281074196	addons.manager	DEBUG	Background update check complete
+1539364355366	addons.manager	DEBUG	Background update check beginning
+1539364355367	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539364355368	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539364355534	addons.productaddons	INFO	Completed downloading document
+1539364355535	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539364355541	addons.manager	DEBUG	Background update check complete
+1539364558136	addons.manager	DEBUG	Background update check beginning
+1539364558139	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539364558140	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539364558268	addons.productaddons	INFO	Completed downloading document
+1539364558269	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539364558275	addons.manager	DEBUG	Background update check complete
+1539364762464	addons.manager	DEBUG	Background update check beginning
+1539364762467	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539364762467	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539364762587	addons.productaddons	INFO	Completed downloading document
+1539364762589	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539364762597	addons.manager	DEBUG	Background update check complete
+1539364770549	addons.manager	DEBUG	Background update check beginning
+1539364770551	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539364770551	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539364770674	addons.productaddons	INFO	Completed downloading document
+1539364770676	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539364770682	addons.manager	DEBUG	Background update check complete
+1539365579929	addons.manager	DEBUG	Background update check beginning
+1539365579931	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539365579931	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539365580038	addons.productaddons	INFO	Completed downloading document
+1539365580039	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539365580045	addons.manager	DEBUG	Background update check complete
+1539366484825	addons.manager	INFO	Skipping background update check
+1539366497652	addons.manager	INFO	Skipping background update check
+1539367055612	addons.manager	DEBUG	Background update check beginning
+1539367055614	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539367055615	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539367055735	addons.productaddons	INFO	Completed downloading document
+1539367055736	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539367055742	addons.manager	DEBUG	Background update check complete
+1539367094972	addons.manager	INFO	Skipping background update check
+1539367107519	addons.manager	INFO	Skipping background update check
+1539367152321	addons.manager	INFO	Skipping background update check
+1539367312882	addons.manager	DEBUG	Background update check beginning
+1539367312884	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539367312885	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539367312997	addons.productaddons	INFO	Completed downloading document
+1539367312999	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539367313005	addons.manager	DEBUG	Background update check complete
+1539367458635	addons.manager	DEBUG	Background update check beginning
+1539367458637	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539367458637	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539367458785	addons.productaddons	INFO	Completed downloading document
+1539367458786	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539367458790	addons.manager	DEBUG	Background update check complete
+1539367474073	addons.manager	DEBUG	Background update check beginning
+1539367474075	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539367474077	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539367474206	addons.productaddons	INFO	Completed downloading document
+1539367474208	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539367474213	addons.manager	DEBUG	Background update check complete
+1539450755405	addons.manager	DEBUG	Background update check beginning
+1539450755406	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539450755407	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539450755536	addons.productaddons	INFO	Completed downloading document
+1539450755536	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539450755542	addons.manager	DEBUG	Background update check complete
+1539450958176	addons.manager	DEBUG	Background update check beginning
+1539450958178	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539450958178	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539450958285	addons.productaddons	INFO	Completed downloading document
+1539450958286	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539450958294	addons.manager	DEBUG	Background update check complete
+1539451162503	addons.manager	DEBUG	Background update check beginning
+1539451162504	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539451162505	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539451162676	addons.productaddons	INFO	Completed downloading document
+1539451162677	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539451162681	addons.manager	DEBUG	Background update check complete
+1539451170588	addons.manager	DEBUG	Background update check beginning
+1539451170589	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539451170590	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539451170703	addons.productaddons	INFO	Completed downloading document
+1539451170704	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539451170711	addons.manager	DEBUG	Background update check complete
+1539451979967	addons.manager	DEBUG	Background update check beginning
+1539451979969	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539451979970	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539451980102	addons.productaddons	INFO	Completed downloading document
+1539451980104	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539451980111	addons.manager	DEBUG	Background update check complete
+1539452884896	addons.manager	INFO	Skipping background update check
+1539452897708	addons.manager	INFO	Skipping background update check
+1539453455652	addons.manager	DEBUG	Background update check beginning
+1539453455653	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539453455655	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539453455775	addons.productaddons	INFO	Completed downloading document
+1539453455776	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539453455782	addons.manager	DEBUG	Background update check complete
+1539453495044	addons.manager	INFO	Skipping background update check
+1539453507580	addons.manager	INFO	Skipping background update check
+1539453552381	addons.manager	INFO	Skipping background update check
+1539453712921	addons.manager	DEBUG	Background update check beginning
+1539453712922	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539453712923	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539453713013	addons.productaddons	INFO	Completed downloading document
+1539453713014	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539453713021	addons.manager	DEBUG	Background update check complete
+1539453858687	addons.manager	DEBUG	Background update check beginning
+1539453858689	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539453858691	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539453858826	addons.productaddons	INFO	Completed downloading document
+1539453858828	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539453858834	addons.manager	DEBUG	Background update check complete
+1539453874126	addons.manager	DEBUG	Background update check beginning
+1539453874128	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539453874128	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539453874242	addons.productaddons	INFO	Completed downloading document
+1539453874243	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539453874250	addons.manager	DEBUG	Background update check complete
+1539537155450	addons.manager	DEBUG	Background update check beginning
+1539537155452	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539537155453	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539537155636	addons.productaddons	INFO	Completed downloading document
+1539537155638	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539537155645	addons.manager	DEBUG	Background update check complete
+1539537358222	addons.manager	DEBUG	Background update check beginning
+1539537358225	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539537358226	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539537358418	addons.productaddons	INFO	Completed downloading document
+1539537358419	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539537358425	addons.manager	DEBUG	Background update check complete
+1539537562548	addons.manager	DEBUG	Background update check beginning
+1539537562550	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539537562550	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539537562702	addons.productaddons	INFO	Completed downloading document
+1539537562704	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539537562712	addons.manager	DEBUG	Background update check complete
+1539537570636	addons.manager	DEBUG	Background update check beginning
+1539537570638	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539537570639	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539537570740	addons.productaddons	INFO	Completed downloading document
+1539537570742	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539537570748	addons.manager	DEBUG	Background update check complete
+1539538380013	addons.manager	DEBUG	Background update check beginning
+1539538380014	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539538380015	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539538380206	addons.productaddons	INFO	Completed downloading document
+1539538380208	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539538380215	addons.manager	DEBUG	Background update check complete
+1539539284961	addons.manager	INFO	Skipping background update check
+1539539297790	addons.manager	INFO	Skipping background update check
+1539539855696	addons.manager	DEBUG	Background update check beginning
+1539539855699	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539539855700	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539539855841	addons.productaddons	INFO	Completed downloading document
+1539539855843	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539539855850	addons.manager	DEBUG	Background update check complete
+1539539895104	addons.manager	INFO	Skipping background update check
+1539539907644	addons.manager	INFO	Skipping background update check
+1539539952441	addons.manager	INFO	Skipping background update check
+1539540112970	addons.manager	DEBUG	Background update check beginning
+1539540112972	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539540112973	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539540113136	addons.productaddons	INFO	Completed downloading document
+1539540113137	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539540113146	addons.manager	DEBUG	Background update check complete
+1539540258731	addons.manager	DEBUG	Background update check beginning
+1539540258733	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539540258734	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539540258932	addons.productaddons	INFO	Completed downloading document
+1539540258934	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539540258945	addons.manager	DEBUG	Background update check complete
+1539540274170	addons.manager	DEBUG	Background update check beginning
+1539540274172	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539540274173	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539540274317	addons.productaddons	INFO	Completed downloading document
+1539540274319	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539540274327	addons.manager	DEBUG	Background update check complete
+1539623555488	addons.manager	DEBUG	Background update check beginning
+1539623555490	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539623555490	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539623555597	addons.productaddons	INFO	Completed downloading document
+1539623555599	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539623555612	addons.manager	DEBUG	Background update check complete
+1539623758261	addons.manager	DEBUG	Background update check beginning
+1539623758263	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539623758264	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539623758365	addons.productaddons	INFO	Completed downloading document
+1539623758367	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539623758372	addons.manager	DEBUG	Background update check complete
+1539623962586	addons.manager	DEBUG	Background update check beginning
+1539623962587	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539623962588	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539623962717	addons.productaddons	INFO	Completed downloading document
+1539623962719	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539623962726	addons.manager	DEBUG	Background update check complete
+1539623970675	addons.manager	DEBUG	Background update check beginning
+1539623970678	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539623970679	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539623970986	addons.productaddons	INFO	Completed downloading document
+1539623970988	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539623970992	addons.manager	DEBUG	Background update check complete
+1539624780051	addons.manager	DEBUG	Background update check beginning
+1539624780053	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539624780055	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539624780166	addons.productaddons	INFO	Completed downloading document
+1539624780168	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539624780174	addons.manager	DEBUG	Background update check complete
+1539625685015	addons.manager	INFO	Skipping background update check
+1539625697852	addons.manager	INFO	Skipping background update check
+1539626255735	addons.manager	DEBUG	Background update check beginning
+1539626255737	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539626255737	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539626255887	addons.productaddons	INFO	Completed downloading document
+1539626255889	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539626255896	addons.manager	DEBUG	Background update check complete
+1539626295160	addons.manager	INFO	Skipping background update check
+1539626307705	addons.manager	INFO	Skipping background update check
+1539626352499	addons.manager	INFO	Skipping background update check
+1539626513009	addons.manager	DEBUG	Background update check beginning
+1539626513010	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539626513011	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539626513124	addons.productaddons	INFO	Completed downloading document
+1539626513127	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539626513132	addons.manager	DEBUG	Background update check complete
+1539626658775	addons.manager	DEBUG	Background update check beginning
+1539626658776	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539626658777	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539626658917	addons.productaddons	INFO	Completed downloading document
+1539626658918	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539626658928	addons.manager	DEBUG	Background update check complete
+1539626674215	addons.manager	DEBUG	Background update check beginning
+1539626674216	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539626674217	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539626674337	addons.productaddons	INFO	Completed downloading document
+1539626674338	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539626674342	addons.manager	DEBUG	Background update check complete
+1539709955526	addons.manager	DEBUG	Background update check beginning
+1539709955528	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539709955529	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539709955644	addons.productaddons	INFO	Completed downloading document
+1539709955645	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539709955650	addons.manager	DEBUG	Background update check complete
+1539710158300	addons.manager	DEBUG	Background update check beginning
+1539710158301	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539710158302	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539710158418	addons.productaddons	INFO	Completed downloading document
+1539710158420	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539710158426	addons.manager	DEBUG	Background update check complete
+1539710362622	addons.manager	DEBUG	Background update check beginning
+1539710362623	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539710362624	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539710362747	addons.productaddons	INFO	Completed downloading document
+1539710362749	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539710362758	addons.manager	DEBUG	Background update check complete
+1539710370715	addons.manager	DEBUG	Background update check beginning
+1539710370716	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539710370717	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539710370801	addons.productaddons	INFO	Completed downloading document
+1539710370802	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539710370807	addons.manager	DEBUG	Background update check complete
+1539711180091	addons.manager	DEBUG	Background update check beginning
+1539711180093	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539711180093	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539711180200	addons.productaddons	INFO	Completed downloading document
+1539711180202	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539711180207	addons.manager	DEBUG	Background update check complete
+1539712085071	addons.manager	INFO	Skipping background update check
+1539712097911	addons.manager	INFO	Skipping background update check
+1539712655772	addons.manager	DEBUG	Background update check beginning
+1539712655773	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539712655773	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539712655908	addons.productaddons	INFO	Completed downloading document
+1539712655909	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539712655914	addons.manager	DEBUG	Background update check complete
+1539712695214	addons.manager	INFO	Skipping background update check
+1539712707763	addons.manager	INFO	Skipping background update check
+1539712751560	addons.manager	INFO	Skipping background update check
+1539712913047	addons.manager	DEBUG	Background update check beginning
+1539712913048	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539712913049	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539712913161	addons.productaddons	INFO	Completed downloading document
+1539712913162	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539712913166	addons.manager	DEBUG	Background update check complete
+1539713058828	addons.manager	DEBUG	Background update check beginning
+1539713058830	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539713058831	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539713058943	addons.productaddons	INFO	Completed downloading document
+1539713058944	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539713058949	addons.manager	DEBUG	Background update check complete
+1539713074264	addons.manager	DEBUG	Background update check beginning
+1539713074265	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539713074266	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539713074384	addons.productaddons	INFO	Completed downloading document
+1539713074385	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539713074391	addons.manager	DEBUG	Background update check complete
+1539796355565	addons.manager	DEBUG	Background update check beginning
+1539796355568	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539796355569	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539796355690	addons.productaddons	INFO	Completed downloading document
+1539796355692	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539796355697	addons.manager	DEBUG	Background update check complete
+1539796558338	addons.manager	DEBUG	Background update check beginning
+1539796558339	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539796558340	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539796558436	addons.productaddons	INFO	Completed downloading document
+1539796558437	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539796558442	addons.manager	DEBUG	Background update check complete
+1539796762661	addons.manager	DEBUG	Background update check beginning
+1539796762662	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539796762663	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539796762808	addons.productaddons	INFO	Completed downloading document
+1539796762811	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539796762819	addons.manager	DEBUG	Background update check complete
+1539796770754	addons.manager	DEBUG	Background update check beginning
+1539796770755	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539796770756	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539796770866	addons.productaddons	INFO	Completed downloading document
+1539796770867	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539796770874	addons.manager	DEBUG	Background update check complete
+1539797580130	addons.manager	DEBUG	Background update check beginning
+1539797580132	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539797580133	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539797580215	addons.productaddons	INFO	Completed downloading document
+1539797580216	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539797580223	addons.manager	DEBUG	Background update check complete
+1539798485142	addons.manager	INFO	Skipping background update check
+1539798497967	addons.manager	INFO	Skipping background update check
+1539799055808	addons.manager	DEBUG	Background update check beginning
+1539799055809	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539799055810	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539799055920	addons.productaddons	INFO	Completed downloading document
+1539799055921	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539799055927	addons.manager	DEBUG	Background update check complete
+1539799095281	addons.manager	INFO	Skipping background update check
+1539799107815	addons.manager	INFO	Skipping background update check
+1539799151614	addons.manager	INFO	Skipping background update check
+1539799313087	addons.manager	DEBUG	Background update check beginning
+1539799313088	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539799313090	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539799313178	addons.productaddons	INFO	Completed downloading document
+1539799313179	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539799313186	addons.manager	DEBUG	Background update check complete
+1539799458872	addons.manager	DEBUG	Background update check beginning
+1539799458874	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539799458874	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539799458992	addons.productaddons	INFO	Completed downloading document
+1539799458993	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539799458999	addons.manager	DEBUG	Background update check complete
+1539799474308	addons.manager	DEBUG	Background update check beginning
+1539799474310	addons.xpi	INFO	Starting system add-on update check from https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml.
+1539799474311	addons.productaddons	INFO	sending request to: https://aus5.mozilla.org/update/3/SystemAddons/62.0/20180913170346/Linux_x86_64-gcc3/null/release-cck-ubuntu/Linux%204.15.0-34-generic%20(GTK%203.18.9%2Clibpulse%208.0.0)/canonical/1.0/update.xml
+1539799474510	addons.productaddons	INFO	Completed downloading document
+1539799474512	addons.xpi	INFO	Retaining existing updated system add-ons.
+1539799474518	addons.manager	DEBUG	Background update check complete
