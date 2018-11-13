@@ -7,8 +7,8 @@ import datetime as dt
 import lendingclub.account_info as acc_info
 import pause
 from fastai.imports import *
-from fastai.structured import *
-from fastai.column_data import *
+# from fastai.structured import *
+# from fastai.column_data import *
 from sklearn.base import TransformerMixin, BaseEstimator
 from pandas_summary import DataFrameSummary
 from sklearn.externals import joblib
