@@ -1,3 +1,5 @@
+import pandas as pd
+
 # make a crude test set for now
 def get_split_date(df, date_column, quantile): 
 
@@ -17,14 +19,14 @@ def get_split_date(df, date_column, quantile):
 
     return pd.to_datetime(quantile_date)
 
-def split_out_traintestable_loans(base_loan_info, eval_loan_info, oldness_thrsh=.9):
+def split_out_traintestable_loans(df, eval_df, oldness_thrsh=.9):
     '''Can train/test on loans that pass the oldness_thrsh or have status paid/defaulted/charged_off'''
-    old_enough_ids = eval_loan_info[(eval_loan_info['maturity_time_stat_adj'] >= oldness_thrsh) | 
-                                    (eval_loan_info['maturity_paid_stat_adj'] >= oldness_thrsh) | 
-                                    (eval_loan_info['loan_status'].isin(['paid', 'defaulted', 'charged_off']))]['id'].unique()
-    base_loan_info = base_loan_info[base_loan_info['id'].isin(old_enough_ids)]
-    eval_loan_info = eval_loan_info[eval_loan_info['id'].isin(old_enough_ids)]
-    return base_loan_info, eval_loan_info
+    old_enough_ids = eval_df[(eval_df['maturity_time_stat_adj'] >= oldness_thrsh) | 
+                                    (eval_df['maturity_paid_stat_adj'] >= oldness_thrsh) | 
+                                    (eval_df['loan_status'].isin(['paid', 'defaulted', 'charged_off']))]['id'].unique()
+    df = df[df['id'].isin(old_enough_ids)]
+    eval_df = eval_df[eval_df['id'].isin(old_enough_ids)]
+    return df, eval_df
 
 
 def add_custom_lc_features(df):
