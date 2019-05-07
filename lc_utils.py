@@ -1,4 +1,51 @@
 import pandas as pd
+from j_utils import munging as mg
+import hyperlearn.hyperlearn.impute.SVDImpute as hpl_imp
+
+def gen_expt_datasets(today, oldest, valid_start, base_loan_info, eval_loan_info, target, valid_end=None, verbose=False):
+    '''
+    all loans from oldest until today are taken as train. All loans issued after today until valid_end are used for validation. Uses hyperlearn svd_impute to impute missing values. Returns the train and test datasets. target can be single colname or list of colnames
+    '''
+    train_ids = eval_loan_info[(eval_loan_info['issue_d'] <= today) & (eval_loan_info['issue_d'] >= oldest)]['id'].unique()
+    if valid_end:
+        valid_ids = eval_loan_info[(eval_loan_info['issue_d'] >= valid_start) & (eval_loan_info['issue_d'] <= valid_end)]['id'].unique()
+    else:
+        valid_ids = eval_loan_info[(eval_loan_info['issue_d'] >= valid_start)]['id'].unique()
+    train = base_loan_info[base_loan_info['id'].isin(train_ids)]
+    valid = base_loan_info[base_loan_info['id'].isin(valid_ids)]
+    
+    # setup for catboost
+    # a bit more data processing and nan handling for catboost
+    train_copy = train.copy()
+    valid_copy = valid.copy()
+    
+    # get ready for hyperlearn svdimpute
+    train_copy, max_dict, min_dict, cats_dict, norm_dict = mg.train_hpl_proc(train_copy, verbose=verbose)
+    valid_copy = mg.val_test_hpl_proc(valid_copy, train_copy, max_dict, min_dict, cats_dict, verbose=verbose)
+
+    # fit to train
+    S, VT, mean, std, mins, standardise = hpl_imp.fit(train_copy.values)
+    
+    # impute on train
+    train_svdimp = hpl_imp.transform(train_copy.values, S, VT, mean, std, mins, standardise)
+    train_svdimp = pd.DataFrame(train_svdimp)
+    train_svdimp.index = train_copy.index
+    train_svdimp.columns = train_copy.columns
+    
+    # impute on test
+    valid_svdimp = hpl_imp.transform(valid_copy.values, S, VT, mean, std, mins, standardise)
+    valid_svdimp = pd.DataFrame(valid_svdimp)
+    valid_svdimp.index = valid_copy.index
+    valid_svdimp.columns = valid_copy.columns
+    
+    # imputing changes some ids. Make the ids the originals again.
+    train_svdimp['id'] = train_ids
+    valid_svdimp['id'] = valid_ids
+    
+    train_y = eval_loan_info[eval_loan_info['id'].isin(train_ids)][target]
+    valid_y = eval_loan_info[eval_loan_info['id'].isin(valid_ids)][target]
+    
+    return train_svdimp, train_y, valid_svdimp, valid_y, train_ids, valid_ids
 
 # make a crude test set for now
 def get_split_date(df, date_column, quantile): 
