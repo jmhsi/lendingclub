@@ -10,17 +10,16 @@ import pause
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome import webdriver as chrome_webdriver
 from selenium.webdriver.support.ui import Select
-import lendingclub.account_info as acc_info
 
+# relative import to grab user_creds
+sys.path.append('../../user_creds/')
+import account_info as acc_info
 
 class DriverBuilder():
     # https://stackoverflow.com/questions/45631715/downloading-with-chrome-headless-and-selenium
     def get_driver(self, download_location=None, headless=False):
-
         driver = self._get_chrome_driver(download_location, headless)
-
         driver.set_window_size(1400, 700)
-
         return driver
 
     def _get_chrome_driver(self, download_location, headless):
@@ -31,23 +30,21 @@ class DriverBuilder():
                      'download.directory_upgrade': True,
                      'safebrowsing.enabled': False,
                      'safebrowsing.disable_download_protection': True}
-
             chrome_options.add_experimental_option('prefs', prefs)
+            chrome_options.add_argument("--no-sandbox")
 
         if headless:
             chrome_options.add_argument("--headless")
 
-        driver_path = '/usr/local/bin/chromedriver'
+        driver_path = '/usr/bin/chromedriver'
 
         if sys.platform.startswith("win"):
             driver_path += ".exe"
 
         driver = Chrome(executable_path=driver_path,
                         chrome_options=chrome_options)
-
         if headless:
             self.enable_download_in_headless_chrome(driver, download_location)
-
         return driver
 
     def enable_download_in_headless_chrome(self, driver, download_dir):
@@ -69,7 +66,6 @@ class DriverBuilder():
         for key in command_result:
             print("result:" + key + ":" + str(command_result[key]))
 
-
 def download_csvs(download_path):
     '''
     downloads all loan_info csvs and pmt_history csv
@@ -84,9 +80,9 @@ def download_csvs(download_path):
     d_builder = DriverBuilder()
     driver = d_builder.get_driver(
         download_location=download_path, headless=True)
+    
     # sign in
     driver.get(url_signin)
-
     email_box = driver.find_element_by_xpath(
         '/html/body/div[2]/div[1]/div[2]/form[1]/label[1]/input')
     password_box = driver.find_element_by_xpath(
@@ -99,7 +95,7 @@ def download_csvs(download_path):
     button = driver.find_element_by_xpath(
         '/html/body/div[2]/div[1]/div[2]/form[1]/button')
     button.click()
-    pause.milliseconds(1500)
+    pause.milliseconds(3000)
 
     # download loan_info
     driver.get(url_dl)
@@ -128,8 +124,8 @@ def download_csvs(download_path):
     # payment history downloads
     driver.get(url_pmt_hist)
 
-    pmt_history = driver.find_element_by_link_text(
-        'All payments (includes payments made to investors and to LendingClub)')
+    pmt_history = driver.find_element_by_xpath(
+        '/html/body/div[2]/section/div[2]/div/p[2]/a[2]')
     pmt_history.click()
 
     # wait for all downloads to finish
@@ -146,7 +142,8 @@ def download_csvs(download_path):
             print('checking/waiting for all csv downloads to finish')
             for filename in files:
                 if 'crdownload' in filename:
-                    time.sleep(60)
+                    print('{0} is still downloading'.format(filename))
+                    time.sleep(30)
                 else:
                     k += 1
     #                 print(k)
@@ -158,7 +155,6 @@ def download_csvs(download_path):
     driver.close()
     return True
 
-
 def get_hashes(path):
     hashes = {}
     files = os.listdir(path)
@@ -167,7 +163,6 @@ def get_hashes(path):
             'shasum -a 256 {0}'.format(path + '/' + file_), shell=True)
         hashes[file_] = a.split()[0]
     return hashes
-
 
 def check_file_changes(csv_folders, just_dled_hashes):
     need_to_clean = False
@@ -191,9 +186,10 @@ def check_file_changes(csv_folders, just_dled_hashes):
 
         # check for shasum256 changes
         changed_files = []
-        for key in just_dled_hashes.keys():
+        for key in just_dled_hashes.keys() & previous_dled_hashes.keys():
             if previous_dled_hashes[key] != just_dled_hashes[key]:
-                changed_files.append()
+                    changed_files.append(key)
+                
         if len(changed_files) == 0:
             print('There are no changes to previous downloaded lending club csvs (loan_info and pmt_hist) via shasum256 hashes')
         else:
@@ -207,7 +203,6 @@ def check_file_changes(csv_folders, just_dled_hashes):
 
     return need_to_clean
 
-
 def get_sorted_creationtime_dirs(ppath):
     csv_folders = [os.path.join(ppath, fn) for fn in os.listdir(
         ppath) if fn not in ['archived_csvs', 'working_csvs']]
@@ -216,17 +211,18 @@ def get_sorted_creationtime_dirs(ppath):
                    for stat, path in csv_folders if S_ISDIR(stat[ST_MODE])]
     return sorted(csv_folders)
 
-
 def archiver(archive_flag, ppath, archiver_dir=None):
     archiver_dir = os.path.join(os.path.expanduser(
-        '~'), 'all_data', 'lendingclub', 'csvs', 'archived_csvs') if not archiver_dir else archiver_dir
+        '~'), 'projects', 'lendingclub', 'data', 'csvs', 'archived_csvs') if not archiver_dir else archiver_dir
     os.makedirs(archiver_dir, exist_ok=True)
     if archive_flag:
         just_dled = get_sorted_creationtime_dirs(ppath)[-1][1]
+        
         newest_folder = os.path.split(just_dled)[1]
+        
         copytree(just_dled, os.path.join(archiver_dir, newest_folder))
-        print('copied most recent download of csvs to archiver_dir')
-
+        
+        print('copied {0} to {1}'.format(newest_folder, archiver_dir))
 
 def cleaner(ppath):
     just_dled = os.path.split(get_sorted_creationtime_dirs(ppath)[-1][1])[1]
