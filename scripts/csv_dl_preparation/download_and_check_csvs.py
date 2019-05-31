@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+from shutil import copytree, rmtree
 import download_prep as dp
 
 # setup
