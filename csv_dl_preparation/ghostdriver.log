@@ -1,7 +1,0 @@
-This application failed to start because it could not find or load the Qt platform plugin "offscreen".
-
-Available platform plugins are: phantom.
-
-Reinstalling the application may fix this problem.
-PhantomJS has crashed. Please read the bug reporting guide at
-<http://phantomjs.org/bug-reporting.html> and file a bug report.
