@@ -10,19 +10,19 @@ pipeline {
       parallel {
         stage('Check Download Data') {
           steps {
-            sh 'echo "I checked for new data"'
+            sh 'echo "Hi from master."'
           }
         }
         stage('concurrent_to_download_data') {
           steps {
-            echo 'doing stage concurrent to "Check Download Data" from print message in BO'
+            echo 'hi again from master'
           }
         }
       }
     }
     stage('after CDD') {
       steps {
-        sh 'echo doing something'
+        sh 'hi a third time from master'
       }
     }
   }
