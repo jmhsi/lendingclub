@@ -3,26 +3,22 @@ pipeline {
     docker {
       image 'joyzoursky/python-chromedriver'
     }
-
   }
+  environment {
+    CI = 'true'
+  }  
   stages {
-    stage('Check Download Data') {
-      parallel {
-        stage('Check Download Data') {
-          steps {
-            sh 'echo "Hi from master."'
-          }
-        }
-        stage('concurrent_to_download_data') {
-          steps {
-            echo 'hi again from master'
-          }
-        }
+    stage('Run every time?') {
+      steps {
+        echo 'hi from every branch'
       }
     }
-    stage('after CDD') {
+    stage('Check Download Data') {
+      when {
+        branch 'csv_dl_preparation'
+      }
       steps {
-        sh 'hi a third time from master'
+        echo 'hi from only csv_dl_preparation'
       }
     }
   }
