@@ -18,7 +18,9 @@ pipeline {
         branch 'csv_dl_preparation'
       }
       steps {
-        echo 'hi from only csv_dl_preparation'
+        echo 'hi from only csv_dl_prep'
+        pwd
+        ls
       }
     }
   }
