@@ -19,8 +19,8 @@ pipeline {
       }
       steps {
         echo 'hi from only csv_dl_prep'
-        pwd
-        ls
+        sh 'pwd'
+        sh 'ls'
       }
     }
   }
