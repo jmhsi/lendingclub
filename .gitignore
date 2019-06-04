@@ -10,6 +10,10 @@ __pycache__
 # bfg-generated
 *bfg*
 
+# ipynb stuff
+*-checkpoint.ipynb
+*.ipynb_checkpoints
+
 .DS_Store
 justin_credit_card/
 char-rnn/
