@@ -14,5 +14,11 @@ RUN echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' |
 RUN apt-get update 
 RUN apt-get -y install google-chrome-stable
 
+# files to copy
+COPY requirements.txt requirements.txt
+
+# sanity check
+RUN ls
+
 # install python modules
 RUN pip install -r requirements.txt
