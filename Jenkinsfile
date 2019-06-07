@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image 'joyzoursky/python-chromedriver:3.7-selenium'}
+#    docker { image 'joyzoursky/python-chromedriver:3.7-selenium'}
   }
   environment {
     CI = 'true'
