@@ -1,5 +1,7 @@
 pipeline {
-  agent { dockerfile true } 
+  agent {
+    docker { image 'joyzoursky/python-chromedriver:3.7-selenium'}
+  }
   environment {
     CI = 'true'
   }  
@@ -18,7 +20,6 @@ pipeline {
       }
       steps {
         echo 'hi from only csv_dl_preparation'
-        sh 'pwd'
         sh 'python scripts/csv_dl_preparation/download_and_check_csvs.py'
       }
     }
