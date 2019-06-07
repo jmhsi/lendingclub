@@ -1,8 +1,10 @@
 pipeline {
-  agent { dockerfile true } 
-  environment {
-    CI = 'true'
-  }  
+  agent {
+    docker {
+      image 'joyzoursky/python-chromedriver:3.7-selenium'
+    }
+
+  }
   stages {
     stage('Run every time?') {
       steps {
@@ -10,11 +12,14 @@ pipeline {
       }
     }
     stage('Check Download Data') {
+      agent {
+        docker {
+          image 'joyzoursky/python-chromedriver'
+        }
+
+      }
       when {
         branch 'csv_dl_preparation'
-      }
-      agent {
-        docker {  image 'joyzoursky/python-chromedriver'  }
       }
       steps {
         echo 'hi from only csv_dl_preparation'
@@ -22,5 +27,8 @@ pipeline {
         sh 'python scripts/csv_dl_preparation/download_and_check_csvs.py'
       }
     }
+  }
+  environment {
+    CI = 'true'
   }
 }
