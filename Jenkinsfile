@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-#    docker { image 'joyzoursky/python-chromedriver:3.7-selenium'}
-  }
+  agent none
   environment {
     CI = 'true'
   }  
@@ -12,11 +10,12 @@ pipeline {
       }
     }
     stage('Check Download Data') {
+      /*
       agent {
         docker {
-          image 'joyzoursky/python-chromedriver'
+          image 'joyzoursky/python-chromedriver:3.7-Selenium'
         }
-
+      */
       }
       when {
         branch 'csv_dl_preparation'
