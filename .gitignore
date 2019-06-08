@@ -4,6 +4,10 @@ data
 csvs_[0-9]*
 user_creds
 
+# files
+Jenk_ref
+requirements_bak.txt
+
 # python stuff
 __pycache__
 
@@ -13,6 +17,7 @@ __pycache__
 # ipynb stuff
 *-checkpoint.ipynb
 *.ipynb_checkpoints
+
 
 .DS_Store
 justin_credit_card/
