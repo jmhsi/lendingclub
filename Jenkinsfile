@@ -22,8 +22,9 @@ pipeline {
       steps {
         echo 'hi from only csv_dl_preparation'
         echo 'problem with import pause'
-        sh 'export PYTHONPATH=$WORKSPACE:$PYTHONPATH'
+        // sh 'export PYTHONPATH=$WORKSPACE:$PYTHONPATH'
         // sh '$PATH'
+        sh 'pip install -r requirements.txt'
         sh 'python scripts/csv_dl_preparation/download_and_check_csvs.py'
       }
     }
