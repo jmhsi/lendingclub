@@ -21,6 +21,8 @@ pipeline {
       }
       steps {
         echo 'hi from only csv_dl_preparation'
+        echo 'probelm with import pause'
+        sh '$PATH'
         sh 'python scripts/csv_dl_preparation/download_and_check_csvs.py'
       }
     }
