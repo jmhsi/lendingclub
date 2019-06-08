@@ -1,15 +1,1 @@
-requests==2.21.0
-#fastai.egg==info
-#hyperlearn.egg==info
-torch==1.0.1.post2
-#pandas_summary==0.0.41
-numpy==1.16.3
-gspread==3.0.1
 pause==0.1.2
-selenium==3.14.0
-tqdm==4.19.4
-pandas==0.20.3
-fastai==1.0.52
-protobuf==3.7.1
-#lendingclub==0.1.10
-scikit_learn==0.20.3
