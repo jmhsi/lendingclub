@@ -13,10 +13,9 @@ pipeline {
       /*
       agent {
         docker {
-          image 'joyzoursky/python-chromedriver:3.7-Selenium'
+          image 'joyzoursky/python-chromedriver'
         }
       */
-      }
       when {
         branch 'csv_dl_preparation'
       }
