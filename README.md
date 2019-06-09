@@ -6,4 +6,9 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 2) Investigative models are trained on old done loans and validated on newest of old done loans.
 3) Models used in invest scripts are trained on all available training data.
 
-checking if I can see jenkins jobs are running on PR
+# Notes to self:
+Current jenkins setup runs in conda environment (based off https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/)
+Considering moving to docker containers once I build the Dockerfiles?
+
+for csv_dl_archiving:
+used a symlink to point to the right path to download and compare csvs: ln -s /home/justin/projects/lendingclub/data/csvs /var/lib/jenkins/projects/lendingclub/data/csvs
