@@ -26,11 +26,10 @@ pipeline {
                 sh  ''' python --version
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
-                        ls
-                        pwd
-                        echo $path
+                        echo $PATH
                         echo $PYTHONPATH
                         cp -r /home/justin/projects/lendingclub/user_creds .
+                        ls 
                         pip install -r requirements.txt
                         python scripts/csv_dl_preparation/download_and_check_csvs.py
                     '''
