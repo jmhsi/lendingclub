@@ -28,6 +28,9 @@ pipeline {
                         source activate ${BUILD_TAG}
                         ls
                         pwd
+                        echo $path
+                        echo $PYTHONPATH
+                        ls /home/justin/projects/lendingclub/
                         pip install -r requirements.txt
                         python scripts/csv_dl_preparation/download_and_check_csvs.py
                     '''
