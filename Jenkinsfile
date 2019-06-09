@@ -1,35 +1,39 @@
 pipeline {
-  agent any 
-  environment {
-    CI = 'true'
-  }  
-  stages {
-    stage('Run every time?') {
-      steps {
-        echo 'hi from every branch, not in a container.'
-      }
+    agent any
+    options {
+        skipDefaultCheckout(true)
+        // Keep the 10 most recent builds
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        timestamps()
     }
-    stage('Check Download Data') {
-      /*
-      agent {
-        docker {
-          image 'joyzoursky/python-chromedriver'
+    environment {
+      PATH="/var/lib/jenkins/miniconda3/bin:$PATH"
+    }
+    stages {
+
+        stage('Code pull') {
+            steps {
+                checkout scm 
+            }
         }
-      */
-      when {
-        branch 'csv_dl_preparation'
-      }
-      steps {
-        // echo 'hi from only csv_dl_preparation'
-        // echo 'problem with import pause'
-        // sh 'export PYTHONPATH=$WORKSPACE:$PYTHONPATH'
-        // sh '$PATH'
-        // sh 'pip install -r requirements.txt'
-        // sh 'python scripts/csv_dl_preparation/download_and_check_csvs.py'
-        sh 'python --version'
-        sh 'which python'
-        sh 'python hello_world.py'
-      }
+
+        stage('Build for csv_dl_preparation') {
+            when {
+                branch 'csv_dl_preparation'
+            }
+            steps {
+                echo 'Build venv for csv_dl_preparation'
+                sh  ''' python --version
+                        conda create --yes -n ${BUILD_TAG} python
+                        source activate ${BUILD_TAG}
+                        python scripts/csv_dl_preparation/download_and_check-csvs.py
+                    '''
+            }
+        }
     }
-  }
+    post {
+        always {
+            sh 'conda remove --yes -n ${BUILD_TAG} --all'
+        }
+    }
 }
