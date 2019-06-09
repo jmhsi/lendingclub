@@ -17,9 +17,9 @@ pipeline {
             }
         }
 
-        stage('Build for csv_dl_preparation') {
+        stage('Build for csv_dl_archiving') {
             when {
-                branch 'csv_dl_preparation'
+                branch 'csv_dl_archiving'
             }
             steps {
                 echo 'Build venv for csv_dl_preparation'
