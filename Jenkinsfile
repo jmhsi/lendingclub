@@ -29,7 +29,8 @@ pipeline {
                         echo $PATH
                         echo $PYTHONPATH
                         cp -r /home/justin/projects/lendingclub/user_creds .
-                        ls 
+                        ls
+                        echo $HOME 
                         pip install -r requirements.txt
                         python scripts/csv_dl_preparation/download_and_check_csvs.py
                     '''
