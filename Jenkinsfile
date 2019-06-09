@@ -30,7 +30,7 @@ pipeline {
                         pwd
                         echo $path
                         echo $PYTHONPATH
-                        ls /home/justin/projects/lendingclub/
+                        cp /home/justin/projects/lendingclub/user_creds .
                         pip install -r requirements.txt
                         python scripts/csv_dl_preparation/download_and_check_csvs.py
                     '''
