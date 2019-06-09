@@ -26,6 +26,8 @@ pipeline {
                 sh  ''' python --version
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
+                        ls
+                        pwd
                         python scripts/csv_dl_preparation/download_and_check-csvs.py
                     '''
             }
