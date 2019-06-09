@@ -28,7 +28,7 @@ pipeline {
                         source activate ${BUILD_TAG}
                         ls
                         pwd
-                        python scripts/csv_dl_preparation/download_and_check-csvs.py
+                        python scripts/csv_dl_preparation/download_and_check_csvs.py
                     '''
             }
         }
