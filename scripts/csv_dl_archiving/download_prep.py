@@ -156,6 +156,10 @@ def download_csvs(download_path):
     return True
 
 def get_hashes(path):
+    '''
+    gets shasum hashes for files to check for file changes
+    '''
+    print('computing shasum for files in {0}'.format(path))
     hashes = {}
     files = os.listdir(path)
     for file_ in files:
@@ -166,6 +170,8 @@ def get_hashes(path):
 
 def check_file_changes(csv_folders, just_dled_hashes):
     need_to_clean = False
+    print('starting to check for file changes comparing what was just downloaded.')
+    print('archived dirs located at {0}'.format(csv_folders))
     try:
         previous_dled_hashes = get_hashes(csv_folders[-2][1])
 
