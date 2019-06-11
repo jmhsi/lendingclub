@@ -49,6 +49,7 @@ pipeline {
                         // cp -r /home/justin/projects/lendingclub/user_creds .
             }
         }
+    }
     post {
         always {
             sh 'conda remove --yes -n ${BUILD_TAG} --all'
