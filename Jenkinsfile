@@ -47,6 +47,7 @@ pipeline {
                         python -u unzip_csvs.py
                     '''
                         // cp -r /home/justin/projects/lendingclub/user_creds .
+            }
     }
     post {
         always {
