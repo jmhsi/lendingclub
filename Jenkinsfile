@@ -29,7 +29,7 @@ pipeline {
                         cp -r /home/justin/projects/lendingclub/user_creds .
                         pip install -r requirements.txt
                         cd scripts/csv_dl_archiving
-                        python download_and_check_csvs.py
+                        python -u download_and_check_csvs.py
                     '''
 
                        // python test_mkdirs.py
