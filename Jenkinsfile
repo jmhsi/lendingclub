@@ -17,7 +17,7 @@ pipeline {
             }
         }
 
-        stage('Build for csv_dl_archiving') {
+        stage('Run code for csv_dl_archiving') {
             when {
                 branch 'csv_dl_archiving'
             }
@@ -31,10 +31,22 @@ pipeline {
                         cd scripts/csv_dl_archiving
                         python -u download_and_check_csvs.py
                     '''
-
-                       // python test_mkdirs.py
             }
         }
+        stage('Run code for csv_preparation') {
+            when {
+                branch 'csv_preparation'
+            }
+            steps {
+                echo 'Build venv for csv_preparation'
+                sh  ''' python --version
+                        conda create --yes -n ${BUILD_TAG} python
+                        source activate ${BUILD_TAG}
+                        pip install -r requirements.txt
+                        cd scripts/csv_preparation
+                        python -u unzip_csvs.py
+                    '''
+                        // cp -r /home/justin/projects/lendingclub/user_creds .
     }
     post {
         always {
