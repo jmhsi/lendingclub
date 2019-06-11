@@ -70,6 +70,8 @@ def download_csvs(download_path):
     '''
     downloads all loan_info csvs and pmt_history csv
     '''
+    print('downloading csvs to {0}'.format(download_path))
+    
     # setup constants
     email = acc_info.email_throwaway
     password = acc_info.password_throwaway
@@ -171,7 +173,6 @@ def get_hashes(path):
 def check_file_changes(csv_folders, just_dled_hashes):
     need_to_clean = False
     print('starting to check for file changes comparing what was just downloaded.')
-    print('archived dirs located at {0}'.format(csv_folders))
     try:
         previous_dled_hashes = get_hashes(csv_folders[-2][1])
 
