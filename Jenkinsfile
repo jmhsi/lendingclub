@@ -22,15 +22,17 @@ pipeline {
                 branch 'csv_dl_archiving'
             }
             steps {
-                echo 'Build venv for csv_dl_preparation'
+                echo 'Build venv for csv_dl_archiving'
                 sh  ''' python --version
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
                         cp -r /home/justin/projects/lendingclub/user_creds .
                         pip install -r requirements.txt
-                        cd scripts/csv_dl_preparation
-                        python download_and_check_csvs.py
+                        cd scripts/csv_dl_archiving
+                        python -u download_and_check_csvs.py
                     '''
+
+                       // python test_mkdirs.py
             }
         }
     }

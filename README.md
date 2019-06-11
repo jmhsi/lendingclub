@@ -12,3 +12,6 @@ Considering moving to docker containers once I build the Dockerfiles?
 
 for csv_dl_archiving:
 used a symlink to point to the right path to download and compare csvs: ln -s /home/justin/projects/lendingclub/data/csvs /var/lib/jenkins/projects/lendingclub/data/csvs
+had to change permissions to the whole data folder to allow jenkins job to copy downloaded csvs into the tree path (e.g. chmod -R data)
+
+Small change for another jenkins test
