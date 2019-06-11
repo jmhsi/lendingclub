@@ -213,7 +213,7 @@ def check_file_changes(csv_folders, just_dled_hashes):
 def get_sorted_creationtime_dirs(ppath):
     print('getting folders sorted by creation time in {0}'.format(os.path.abspath(ppath)))
     csv_folders = [os.path.join(ppath, fn) for fn in os.listdir(
-        ppath) if fn not in ['archived_csvs', 'working_csvs']]
+        ppath) if fn not in ['archived_csvs', 'working_csvs', 'latest_csvs']]
     csv_folders = [(os.stat(path), path) for path in csv_folders]
     csv_folders = [(stat[ST_CTIME], path)
                    for stat, path in csv_folders if S_ISDIR(stat[ST_MODE])]
