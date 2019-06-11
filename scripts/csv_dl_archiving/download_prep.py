@@ -70,6 +70,8 @@ def download_csvs(download_path):
     '''
     downloads all loan_info csvs and pmt_history csv
     '''
+    print('downloading csvs to {0}'.format(os.path.abspath(download_path)))
+    
     # setup constants
     email = acc_info.email_throwaway
     password = acc_info.password_throwaway
@@ -156,6 +158,10 @@ def download_csvs(download_path):
     return True
 
 def get_hashes(path):
+    '''
+    gets shasum hashes for files to check for file changes
+    '''
+    print('computing shasum for files in {0}'.format(os.path.abspath(path)))
     hashes = {}
     files = os.listdir(path)
     for file_ in files:
@@ -166,6 +172,7 @@ def get_hashes(path):
 
 def check_file_changes(csv_folders, just_dled_hashes):
     need_to_clean = False
+    print('starting to check for file changes comparing what was just downloaded.')
     try:
         previous_dled_hashes = get_hashes(csv_folders[-2][1])
 
@@ -204,8 +211,9 @@ def check_file_changes(csv_folders, just_dled_hashes):
     return need_to_clean
 
 def get_sorted_creationtime_dirs(ppath):
+    print('getting folders sorted by creation time in {0}'.format(os.path.abspath(ppath)))
     csv_folders = [os.path.join(ppath, fn) for fn in os.listdir(
-        ppath) if fn not in ['archived_csvs', 'working_csvs']]
+        ppath) if fn not in ['archived_csvs', 'working_csvs', 'latest_csvs']]
     csv_folders = [(os.stat(path), path) for path in csv_folders]
     csv_folders = [(stat[ST_CTIME], path)
                    for stat, path in csv_folders if S_ISDIR(stat[ST_MODE])]
@@ -222,7 +230,7 @@ def archiver(archive_flag, ppath, archiver_dir=None):
         
         copytree(just_dled, os.path.join(archiver_dir, newest_folder))
         
-        print('copied {0} to {1}'.format(newest_folder, archiver_dir))
+        print('copied {0} to {1}'.format(newest_folder, os.path.abspath(archiver_dir)))
 
 def cleaner(ppath):
     just_dled = os.path.split(get_sorted_creationtime_dirs(ppath)[-1][1])[1]
