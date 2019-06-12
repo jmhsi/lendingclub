@@ -4,7 +4,7 @@ import logging
 import pathlib
 import shutil
 import subprocess
-sys.path.append(os.path.abspath('../..'))
+sys.path.append(os.path.join(os.path.expanduser('~'), 'projects'/'lendingclub'))
 print(sys.path)
 import lendingclub.scripts.csv_dl_archiving.download_prep as dp
 
