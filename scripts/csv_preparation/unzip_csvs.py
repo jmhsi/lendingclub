@@ -3,14 +3,15 @@ import logging
 import pathlib
 import shutil
 import subprocess
-import lendingclub.scripts.csv_dl_archiving.download_prep as dp
+sys.path.append(os.path.abspath('../../..'))
+from lendingclub.scripts.csv_dl_archiving import download_prep as dp
 
-dpath = '/home/justin/projects/lendingclub/data/csvs'
-working_csvs = os.path.join(dpath, 'latest_csvs')
-if os.path.exists(working_csvs):
-    shutil.rmtree(working_csvs)
-os.makedirs(working_csvs)
-csv_path = dp.get_sorted_creationtime_dirs(dpath)[-1][1]
+dpath = os.path.join(os.path.expanduser('~'), 'projects/lendingclub/data/csvs')
+latest_csvs = os.path.join(dpath, 'latest_csvs')
+if os.path.exists(latest_csvs):
+    shutil.rmtree(latest_csvs)
+os.makedirs(latest_csvs)
+csv_path = dp.get_sorted_creationtime_dirs(os.path.join(dpath, 'archived_csvs'))[-1][1] # get last, path portion of tuple
 zip_files = pathlib.Path(csv_path).rglob("*.zip")
 
 while True:
@@ -22,5 +23,5 @@ while True:
     except PermissionError:
         logging.exception("permission error")
     else:
-        extract_dir = pathlib.Path(working_csvs)
+        extract_dir = pathlib.Path(latest_csvs)
         subprocess.call(['unzip', '-o', path, '-d', extract_dir])
