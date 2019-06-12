@@ -4,9 +4,9 @@ import logging
 import pathlib
 import shutil
 import subprocess
-sys.path.append(os.path.abspath('../../..'))
+sys.path.append(os.path.abspath('../..'))
 print(sys.path)
-from lendingclub.scripts.csv_dl_archiving import download_prep as dp
+import lendingclub.scripts.csv_dl_archiving.download_prep as dp
 
 dpath = os.path.join(os.path.expanduser('~'), 'projects/lendingclub/data/csvs')
 latest_csvs = os.path.join(dpath, 'latest_csvs')
