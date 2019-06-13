@@ -1,14 +1,13 @@
 import time
 import os
 import pandas as pd
-import dir_constants as dc
 
 # Set some constants __________________________________________________________
 now = time.strftime("%Y_%m_%d_%Hh_%Mm_%Ss")
 platform = 'lendingclub'
 
 # Set data_path _______________________________________________________________
-dpath = dc.data_path + 'lendingclub/csvs/working_csvs'
+dpath = os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'data', 'csvs','latest_csvs')
 
 # Get the loan_info csvs to iterate over ______________________________________
 files = os.listdir(dpath)
