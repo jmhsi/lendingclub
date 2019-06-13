@@ -12,7 +12,7 @@ from selenium.webdriver.chrome import webdriver as chrome_webdriver
 from selenium.webdriver.support.ui import Select
 
 # # relative import to grab user_creds
-# sys.path.append('../../user_creds/')
+sys.path.append(os.path.join(os.path.expanduser('~'),'projects'))
 import lendingclub.user_creds.account_info as acc_info
 
 class DriverBuilder():
