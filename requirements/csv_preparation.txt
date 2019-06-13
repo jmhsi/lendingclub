@@ -1,1 +1,3 @@
 -r csv_dl_archiving.txt
+
+pandas==0.24.2
