@@ -42,6 +42,7 @@ pipeline {
                 sh  ''' python --version
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
+                        pip install -r requirements/csv_preparation.txt
                         cd scripts/csv_preparation
                         python -u unzip_csvs.py
                     '''
