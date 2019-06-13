@@ -27,7 +27,7 @@ pipeline {
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
                         cp -r /home/justin/projects/lendingclub/user_creds .
-                        pip install -r requirements.txt
+                        pip install -r requirements/csv_dl_archiving.txt
                         cd scripts/csv_dl_archiving
                         python -u download_and_check_csvs.py
                     '''
@@ -42,7 +42,6 @@ pipeline {
                 sh  ''' python --version
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
-                        pip install -r requirements.txt
                         cd scripts/csv_preparation
                         python -u unzip_csvs.py
                     '''
