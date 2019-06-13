@@ -11,8 +11,4 @@ Current jenkins setup runs in conda environment (based off https://mdyzma.github
 Considering moving to docker containers once I build the Dockerfiles?
 
 Made symlink: ln -s /home/justin/projects to /var/lib/jenkins/projects so jenkins can run scripts like the actual projects directory
-
-for csv_dl_archiving:
-had to change permissions to the whole data folder to allow jenkins job to copy downloaded csvs into the tree path (e.g. chmod -R data)
-
-for csv_preparation:
+Changed permissions of whole projects directory to get around jenkins permission errors (e.g. sudo chmod -R 777 projects)
