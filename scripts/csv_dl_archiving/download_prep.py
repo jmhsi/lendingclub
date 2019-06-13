@@ -11,9 +11,9 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.chrome import webdriver as chrome_webdriver
 from selenium.webdriver.support.ui import Select
 
-# relative import to grab user_creds
-sys.path.append('../../user_creds/')
-import account_info as acc_info
+# # relative import to grab user_creds
+# sys.path.append('../../user_creds/')
+import lendingclub.user_creds.account_info as acc_info
 
 class DriverBuilder():
     # https://stackoverflow.com/questions/45631715/downloading-with-chrome-headless-and-selenium
