@@ -27,3 +27,9 @@ while True:
     else:
         extract_dir = pathlib.Path(latest_csvs)
         subprocess.call(['unzip', '-o', path, '-d', extract_dir])
+        
+for root, dirs, files in os.walk("path"):
+    for d in dirs:
+        os.chmod(os.path.join(root, d), 0o644)
+    for f in files:
+        os.chmod(os.path.join(root, f), 0o644)
