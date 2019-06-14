@@ -30,6 +30,6 @@ while True:
         
 for root, dirs, files in os.walk(latest_csvs):
     for d in dirs:
-        os.chmod(os.path.join(root, d), 0o644)
+        os.chmod(os.path.join(root, d), 0o777)
     for f in files:
-        os.chmod(os.path.join(root, f), 0o644)
+        os.chmod(os.path.join(root, f), 0o777)
