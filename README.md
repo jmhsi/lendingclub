@@ -8,6 +8,8 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 
 j_utils is imported and use in several scripts. See repo https://github.com/jmhsi/j_utils
 
+Had to chmod -R 777 latest_csvs dir?
+
 # Notes to self:
 Current jenkins setup runs in conda environment (based off https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/)
 Considering moving to docker containers once I build the Dockerfiles?
