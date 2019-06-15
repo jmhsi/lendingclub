@@ -1,4 +1,7 @@
 from tqdm import tqdm
+import os
+import sys
+import pandas as pd
 
 csv_path = os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'data', 'csvs', 'latest_csvs')
 # for now its always been one csv. Will have to revisit if they break it out to multiple
