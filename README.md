@@ -9,6 +9,8 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 j_utils is imported and use in several scripts. See repo https://github.com/jmhsi/j_utils
 
 Had to chmod -R 777 latest_csvs dir?
+To fix permissions troubles, I neded up adding jenkins and justin to each others groups (sudo usermod -a -G groupName userName) and allowing group rw- (read/write, no need for executeable)?
+May have permission problems with all .fth or dataframes from pandas. For now, manually fixing in command line. Not sure how to best address currently.
 
 # Notes to self:
 Current jenkins setup runs in conda environment (based off https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/)
