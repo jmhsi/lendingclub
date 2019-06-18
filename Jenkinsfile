@@ -46,7 +46,8 @@ pipeline {
                         cd scripts/csv_preparation
                         # python -u unzip_csvs.py
                         # python -u merge_loan_info.py
-                        python -u clean_pmt_history_1.py 
+                        # python -u clean_pmt_history_1.py 
+                        python -u clean_pmt_history_2.py 
                     '''
                         // cp -r /home/justin/projects/lendingclub/user_creds .
             }

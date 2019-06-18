@@ -186,4 +186,4 @@ changed_type_cols, pmt_hist = mg.reduce_memory(pmt_hist)
 
 # save
 dpath = os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'data')
-pmt_hist.to_feather(os.path.join(dpath, 'clean_pmt_hist_1.fth'))
+pmt_hist.to_feather(os.path.join(dpath, 'clean_pmt_history_1.fth'))
