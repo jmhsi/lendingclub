@@ -45,8 +45,8 @@ pipeline {
                         pip install -r requirements/csv_preparation.txt
                         cd scripts/csv_preparation
                         # python -u unzip_csvs.py
-                        #python -u merge_loan_info.py
-                        python -u reduce_pmt_history.py 
+                        # python -u merge_loan_info.py
+                        python -u clean_pmt_history_1.py 
                     '''
                         // cp -r /home/justin/projects/lendingclub/user_creds .
             }
