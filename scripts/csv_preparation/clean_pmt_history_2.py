@@ -1,4 +1,6 @@
 from tqdm import tqdm_notebook, tqdm
+import os
+import pandas as pd
 
 def find_dupe_dates(group):
     return pd.to_datetime(group[group.duplicated('date')]['date'].values)
