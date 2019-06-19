@@ -1,5 +1,6 @@
 from tqdm import tqdm_notebook, tqdm
 import os
+import pandas as pd
 
 def find_closest_previous_record(ids, issue_d, first_date, actual_months, month):
     '''This function finds the closest previous month that is in the group. 
