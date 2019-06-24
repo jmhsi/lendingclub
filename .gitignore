@@ -3,10 +3,13 @@ to_ignore
 data
 csvs_[0-9]*
 user_creds
+build
 
 # files
 Jenk_ref
 requirements_bak.txt
+*.c
+*.so
 
 # python stuff
 __pycache__
