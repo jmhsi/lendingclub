@@ -7,6 +7,8 @@ user_creds
 # files
 Jenk_ref
 requirements_bak.txt
+*.c
+*.so
 
 # python stuff
 __pycache__
