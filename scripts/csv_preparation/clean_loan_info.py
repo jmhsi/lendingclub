@@ -269,7 +269,7 @@ loan_info.rename({'loan_id': 'id'}, axis=1, inplace=True)
 loan_info = pd.merge(loan_info, target_strict, how='outer', on='id')
 
 # add orig_amt_due and roi_simple
-loan_info['orig_amt_due'] = loan_info['term'] * loan_info['installment_amount']
+loan_info['orig_amt_due'] = loan_info['term'] * loan_info['installment_at_funded']
 loan_info['roi_simple'] = loan_info['total_pymnt']/loan_info['funded_amnt']
 
 # More Data Cleanup __________________________________________________________
