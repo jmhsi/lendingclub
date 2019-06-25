@@ -26,6 +26,7 @@ import re
 from tqdm import tqdm_notebook, tqdm
 sys.path.append(os.path.join(os.path.expanduser('~'), 'projects'))
 sys.path.append(os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'scripts', 'csv_preparation'))
+print(sys.path)
 import j_utils.munging as mg
 import rem_to_be_paid as rtbp
 
