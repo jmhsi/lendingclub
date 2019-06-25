@@ -49,7 +49,7 @@ pipeline {
                         # python -u clean_pmt_history_1.py 
                         # python -u clean_pmt_history_2.py 
                         # python -u clean_pmt_history_3.py 
-                        python -u setup.py build_ext --inplace
+                        # python -u setup.py build_ext --inplace
                         python -u clean_loan_info.py
                     '''
                         // cp -r /home/justin/projects/lendingclub/user_creds .
