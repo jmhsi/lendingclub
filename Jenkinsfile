@@ -54,6 +54,23 @@ pipeline {
                         find . -name "*.so" -exec mv {} . \\;
                         python -u clean_loan_info.py
                     '''
+            }
+        }
+        stage('Run code for data_and_eval_preparation') {
+            when {
+                branch 'data_and_eval_preparation'
+            }
+            steps {
+                echo 'Build venv for data_and_eval_preparation'
+                sh  ''' python --version
+                        conda create --yes -n ${BUILD_TAG} python
+                        source activate ${BUILD_TAG}
+                        pip install -r requirements/csv_preparation.txt
+                        cd scripts/data_and_eval_preparation
+                        # move the .so file to current dir (scripts)
+                        # find . -name "*.so" -exec mv {} . \\;
+                        # python -u clean_loan_info.py
+                    '''
                         // cp -r /home/justin/projects/lendingclub/user_creds .
             }
         }
