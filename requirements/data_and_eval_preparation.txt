@@ -1,0 +1,3 @@
+-r csv_preparation.txt
+
+requests==2.22.0
