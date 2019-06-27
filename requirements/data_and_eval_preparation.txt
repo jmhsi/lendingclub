@@ -1,0 +1,8 @@
+-r csv_preparation.txt
+
+requests==2.22.0
+gspread==3.0.1
+google-auth==1.5.1
+-e git+https://github.com/fastai/fastai.git@1e6e4a1232495924cbebe58216d2482ec17cf651#egg=fastai
+sklearn==0.0
+pandas-summary==0.0.6
