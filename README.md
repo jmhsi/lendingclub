@@ -7,11 +7,11 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 3) Models used in invest scripts are trained on all available training data.
 
 # Notes to self:
+j_utils is imported and use in several scripts. See repo https://github.com/jmhsi/j_utils
+
+To fix permissions troubles, I ended up adding jenkins and justin to each others groups (sudo usermod -a -G groupName userName) and doing chmod 664(774) on .fth and dataframes or other files as necessary. 
+
 Current jenkins setup runs in conda environment (based off https://mdyzma.github.io/2017/10/14/python-app-and-jenkins/)
 Considering moving to docker containers once I build the Dockerfiles?
 
-for csv_dl_archiving:
-used a symlink to point to the right path to download and compare csvs: ln -s /home/justin/projects/lendingclub/data/csvs /var/lib/jenkins/projects/lendingclub/data/csvs
-had to change permissions to the whole data folder to allow jenkins job to copy downloaded csvs into the tree path (e.g. chmod -R data)
-
-Small change for another jenkins test
+Made symlink: ln -s /home/justin/projects to /var/lib/jenkins/projects so jenkins can run scripts like the actual projects directory
