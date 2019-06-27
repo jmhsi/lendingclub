@@ -67,9 +67,7 @@ pipeline {
                         source activate ${BUILD_TAG}
                         pip install -r requirements/csv_preparation.txt
                         cd scripts/data_and_eval_preparation
-                        # move the .so file to current dir (scripts)
-                        # find . -name "*.so" -exec mv {} . \\;
-                        # python -u clean_loan_info.py
+                        python -u data_and_eval_preparation.py
                     '''
                         // cp -r /home/justin/projects/lendingclub/user_creds .
             }
