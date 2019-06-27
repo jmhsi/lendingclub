@@ -1,0 +1,2 @@
+return,params,run_time
+-0.010864933181689448,"{'bagging_temperature': 0.4883936887362998, 'depth': 7.0, 'eval_metric': 'Logloss', 'iterations': 1750.0, 'l2_leaf_reg': 60.53019111801518, 'learning_rate': 0.03, 'loss_function': 'Logloss', 'random_strength': 0.648531443966122, 'rsm': 0.4, 'use_best_model': True, 'nan_mode': 'Forbidden', 'early_stopping_rounds': 200, 'verbose': True}",48.7963852470275
