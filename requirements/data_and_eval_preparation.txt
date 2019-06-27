@@ -2,3 +2,5 @@
 
 requests==2.22.0
 gspread==3.0.1
+google-auth==1.5.1
+
