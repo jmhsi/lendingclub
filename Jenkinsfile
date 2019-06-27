@@ -65,7 +65,7 @@ pipeline {
                 sh  ''' python --version
                         conda create --yes -n ${BUILD_TAG} python
                         source activate ${BUILD_TAG}
-                        pip install -r requirements/csv_preparation.txt
+                        pip install -r requirements/data_and_eval_preparation.txt
                         cd scripts/data_and_eval_preparation
                         python -u data_and_eval_preparation.py
                     '''
