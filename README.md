@@ -17,4 +17,4 @@ Considering moving to docker containers once I build the Dockerfiles?
 Made symlink: ln -s /home/justin/projects to /var/lib/jenkins/projects so jenkins can run scripts like the actual projects directory
 
 # .fth to work with after initial data and eval prep:
-'eval_loan_info.fth', 'scaled_pmt_hist.fth', 'base_loan_info.fth', 'eval_loan_info.fth', 'str_loan_info.fth'
+'eval_loan_info.fth', 'scaled_pmt_hist.fth', 'base_loan_info.fth', 'str_loan_info.fth'
