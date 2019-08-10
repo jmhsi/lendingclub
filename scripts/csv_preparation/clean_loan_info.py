@@ -21,6 +21,7 @@ Some examples of loans:
 import sys
 import os
 import pandas as pd
+from pandas.api.types import is_string_dtype
 import numpy as np
 import math
 import re
