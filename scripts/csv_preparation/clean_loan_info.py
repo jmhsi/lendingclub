@@ -21,6 +21,7 @@ Some examples of loans:
 import sys
 import os
 import pandas as pd
+from pandas.api.types import is_string_dtype
 import numpy as np
 import math
 import re
@@ -296,8 +297,15 @@ loan_info.drop(['funded_amnt_inv',
                 'out_prncp_inv'], axis = 1, inplace = True)
 
 # last cleanups before storing
-loan_info.fillna(value=np.nan, inplace=True)
-strings_df.fillna(value=np.nan, inplace=True)
+# if column type is string and has np.nan (a float), turn the nan into "None" for the graphing eda notebook in 
+# Exploratory Data Analysis
+for col in loan_info.columns:
+    if is_string_dtype(loan_info[col].dtype) & (loan_info[col].isnull().sum() > 0):
+        loan_info[col] = loan_info[col].fillna('None')
+        
+for col in strings_df.columns:
+    if is_string_dtype(strings_df[col].dtype) & (strings_df[col].isnull().sum() > 0):
+        strings_df[col] = strings_df[col].fillna('None')
 
 # reduce memory and store
 _, strings_df = mg.reduce_memory(strings_df)
