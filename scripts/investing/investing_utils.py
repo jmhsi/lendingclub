@@ -6,7 +6,7 @@ import numpy as np
 import datetime as dt
 import lendingclub.user_creds.account_info as acc_info
 import pause
-from fastai.imports import *
+# from fastai.imports import *
 # from fastai.structured import *
 # from fastai.column_data import *
 from sklearn.base import TransformerMixin, BaseEstimator
