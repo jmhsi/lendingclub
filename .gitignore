@@ -4,6 +4,8 @@ data
 csvs_[0-9]*
 user_creds
 build
+catboost_info
+OLD_modeling_and_eda
 
 # files
 Jenk_ref
