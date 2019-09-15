@@ -6,6 +6,7 @@ user_creds
 build
 catboost_info
 OLD_modeling_and_eda
+models
 
 # files
 Jenk_ref

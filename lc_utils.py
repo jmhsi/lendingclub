@@ -13,7 +13,8 @@ def gen_datasets(today: str,
                  oldest: Optional[str] = None,
                  valid_end: Optional[str] = None,
                  verbose: bool = False,
-                 impute: bool = False) -> Tuple:
+                 impute: bool = False,) -> Tuple:
+    #                 old_and_done: bool = False
     '''
     makes train_x, train_y, valid_x, valid_y, train_ids, valid_ids
     
@@ -21,13 +22,22 @@ def gen_datasets(today: str,
     Args:
         today: string, marks the date. Training data is loans issued btwn @oldest until @today that have
             an end_d < @today
-        valid_start: string, date to start validation set from. Must be 
+        valid_start: string, date to start validation set from. Must be greater than today and not the same year and month
+        base_loan_info: the pandas dataframe of loan info (e.g. X)
+        eval_loan_info: the pandas dataframe of target, other eval metrics (e.g. one or more of the columns is y)
+        target: define the target column from eval_loan_info
+        doneness: maturity time or maturity paid (or stat_adj versions) must be >= than this number
+        stat_adj: True or False, choosing whether to use status adjusted values. Default is True
+        oldest: Will not use loans that were issued before this date
+        valid_end: Will not include loans greater than this date in the validation set
+        verbose: for hyperlearn impute. Should be moved outside of this function
+        impute: for hyperlearn impute. Should be moved outside of this function
     '''
     
     done_statuses = ['paid', 'charged_off', 'defaulted']
     today = pd.to_datetime(today)
     valid_start = pd.to_datetime(valid_start)
-    assert (today < valid_start - pd.to_timedelta(valid_start.day-1, unit='d')),'valid_start must be earlier than today and not the same year and month'
+    assert (today < valid_start - pd.to_timedelta(valid_start.day-1, unit='d')),'valid_start must be greater than today and not the same year and month'
     
     # cut loans to required doneness
     if stat_adj:
