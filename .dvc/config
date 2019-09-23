@@ -1,5 +1,5 @@
 
 ['remote "myremote"']
-url = /home/justin/dvc-storage
+url = /media/justin/WD My Passp/remote/lendingclub
 [core]
 remote = myremote
