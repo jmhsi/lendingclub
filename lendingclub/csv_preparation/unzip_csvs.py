@@ -4,16 +4,17 @@ import logging
 import pathlib
 import shutil
 import subprocess
-sys.path.append(os.path.join(os.path.expanduser('~'), 'projects'))
-sys.path.append(os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub'))
-import lendingclub.scripts.csv_dl_archiving.download_prep as dp
+from lendingclub.csv_dl_archiving import download_prep as dp
+from lendingclub import config
+# sys.path.append(os.path.join(os.path.expanduser('~'), 'projects'))
+# sys.path.append(os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub'))
+# import lendingclub.scripts.csv_dl_archiving.download_prep as dp
 
-dpath = os.path.join(os.path.expanduser('~'), 'projects/lendingclub/data/csvs')
-latest_csvs = os.path.join(dpath, 'latest_csvs')
+latest_csvs = config.wrk_csv_dir
 if os.path.exists(latest_csvs):
     shutil.rmtree(latest_csvs)
 os.makedirs(latest_csvs)
-csv_path = dp.get_sorted_creationtime_dirs(os.path.join(dpath, 'archived_csvs'))[-1][1] # get last, path portion of tuple
+csv_path = dp.get_sorted_creationtime_dirs(config.arch_dir)[-1][1] # get last, path portion of tuple
 zip_files = pathlib.Path(csv_path).rglob("*.zip")
 
 while True:

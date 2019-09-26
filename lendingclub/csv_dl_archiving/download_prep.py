@@ -5,15 +5,32 @@ import sys
 import subprocess
 import time
 from stat import S_ISDIR, ST_CTIME, ST_MODE
+import stat
 from shutil import copytree, rmtree
 import pause
 from selenium.webdriver import Chrome
 from selenium.webdriver.chrome import webdriver as chrome_webdriver
 from selenium.webdriver.support.ui import Select
+from datetime import datetime
+from lendingclub import config
 
-# # relative import to grab user_creds
-sys.path.append(os.path.join(os.path.expanduser('~'),'projects'))
-import lendingclub.user_creds.account_info as acc_info
+
+# import to grab user_creds
+sys.path.append(config.prj_dir)
+import user_creds.account_info as acc_info
+
+"""
+This module contains functions that assist in downloading and archiving csvs from
+lendingclub (loan info and payment history). Selenium is used to download the files.
+Other helper functions take care of comparing to any previously downloaded csvs
+and archiving when necessary.
+
+TODOS:
+selenium can sometimes go too fast and miss some of the download options
+I currently get around this by explicitly pausing for 2 seconds near the
+problem areas, but should probably create a function to check downloading csvs
+with all options in dropdown list.
+"""
 
 class DriverBuilder():
     # https://stackoverflow.com/questions/45631715/downloading-with-chrome-headless-and-selenium
@@ -66,96 +83,121 @@ class DriverBuilder():
         for key in command_result:
             print("result:" + key + ":" + str(command_result[key]))
 
+
 def download_csvs(download_path):
     '''
     downloads all loan_info csvs and pmt_history csv
     '''
     print('downloading csvs to {0}'.format(os.path.abspath(download_path)))
-    
-    # setup constants
-    email = acc_info.email_throwaway
-    password = acc_info.password_throwaway
-    url_dl = "https://www.lendingclub.com/info/download-data.action"
-    url_signin = "https://www.lendingclub.com/auth/login"
-    url_pmt_hist = "https://www.lendingclub.com/site/additional-statistics"
 
-    d_builder = DriverBuilder()
-    driver = d_builder.get_driver(
-        download_location=download_path, headless=True)
-    
-    # sign in
-    driver.get(url_signin)
-    email_box = driver.find_element_by_xpath(
-        '/html/body/div[2]/div[1]/div[2]/form[1]/label[1]/input')
-    password_box = driver.find_element_by_xpath(
-        '/html/body/div[2]/div[1]/div[2]/form[1]/label[2]/input')
+    try:
+        # setup constants
+        email = acc_info.email_throwaway
+        password = acc_info.password_throwaway
+        url_dl = "https://www.lendingclub.com/info/download-data.action"
+        url_signin = "https://www.lendingclub.com/auth/login"
+        url_pmt_hist = "https://www.lendingclub.com/site/additional-statistics"
 
-    pause.milliseconds(1000)
-    email_box.send_keys(email)
-    password_box.send_keys(password)
+        d_builder = DriverBuilder()
+        driver = d_builder.get_driver(
+            download_location=download_path, headless=True)
 
-    button = driver.find_element_by_xpath(
-        '/html/body/div[2]/div[1]/div[2]/form[1]/button')
-    button.click()
-    pause.milliseconds(3000)
+        # sign in
+        driver.get(url_signin)
+        pause.milliseconds(3000)
+        email_box = driver.find_element_by_name('email')
+        password_box = driver.find_element_by_name('password')
+        # password_box = driver.find_element_by_xpath(
+        #     '/html/body/div[2]/div[1]/div[2]/form[1]/label[2]/input')
 
-    # download loan_info
-    driver.get(url_dl)
-    download_btn = driver.find_element_by_xpath(
-        '//*[@id="currentLoanStatsFileName"]')
+        pause.milliseconds(1000)
+        email_box.send_keys(email)
+        password_box.send_keys(password)
 
-    select = driver.find_element_by_xpath(
-        '//*[@id="loanStatsDropdown"]')  # get the select element
-    options = select.find_elements_by_tag_name(
-        "option")  # get all the options into a list
+        # button = driver.find_element_by_xpath(
+        #     '/html/body/div[2]/div[1]/div[2]/form[1]/button')
+        button = driver.find_element_by_class_name('form-button--submit')
+        button.click()
+        pause.milliseconds(3000)
 
-    options_dict = {}
-    for option in options:  # iterate over the options, place attribute value in list
-        options_dict[option.get_attribute("value")] = option.text
-
-    for opt_val, text in options_dict.items():
-        print("starting download on option {0}, {1}".format(opt_val, text))
+        # download loan_info
+        driver.get(url_dl)
+        # download_btn = driver.find_element_by_xpath(
+        #     '//*[@id="currentLoanStatsFileName"]')
+        download_btn = driver.find_element_by_id('currentLoanStatsFileNameHandler')
 
         select = driver.find_element_by_xpath(
-            '//*[@id="loanStatsDropdown"]')
-        selection = Select(select)
-        selection.select_by_value(opt_val)
-        download_btn.click()
-        pause.milliseconds(2000)
+            '//*[@id="loanStatsDropdown"]')  # get the select element
+        options = select.find_elements_by_tag_name(
+            "option")  # get all the options into a list
 
-    # payment history downloads
-    driver.get(url_pmt_hist)
+        options_dict = {}
+        for option in options:  # iterate over the options, place attribute value in list
+            options_dict[option.get_attribute("value")] = option.text
 
-    pmt_history = driver.find_element_by_xpath(
-        '/html/body/div[2]/section/div[2]/div/p[2]/a[2]')
-    pmt_history.click()
+        for opt_val, text in options_dict.items():
+            print("starting download on option {0}, {1}".format(opt_val, text))
 
-    # wait for all downloads to finish
-    while True:
-        if len(os.listdir(download_path)) != (
-                len(options_dict) + 1):  # +1 for one pmt history file
-            time.sleep(5)
-            print('waiting for all csv downloads to start')
-            continue
-        else:
-            files = os.listdir(download_path)
-            k = 0
-            time.sleep(5)
-            print('checking/waiting for all csv downloads to finish')
-            for filename in files:
-                if 'crdownload' in filename:
-                    print('{0} is still downloading'.format(filename))
-                    time.sleep(30)
-                else:
-                    k += 1
-    #                 print(k)
-            if k == len(files):
-                time.sleep(2)
-                break
+            select = driver.find_element_by_xpath(
+                '//*[@id="loanStatsDropdown"]')
+            # print('found the select dropdown')
+            selection = Select(select)
+            selection.select_by_value(opt_val)
+            # print('set selection to option value {0}: {1}'.format(opt_val, text))
+            download_btn.click()
+            pause.milliseconds(2000)
+            # print('got to click download btn')
+            # now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+            # driver.get_screenshot_as_file('screenshot-%s.png'%now)
+            # setup to workaround the center-block button:
+            try:
+                blocking_btn = driver.find_element_by_class_name('center-block')
+                blocking_btn.click()
+                close_btn = driver.find_element_by_class_name('close')
+                close_btn.click()
+                # print('got through blocking data disclaimer')
+            except:
+                # print('did not get through blocking data disclaimer')
+                pass
+            pause.milliseconds(2000)
 
-    print('done downloading')
-    driver.close()
-    return True
+        # payment history downloads
+        driver.get(url_pmt_hist)
+
+        pmt_history = driver.find_element_by_xpath(
+            '/html/body/div[2]/section/div[2]/div/p[2]/a[2]')
+        pmt_history.click()
+
+        # wait for all downloads to finish
+        while True:
+            if len(os.listdir(download_path)) != (
+                    len(options_dict) + 1):  # +1 for one pmt history file
+                time.sleep(5)
+                print('waiting for all csv downloads to start')
+                continue
+            else:
+                files = os.listdir(download_path)
+                k = 0
+                time.sleep(5)
+                print('checking/waiting for all csv downloads to finish')
+                for filename in files:
+                    if 'crdownload' in filename:
+                        print('{0} is still downloading'.format(filename))
+                        time.sleep(30)
+                    else:
+                        k += 1
+                        #                 print(k)
+                if k == len(files):
+                    time.sleep(2)
+                    break
+
+        print('done downloading')
+        driver.close()
+        return True
+    except Exception as e:
+        print(e)
+        now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        driver.get_screenshot_as_file('screenshot-%s.png'%now)
 
 def get_hashes(path):
     '''
@@ -173,6 +215,7 @@ def get_hashes(path):
 def check_file_changes(csv_folders, just_dled_hashes):
     need_to_clean = False
     print('starting to check for file changes comparing what was just downloaded.')
+    print('looking for previous downloads at {0}'.format(csv_folders))
     try:
         previous_dled_hashes = get_hashes(csv_folders[-2][1])
 
@@ -237,6 +280,24 @@ def cleaner(ppath):
     keep_dirs = ['archived_csvs', 'working_csvs', just_dled]
     for tree in os.listdir(ppath):
         if tree not in keep_dirs:
-            rmtree(os.path.join(ppath, tree))
+            rmtree(os.path.join(ppath, tree), onerror=handle_error)
             print('removing old dirs {0}'.format(tree))
+    # if rename_working:
+    #     os.rename(os.path.join(config.csv_dir, just_dled), os.path.join(config.csv_dir, '02_working_csvs'))
     return just_dled
+
+'''
+Error handler function
+It will try to change file permission and call the calling function again,
+From https://thispointer.com/python-how-to-delete-a-directory-recursively-using-shutil-rmtree/
+'''
+def handle_error(func, path, exc_info):
+    print('Handling Error for file ' , path)
+    print(exc_info)
+    # Check if file access issue
+    if not os.access(path, os.W_OK):
+       print('Hello')
+       # Try to change the permision of file
+       os.chmod(path, stat.S_IWUSR)
+       # call the calling function again
+       func(path)

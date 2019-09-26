@@ -2,8 +2,10 @@ from tqdm import tqdm
 import os
 import sys
 import pandas as pd
+from lendingclub import config
+import j_utils.munging as mg
 
-csv_path = os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'data', 'csvs', 'latest_csvs')
+csv_path = config.wrk_csv_dir
 # for now its always been one csv. Will have to revisit if they break it out to multiple
 pmt_hist_fnames = [f for f in os.listdir(csv_path) if 'PMTHIST' in f]
 pmt_hist_path = os.path.join(csv_path, pmt_hist_fnames[0])
@@ -180,10 +182,9 @@ pmt_hist.ix[(pmt_hist['pmt_date'].isnull() & pmt_hist['amt_paid'] > 0),
             'amt_paid'] = 0
 
 # compress memory
-sys.path.append(os.path.join(os.path.expanduser('~'), 'projects'))
-import j_utils.munging as mg
 changed_type_cols, pmt_hist = mg.reduce_memory(pmt_hist)
 
 # save
-dpath = os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'data')
+dpath = config.data_dir
 pmt_hist.to_feather(os.path.join(dpath, 'clean_pmt_history_1.fth'))
+

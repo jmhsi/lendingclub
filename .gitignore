@@ -7,6 +7,7 @@ build
 catboost_info
 OLD_modeling_and_eda
 models
+data_ori
 
 # files
 Jenk_ref
