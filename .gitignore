@@ -8,13 +8,13 @@ catboost_info
 OLD_modeling_and_eda
 models
 data_ori
+*.egg-info
 
 # files
 Jenk_ref
 requirements_bak.txt
 *.c
 *.so
-*.egg-info*
 
 # python stuff
 __pycache__
