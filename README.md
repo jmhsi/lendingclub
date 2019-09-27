@@ -8,6 +8,11 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 2) Investigative models are trained on old done loans and validated on newest of old done loans.
 3) Models used in invest scripts are trained on all available training data.
 
+# Usage:
+Advisable to set up an environment
+After cloning:
+in root dir (lendingclub) with setup.py, run pip install -e .
+
 # Notes to self:
 j_utils is imported and use in several scripts. See repo https://github.com/jmhsi/j_utils
 

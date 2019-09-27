@@ -14,6 +14,7 @@ Jenk_ref
 requirements_bak.txt
 *.c
 *.so
+*.egg-info*
 
 # python stuff
 __pycache__
