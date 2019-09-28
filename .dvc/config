@@ -1,0 +1,4 @@
+['remote "WDPP"']
+url = /media/justin/WD My Passp/remote/lendingclub
+[core]
+remote = WDPP
