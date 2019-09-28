@@ -1,13 +1,9 @@
-state
-lock
-config.local
-updater
-cache
-/lock
 /config.local
 /updater
-/updater.lock
 /state-journal
 /state-wal
 /state
+/lock
+/tmp
+/updater.lock
 /cache

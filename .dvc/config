@@ -1,5 +1,0 @@
-
-['remote "myremote"']
-url = /media/justin/WD My Passp/remote/lendingclub
-[core]
-remote = myremote
