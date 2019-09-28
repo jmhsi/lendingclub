@@ -73,3 +73,4 @@ sensitive_info.txt
 credentials.json
 dataprep_and_modeling
 lc_utils.py
+/data
