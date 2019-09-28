@@ -11,9 +11,9 @@ from lendingclub import config
 # import lendingclub.scripts.csv_dl_archiving.download_prep as dp
 
 latest_csvs = config.wrk_csv_dir
-if os.path.exists(latest_csvs):
-    shutil.rmtree(latest_csvs)
-os.makedirs(latest_csvs)
+# if os.path.exists(latest_csvs):
+#     shutil.rmtree(latest_csvs)
+# os.makedirs(latest_csvs)
 csv_path = dp.get_sorted_creationtime_dirs(config.arch_dir)[-1][1] # get last, path portion of tuple
 zip_files = pathlib.Path(csv_path).rglob("*.zip")
 

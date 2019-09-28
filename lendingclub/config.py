@@ -10,6 +10,7 @@ src_dir = os.path.dirname(fpath)
 prj_dir = os.path.dirname(src_dir)
 data_dir = os.path.join(prj_dir, 'data') 
 csv_dir = os.path.join(data_dir, 'csvs')
+raw_dl_dir = os.path.join(csv_dir, 'raw_zipped_csvs')
 arch_dir = os.path.join(csv_dir, 'archived_csvs')
 wrk_csv_dir = os.path.join(csv_dir, '02_working_csvs')
 

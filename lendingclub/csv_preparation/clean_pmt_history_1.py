@@ -9,8 +9,11 @@ csv_path = config.wrk_csv_dir
 # for now its always been one csv. Will have to revisit if they break it out to multiple
 pmt_hist_fnames = [f for f in os.listdir(csv_path) if 'PMTHIST' in f]
 pmt_hist_path = os.path.join(csv_path, pmt_hist_fnames[0])
-pmt_hist = pd.read_csv(pmt_hist_path, low_memory=False)
+pmt_hist = pd.read_csv(pmt_hist_path,)
 print("{:,}".format(len(pmt_hist)) + " rows of pmt_hist loaded")
+
+# Compress memory
+changed_type_cols, pmt_hist = mg.reduce_memory(pmt_hist)
 
 # Set loan ids as int _____________________________________________________
 pmt_hist['LOAN_ID'] = pmt_hist['LOAN_ID'].astype(int)

@@ -1,0 +1,7 @@
+md5: 298cfeedb9e071e85749bdbe27ab26d0
+outs:
+- md5: bfd3b4181240581677271bd669d11d36.dir
+  path: raw_zipped_csvs
+  cache: true
+  metric: false
+  persist: false

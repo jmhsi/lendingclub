@@ -8,10 +8,21 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 2) Investigative models are trained on old done loans and validated on newest of old done loans.
 3) Models used in invest scripts are trained on all available training data.
 
+# DVC Stuff
+1) when want new raw_csvs: python lendingclub/csv_dl_archiving/01_download_LC_csvs.python
+
+
 # Usage:
 Advisable to set up an environment
 After cloning:
 in root dir (lendingclub) with setup.py, run pip install -e .
+properly setup account_info.py in user_creds (see example)
+
+Run order (all scripts in lendingclub subdir):
+1) python lendingclub/csv_dl_archiving/01_download_and_check_csvs.py
+2) python lendingclub/csv_prepartion/02_unzip_csvs.py 
+3) python
+
 
 # Notes to self:
 j_utils is imported and use in several scripts. See repo https://github.com/jmhsi/j_utils

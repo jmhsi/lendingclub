@@ -276,8 +276,11 @@ def archiver(archive_flag, ppath, archiver_dir=None):
         print('copied {0} to {1}'.format(newest_folder, os.path.abspath(archiver_dir)))
 
 def cleaner(ppath):
+    '''
+    cleans the ppath of every dir except archived_csvs
+    '''
     just_dled = os.path.split(get_sorted_creationtime_dirs(ppath)[-1][1])[1]
-    keep_dirs = ['archived_csvs', 'working_csvs', just_dled]
+    keep_dirs = ['archived_csvs']#, 'working_csvs', just_dled]
     for tree in os.listdir(ppath):
         if tree not in keep_dirs:
             rmtree(os.path.join(ppath, tree), onerror=handle_error)
