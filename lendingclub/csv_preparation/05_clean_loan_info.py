@@ -1,4 +1,3 @@
-
 '''
 maturity time and maturity paid are floats from 0 to 1 that express how "done"
 a loan is either time-wise, or money wise. There are loan-status adjusted versions as well.
@@ -26,16 +25,19 @@ import numpy as np
 import math
 import re
 from tqdm import tqdm_notebook, tqdm
-sys.path.append(os.path.join(os.path.expanduser('~'), 'projects'))
-# sys.path.append(os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'scripts', 'csv_preparation'))
-# print(sys.path)
-# print(os.listdir(os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'scripts', 'csv_preparation')))
 import j_utils.munging as mg
+from lendingclub import config
+sys.path.append('/home/justin/projects/lendingclub/lendingclub/csv_preparation')
 import rem_to_be_paid as rtbp
+import pickle
 
 # load data, turn python Nones into np.nans
-dpath = os.path.join(os.path.expanduser('~'), 'projects', 'lendingclub', 'data')
+dpath = config.data_dir
 loan_info = pd.read_feather(os.path.join(dpath, 'raw_loan_info.fth'))
+# cut loan info to dev set
+with open(os.path.join(config.data_dir, 'dev_ids.pkl'), "rb") as input_file:
+     dev_ids = pickle.load(input_file)
+loan_info = loan_info.query('id in @dev_ids')  
 loan_info.fillna(value=pd.np.nan, inplace=True)
 
 #turn all date columns into pandas timestamp ________________________________
@@ -178,8 +180,8 @@ def applyEndD(status, group):
         never_paid['end_d'] = never_paid['issue_d'] + pd.DateOffset(months=+5)
         has_paid['end_d'] = has_paid['last_pymnt_d'] + pd.DateOffset(months=+5)
 
-        group.ix[never_paid.index.values, 'end_d'] = never_paid['end_d']
-        group.ix[has_paid.index.values, 'end_d'] = has_paid['end_d']
+        group.loc[never_paid.index.values, 'end_d'] = never_paid['end_d']
+        group.loc[has_paid.index.values, 'end_d'] = has_paid['end_d']
         return group['end_d']
     elif status == 'paid':
         return group['last_pymnt_d']
@@ -255,7 +257,7 @@ strings_df['id'] = loan_info['id']
 
 # make target strict, anything that was ever late is marked "bad"
 bad_statuses = set(['late_120', 'defaulted', 'charged_off', 'late_30'])
-pmt_hist = pd.read_feather(os.path.join(dpath, 'clean_pmt_history_3.fth'))
+pmt_hist = pd.read_feather(os.path.join(dpath, 'clean_pmt_history.fth'))
 target_strict_dict = {}
 id_grouped = pmt_hist.groupby('loan_id')
 for ids, group in tqdm(id_grouped):
@@ -312,5 +314,5 @@ _, strings_df = mg.reduce_memory(strings_df)
 strings_df.reset_index(drop=True, inplace=True)
 _, loan_info = mg.reduce_memory(loan_info)
 loan_info.reset_index(drop=True, inplace=True)
-strings_df.to_feather(os.path.join(dpath, 'strings_loan_info_df.fth'))
-loan_info.to_feather(os.path.join(dpath, 'loan_info.fth'))
+strings_df.to_feather(os.path.join(dpath, 'strings_loan_info.fth'))
+loan_info.to_feather(os.path.join(dpath, 'clean_loan_info.fth'))
