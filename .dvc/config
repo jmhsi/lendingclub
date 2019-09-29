@@ -1,0 +1,4 @@
+['remote "myremote"']
+url = /media/justin/WD My Passp/remote/
+[core]
+remote = myremote
