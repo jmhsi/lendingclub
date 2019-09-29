@@ -1,9 +1,11 @@
-md5: a4aa5118e3a8a912befbf9c9b85c91d1
+md5: 8a30c67e8e78576bcfa4dd12d4d4b3d1
 cmd: python lendingclub/csv_preparation/02_unzip_csvs.py
 wdir: ..
 deps:
 - md5: 6ac7b70b3cf837fb38052c03434ed6c6
   path: lendingclub/csv_preparation/02_unzip_csvs.py
+- md5: bfd3b4181240581677271bd669d11d36.dir
+  path: data/csvs/raw_zipped_csvs
 outs:
 - md5: 256fdefd19d89022b8ab654c736bad55.dir
   path: data/csvs/02_working_csvs

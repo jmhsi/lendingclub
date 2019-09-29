@@ -1,0 +1,14 @@
+md5: d6917ca7a0b55bc775121679c4445c7a
+cmd: python lendingclub/csv_preparation/03_merge_loan_info.py
+wdir: ..
+deps:
+- md5: 2d766803995b91bfc358e568a7a5d2c5
+  path: lendingclub/csv_preparation/03_merge_loan_info.py
+- md5: 256fdefd19d89022b8ab654c736bad55.dir
+  path: data/csvs/02_working_csvs
+outs:
+- md5: fb5c14b9f88aee9c41aab8bfa1700a2d
+  path: data/raw_loan_info.fth
+  cache: true
+  metric: false
+  persist: false
