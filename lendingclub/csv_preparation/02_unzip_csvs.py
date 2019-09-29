@@ -1,3 +1,4 @@
+# %load ../../lendingclub/csv_preparation/02_unzip_csvs.py
 import os
 import sys
 import logging
@@ -14,8 +15,8 @@ latest_csvs = config.wrk_csv_dir
 # if os.path.exists(latest_csvs):
 #     shutil.rmtree(latest_csvs)
 # os.makedirs(latest_csvs)
-csv_path = dp.get_sorted_creationtime_dirs(config.arch_dir)[-1][1] # get last, path portion of tuple
-zip_files = pathlib.Path(csv_path).rglob("*.zip")
+#csv_path = dp.get_sorted_creationtime_dirs(config.arch_dir)[-1][1] # get last, path portion of tuple
+zip_files = pathlib.Path(config.raw_dl_dir).rglob("*.zip")
 
 while True:
     try:
@@ -29,8 +30,8 @@ while True:
         extract_dir = pathlib.Path(latest_csvs)
         subprocess.call(['unzip', '-o', path, '-d', extract_dir])
         
-for root, dirs, files in os.walk(latest_csvs):
-    for d in dirs:
-        os.chmod(os.path.join(root, d), 0o777)
-    for f in files:
-        os.chmod(os.path.join(root, f), 0o777)
+# for root, dirs, files in os.walk(latest_csvs):
+#     for d in dirs:
+#         os.chmod(os.path.join(root, d), 0o777)
+#     for f in files:
+#         os.chmod(os.path.join(root, f), 0o777)
