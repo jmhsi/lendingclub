@@ -8,6 +8,9 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 2) Investigative models are trained on old done loans and validated on newest of old done loans.
 3) Models used in invest scripts are trained on all available training data.
 
+# Git Tags
+datav0.0.0 <- model.processingtype.raw_data_csvs? Each redownload of new data, increment rightmost #?
+
 # DVC Stuff
 1) when want new raw_csvs: python lendingclub/csv_dl_archiving/01_download_LC_csvs.python
 
