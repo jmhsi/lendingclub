@@ -8,7 +8,7 @@ catboost_info
 OLD_modeling_and_eda
 models
 #data_ori
-lendingclub.egg-info
+*.egg-info
 
 # files
 Jenk_ref
