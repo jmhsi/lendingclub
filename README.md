@@ -9,11 +9,12 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 3) Models used in invest scripts are trained on all available training data.
 
 # Git Tags
-datav0.0.0 <- model.processingtype.raw_data_csvs? Each redownload of new data, increment rightmost #?
+Various git tags for navigating between datasets and dev/full datasets
+datav0.0.0 <- model/scorer.dataprocessingtype.raw_data_csvs? Each redownload of new data, increment rightmost #?
 
 # DVC Stuff
 1) when want new raw_csvs: python lendingclub/csv_dl_archiving/01_download_LC_csvs.python
-
+ but beware: https://dvc.org/doc/user-guide/update-tracked-file
 
 # Usage:
 Advisable to set up an environment
@@ -25,6 +26,8 @@ Run order (all scripts in lendingclub subdir):
 1) python lendingclub/csv_dl_archiving/01_download_and_check_csvs.py
 2) python lendingclub/csv_prepartion/02_unzip_csvs.py 
 3) python
+Before running clean_loan_info, have to cd to lendingclub/csv_preparation
+python setup.py build_ext. Will make a build dir in cd, copy the .so (unix) or .pyd(windows) to cd
 
 
 # Notes to self:

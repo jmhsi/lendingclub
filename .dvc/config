@@ -2,3 +2,6 @@
 url = /media/justin/WD My Passp/remote/
 [core]
 remote = myremote
+[cache]
+type = "hardlink,symlink"
+protected = true
