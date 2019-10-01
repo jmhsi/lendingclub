@@ -1,6 +1,7 @@
-import time
+'''
+Merges the various loan info csvs
+'''
 import os
-import sys
 import pandas as pd
 from lendingclub import config
 import j_utils.munging as mg

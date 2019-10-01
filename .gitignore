@@ -15,6 +15,9 @@ Jenk_ref
 requirements_bak.txt
 *.c
 *.so
+account_info.py
+credentials.json
+sensitive_info.txt
 
 # python stuff
 __pycache__
@@ -74,3 +77,4 @@ __pycache__
 # dataprep_and_modeling
 # lc_utils.py
 # /data
+possible_removal

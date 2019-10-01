@@ -4,7 +4,7 @@ import re
 import pandas as pd
 import numpy as np
 import datetime as dt
-import lendingclub.user_creds.account_info as acc_info
+import user_creds.account_info as acc_info
 import pause
 # from fastai.imports import *
 # from fastai.structured import *

@@ -1,0 +1,33 @@
+md5: faff8a358eb0043959b148bef42f8b53
+cmd: python lendingclub/data_and_eval_preparation/06_data_and_eval_preparation.py
+wdir: ..
+deps:
+- md5: 36c628623112e1549e43165fd0dcbafa
+  path: lendingclub/data_and_eval_preparation/06_data_and_eval_preparation.py
+- md5: af891b8a061aac28a0caed7d25b7fd4f
+  path: data/clean_loan_info.fth
+- md5: 57d56a69a12f01e49bc72d0e971e35bc
+  path: data/clean_pmt_history.fth
+- md5: 1ffec11f11698af4872d3bc94919b5ac
+  path: data/strings_loan_info.fth
+outs:
+- md5: 4152d9d8ebdd6573d91e1bb760518369
+  path: data/clean_loan_info_api_name_matched.fth
+  cache: true
+  metric: false
+  persist: false
+- md5: 0681eebb9ca17c34499eab42707c0c5f
+  path: data/base_loan_info.fth
+  cache: true
+  metric: false
+  persist: false
+- md5: baca5e31fd2ae2c7b7c05f3a8ed885fa
+  path: data/scaled_pmt_hist.fth
+  cache: true
+  metric: false
+  persist: false
+- md5: b76fb1e0c2c9d28af7e51d1da0f184f4
+  path: data/eval_loan_info.fth
+  cache: true
+  metric: false
+  persist: false

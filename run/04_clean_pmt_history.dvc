@@ -1,13 +1,15 @@
-md5: 5e35ac20de30f00907158579f7c92f00
+md5: 0aba8898b31e56114405c580e8c2009f
 cmd: python lendingclub/csv_preparation/04_clean_pmt_history.py
 wdir: ..
 deps:
-- md5: 2a2482440bcfa99423465098f119f51a
+- md5: d2338ee2f1bcfca4f3001ef5677ff514
   path: lendingclub/csv_preparation/04_clean_pmt_history.py
-- md5: fb5c14b9f88aee9c41aab8bfa1700a2d
-  path: data/raw_loan_info.fth
+- md5: 256fdefd19d89022b8ab654c736bad55.dir
+  path: data/csvs/02_working_csvs
+- md5: ff2f2c48296a6163fee362cdb0b8aae7
+  path: data/dev_ids.pkl
 outs:
-- md5: 2f3d553c54d37e07e1f295c4ceebeb7c
+- md5: 57d56a69a12f01e49bc72d0e971e35bc
   path: data/clean_pmt_history.fth
   cache: true
   metric: false
