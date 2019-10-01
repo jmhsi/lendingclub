@@ -1,0 +1,19 @@
+md5: 02e8914c9a97e51cb1ec19dd126d8881
+cmd: python lendingclub/csv_dl_archiving/01_download_LC_csvs.py
+wdir: ..
+deps:
+- md5: 1f4747f7a0f94e6fed5285d29f5f8811
+  path: lendingclub/csv_dl_archiving/01_download_LC_csvs.py
+- md5: 0905242f7292bc55b5585025ca7b3c14
+  path: lendingclub/csv_dl_archiving/download_prep.py
+outs:
+- md5: bfd3b4181240581677271bd669d11d36.dir
+  path: data/csvs/raw_zipped_csvs
+  cache: true
+  metric: false
+  persist: false
+- md5: 51636b6740bd9f733b55ab1cdf0dc370.dir
+  path: data/csvs/archived_csvs
+  cache: true
+  metric: false
+  persist: false

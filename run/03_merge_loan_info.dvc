@@ -1,8 +1,8 @@
-md5: d6917ca7a0b55bc775121679c4445c7a
+md5: b9fed9ed0d94a9a45bcb5e62e79a3a8a
 cmd: python lendingclub/csv_preparation/03_merge_loan_info.py
 wdir: ..
 deps:
-- md5: 2d766803995b91bfc358e568a7a5d2c5
+- md5: 93167fccb7299a0d683bd07d6b7feeaf
   path: lendingclub/csv_preparation/03_merge_loan_info.py
 - md5: 256fdefd19d89022b8ab654c736bad55.dir
   path: data/csvs/02_working_csvs

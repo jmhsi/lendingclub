@@ -3,41 +3,58 @@ maturity time and maturity paid are floats from 0 to 1 that express how "done"
 a loan is either time-wise, or money wise. There are loan-status adjusted versions as well.
 I use these because I want to include as much data for my models as possible while recognizing that
 there is uncertainty in knowing whether a loan was good or bad if it is ongoing.
+For example, if a loan is 120 days late, we know that loan is likely a very bad
 
-For example, if a loan is 120 days late, we know that loan is likely a very bad investment that our model should not be choosing. Is it possible that the loan all of a sudden becomes current and you get a massive return due to accumulated late fees? Yes, but not likely. In any case, I would rather incorporate that likely-to-be-bad loan into the model now instead of wait 2-ish months for that loan to truly go through the charged-off process.
+investment that our model should not be choosing. Is it possible that the
+loan all of a sudden becomes current and you get a massive return due to
+accumulated late fees? Yes, but not likely. In any case, I would rather
+incorporate that likely-to-be-bad loan into the model now instead of wait
+2-ish months for that loan to truly go through the charged-off process.
 
-maturity_time is how close to original maturity the loan is, regardless of how much the loan has paid back and/or followed the expected payment schedule.
+maturity_time is how close to original maturity the loan is, regardless of how
+much the loan has paid back and/or followed the expected payment schedule.
 maturity_paid is how close the loan is to completing all its payments (
-total_payments_received/(total_expected_payments at point in time, with adjustments for lateness))
+total_payments_received/(total_expected_payments at point in time,
+with adjustments for lateness))
 
-status adjusted are adjusting the maturity calculations knowing that if the loan does go the charge-off route, it has x months left or will recover .1 percent of remaining outstanding principal on avg.
+status adjusted are adjusting the maturity calculations knowing that if the
+loan does go the charge-off route, it has x months left or will recover .1
+percent of remaining outstanding principal on avg.
 
 Some examples of loans:
-1) A loan is issued last month and almost pays off all the outstanding principal this month (maybe a borrower found better loan terms elsewhere, and took out that new loan to almost completely pay down the ) would have maturity_time near 0 and maturity_paid near 1
-2) A 3 year loan that is 8 months in and is 120 days late has a low maturity_time and fairly high maturity_paid, as there is an adjustment for denominator (aside form what was already paid to date by the loan, only expecting a 10% recovery on remaining outstanding principal)
+1) A loan is issued last month and almost pays off all the outstanding
+principal this month (maybe a borrower found better loan terms elsewhere,
+and took out that new loan to almost completely pay down the ) would have
+maturity_time near 0 and maturity_paid near 1
+2) A 3 year loan that is 8 months in and is 120 days late has a low
+maturity_time and fairly high maturity_paid, as there is an adjustment for
+denominator (aside form what was already paid to date by the loan,
+only expecting a 10% recovery on remaining outstanding principal)
 '''
 
-import sys
 import os
+import pickle
+import re
+import sys
+
+import numpy as np
 import pandas as pd
 from pandas.api.types import is_string_dtype
-import numpy as np
-import math
-import re
-from tqdm import tqdm_notebook, tqdm
+from tqdm import tqdm
+
 import j_utils.munging as mg
-from lendingclub import config
-sys.path.append('/home/justin/projects/lendingclub/lendingclub/csv_preparation')
 import rem_to_be_paid as rtbp
-import pickle
+from lendingclub import config
+
+sys.path.append('/home/justin/projects/lendingclub/lendingclub/csv_preparation')
 
 # load data, turn python Nones into np.nans
 dpath = config.data_dir
 loan_info = pd.read_feather(os.path.join(dpath, 'raw_loan_info.fth'))
 # cut loan info to dev set
 with open(os.path.join(config.data_dir, 'dev_ids.pkl'), "rb") as input_file:
-     dev_ids = pickle.load(input_file)
-loan_info = loan_info.query('id in @dev_ids')  
+    dev_ids = pickle.load(input_file)
+loan_info = loan_info.query('id in @dev_ids')
 loan_info.fillna(value=pd.np.nan, inplace=True)
 
 #turn all date columns into pandas timestamp ________________________________
@@ -69,11 +86,11 @@ for col in date_cols:
         loan_info[col].str[:3].str.lower().replace(month_dict) +
         loan_info[col].str[3:],
         format='%m-%Y')
-    
+
 # Cleanups ___________________________________________________________________
 # int_rate
 loan_info['int_rate'] = loan_info['int_rate'] / 100
-# installment funded 
+# installment funded
 rename_dict = {'installment': 'installment_currently'}
 loan_info.rename(rename_dict, inplace=True, axis=1)
 # emp_title
@@ -150,29 +167,37 @@ pct_cols = []
 for col in loan_info.columns:
     if any(x in col for x in ['pct', 'percent', 'util', 'dti', 'rate']):
         pct_cols.append(col)
-        
+
 for col in pct_cols:
     if loan_info[col].mean() > 1:
-        print('this col needs to be turned into a decimal form of percent: ',col)
+        print('this col needs to be turned into a decimal form of percent: ', col)
     if loan_info[col].median() > 1:
-        print('this col needs to be turned into a decimal form of percent: ',col)
-        
-# Adding columns of interest _________________________________________________        
+        print('this col needs to be turned into a decimal form of percent: ', col)
+
+# Adding columns of interest _________________________________________________
 # unreceived principal, not overwriting out_prncp
 loan_info['unreceived_prncp'] = loan_info['funded_amnt'] - loan_info['total_rec_prncp']
-loan_info['unreceived_prncp'] = np.where(loan_info['unreceived_prncp'] <= 0.019, 0, loan_info['unreceived_prncp'])
+loan_info['unreceived_prncp'] = np.where(loan_info['unreceived_prncp'] <= 0.019,
+                                         0, loan_info['unreceived_prncp'])
 loan_info['unreceived_prncp'] = loan_info['unreceived_prncp'].round(2)
 
 # want to calculate what installment originally was
-loan_info['installment_at_funded'] = np.pmt(loan_info['int_rate']/12, loan_info['term'], -loan_info['funded_amnt'])
+loan_info['installment_at_funded'] = np.pmt(
+    loan_info['int_rate']/12, loan_info['term'], -loan_info['funded_amnt'])
+
 
 # have a max_date for reference in making end_d
 max_date = loan_info['last_pymnt_d'].max()
 
 # end_d to me means the date we can stop tracking things about the loan. Should be defunct
-def applyEndD(status, group):
+def apply_end_d(status, group):
+    '''
+    based on last known payment from loan_info, figure out end_d based on
+    status
+    '''
     if status == 'charged_off':
-        #split the group into two groups, one which has paid something, and other which has paid nothing
+        #split the group into two groups, one which has paid something,
+        #and other which has paid nothing
         never_paid = group[group['last_pymnt_d'].isnull()]
         has_paid = group[group['last_pymnt_d'].notnull()]
 
@@ -185,30 +210,31 @@ def applyEndD(status, group):
         return group['end_d']
     elif status == 'paid':
         return group['last_pymnt_d']
-    else:
-        return pd.Series([max_date] * len(group), index=group.index.values)
-    
+    return pd.Series([max_date] * len(group), index=group.index.values)
+
 # make end_d
 status_grouped = loan_info.groupby('loan_status')
 end_d_series = pd.Series([])
 for status, group in status_grouped:
     end_d_series = end_d_series.append(
-        applyEndD(status, group), verify_integrity=True)
+        apply_end_d(status, group), verify_integrity=True)
 loan_info['end_d'] = end_d_series
 loan_info.loc[loan_info['end_d'] > max_date, 'end_d'] = max_date
 
 # adding line_history in days, months, and years using pandas .dt functions
 loan_info['line_history_d'] = (loan_info['issue_d'] - loan_info['earliest_cr_line']).dt.days
-loan_info['line_history_m'] = (loan_info['issue_d'].dt.year - loan_info['earliest_cr_line'].dt.year)*12 + (loan_info['issue_d'].dt.month - loan_info['earliest_cr_line'].dt.month)
-loan_info['line_history_y'] = (loan_info['issue_d'].dt.year - loan_info['earliest_cr_line'].dt.year) + (loan_info['issue_d'].dt.month - loan_info['earliest_cr_line'].dt.month)/12
+loan_info['line_history_m'] = (
+    loan_info['issue_d'].dt.year - loan_info['earliest_cr_line'].dt.year)*12 + (
+        loan_info['issue_d'].dt.month - loan_info['earliest_cr_line'].dt.month)
+loan_info['line_history_y'] = (
+    loan_info['issue_d'].dt.year - loan_info['earliest_cr_line'].dt.year) + (
+        loan_info['issue_d'].dt.month - loan_info['earliest_cr_line'].dt.month)/12
 #credit_score
 loan_info['fico'] = (
     loan_info['fico_range_high'] + loan_info['fico_range_low']) / 2
 
 # maturity_time
-loan_info['months_passed'] = ((
-    max_date - loan_info['issue_d']).dt.days *
-                            (12 / 365.25)).round()
+loan_info['months_passed'] = ((max_date - loan_info['issue_d']).dt.days * (12 / 365.25)).round()
 loan_info['maturity_time'] = loan_info['months_passed'] / loan_info['term']
 loan_info['maturity_time'] = np.where(loan_info['maturity_time'] >= 1, 1,
                                       loan_info['maturity_time'])
@@ -222,17 +248,17 @@ loan_info['maturity_paid'] = loan_info['total_pymnt'] / (
     loan_info['total_pymnt'] + loan_info['rem_to_be_paid'])
 
 # making status adjusted versions of mat_time, mat_paid
-# grace = 35%, late_30 = 64%, late_120 = 98%, 
+# grace = 35%, late_30 = 64%, late_120 = 98%,
 # See https://www.lendingclub.com/info/demand-and-credit-profile.action for %s used
-# maturity_time_stat_adj = 
+# maturity_time_stat_adj =
 # maturity_time * prob_not_def + months_passed/months_to_default * prob_def
-loan_info['maturity_time_stat_adj'] = np.where(loan_info['loan_status'] == 'grace_15', loan_info['maturity_time']*(1-.35) + ((loan_info['months_passed']/(loan_info['months_passed'] + 4))*.35), 
+loan_info['maturity_time_stat_adj'] = np.where(loan_info['loan_status'] == 'grace_15',
+    loan_info['maturity_time']*(1-.35) + ((loan_info['months_passed']/(loan_info['months_passed'] + 4))*.35), 
         np.where(loan_info['loan_status'] == 'late_30', loan_info['maturity_time']*(1-.64) + ((loan_info['months_passed']/(loan_info['months_passed'] + 3))*.64), 
-        np.where(loan_info['loan_status'] == 'late_120', loan_info['maturity_time']*(1-.98) + ((loan_info['months_passed']/(loan_info['months_passed'] + 1))*.98), loan_info['maturity_time']
-        )))
+        np.where(loan_info['loan_status'] == 'late_120', loan_info['maturity_time']*(1-.98) + ((loan_info['months_passed']/(loan_info['months_passed'] + 1))*.98), loan_info['maturity_time'])))
 loan_info['maturity_time_stat_adj'] = np.minimum(1, loan_info['maturity_time_stat_adj'])
 
-# maturity_paid_stat_adj = 
+# maturity_paid_stat_adj =
 # maturity_paid * prob_not_def + total_paid/total_paid_and_outstanding * prob_def
 # .1 is from assuming 10% recovery on defaulted/charged_off loans
 loan_info['maturity_paid_stat_adj'] = np.where(loan_info['loan_status'] == 'grace_15', loan_info['maturity_paid']*(1-.35) + ((loan_info['total_pymnt']/(loan_info['total_pymnt'] + .1*loan_info['unreceived_prncp']))*.35), 
@@ -242,11 +268,15 @@ loan_info['maturity_paid_stat_adj'] = np.where(loan_info['loan_status'] == 'grac
 loan_info['maturity_paid_stat_adj'] = np.minimum(1, loan_info['maturity_paid_stat_adj'])
 
 # final adjustments to status_adj based on done statuses
-loan_info.loc[loan_info['loan_status'].isin(['paid', 'charged_off', 'defaulted']),'maturity_paid_stat_adj'] = 1
-loan_info.loc[loan_info['loan_status'].isin(['paid', 'charged_off', 'defaulted']),'maturity_time_stat_adj'] = 1
+loan_info.loc[loan_info['loan_status'].isin(['paid', 'charged_off', 'defaulted']),
+              'maturity_paid_stat_adj'] = 1
+loan_info.loc[loan_info['loan_status'].isin(['paid', 'charged_off', 'defaulted']),
+              'maturity_time_stat_adj'] = 1
 
 # target_loose
-loan_info['target_loose'] = np.where(loan_info['loan_status'].isin(['charged_off', 'defaulted']), 1, 0)
+loan_info['target_loose'] = np.where(
+    loan_info['loan_status'].isin(['charged_off', 'defaulted']), 1, 0)
+
 
 # pull out long string columns
 str_cols = loan_info.select_dtypes('object').columns
@@ -275,11 +305,14 @@ loan_info = pd.merge(loan_info, target_strict, how='outer', on='id')
 loan_info['orig_amt_due'] = loan_info['term'] * loan_info['installment_at_funded']
 loan_info['roi_simple'] = loan_info['total_pymnt']/loan_info['funded_amnt']
 
+
 # More Data Cleanup __________________________________________________________
 # home_ownership: none should be other
 loan_info['home_ownership'].replace({'none': 'other'}, inplace=True)
 # annual_income has 4 nulls. Just fill with 0
 loan_info['annual_inc'].replace({np.nan: 0.0}, inplace=True)
+
+
 # drop the one null zip_code
 loan_info = loan_info[loan_info['zip_code'].notnull()]
 # drop the loans where earliest_cr_line is null
@@ -291,20 +324,22 @@ loan_info = loan_info[loan_info['tax_liens'].notnull()]
 # drop loans that have this null
 loan_info = loan_info[loan_info['inq_last_6mths'].notnull()]
 
+# !!!!!!!!!!!!!!!!!!!!!!!!
+print(loan_info.shape)
+
 # Drop columns _______________________________________________________________
 # Dropping these since I don't want them and they might confuse me.
 # There is no reason why I care about money that went just to investors rather
 # than to lending club as well when they top off loans.
-loan_info.drop(['funded_amnt_inv',
-                'out_prncp_inv'], axis = 1, inplace = True)
+loan_info.drop(['funded_amnt_inv', 'out_prncp_inv'], axis=1, inplace=True)
 
 # last cleanups before storing
-# if column type is string and has np.nan (a float), turn the nan into "None" for the graphing eda notebook in 
-# Exploratory Data Analysis
+# if column type is string and has np.nan (a float), turn the nan into "None"
+# for the graphing eda notebook in Exploratory Data Analysis
 for col in loan_info.columns:
     if is_string_dtype(loan_info[col].dtype) & (loan_info[col].isnull().sum() > 0):
         loan_info[col] = loan_info[col].fillna('None')
-        
+
 for col in strings_df.columns:
     if is_string_dtype(strings_df[col].dtype) & (strings_df[col].isnull().sum() > 0):
         strings_df[col] = strings_df[col].fillna('None')

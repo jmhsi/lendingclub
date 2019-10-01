@@ -1,28 +1,37 @@
+'''
+Reads in payment history, does lots of cleaning
+'''
+import os
+import pickle
+import sys
+
+import numpy as np
+import pandas as pd
 # %load ../../lendingclub/csv_preparation/clean_pmt_history_1.py
 from tqdm import tqdm
-import os
-import sys
-import pandas as pd
-import numpy as np
-from lendingclub import config
+
 import j_utils.munging as mg
-import pickle
+from lendingclub import config
+
 
 def find_dupe_dates(group):
+    '''finds duplicated dates in groupby group'''
     return pd.to_datetime(group[group.duplicated('date')]['date'].values)
 
 def merge_dupe_dates(group):
+    '''
+    Merges the releveant numeric columns in loans that have 2 entries
+    for same month
+    '''
     df_chunks = []
-    
     dupe_dates = find_dupe_dates(group)
     df_chunks.append(group[~group['date'].isin(dupe_dates)])
-    
     for date in dupe_dates:
         problem_rows = group[group['date'] == date]
         ori_index = problem_rows.index
         keep_row = problem_rows.iloc[-1].to_dict()
-        keep_row['outs_princp_beg'] = problem_rows.loc[ori_index[0]].iloc[column_iloc_map['outs_princp_beg']]
-        
+        keep_row['outs_princp_beg'] = problem_rows.loc[
+            ori_index[0]].iloc[column_iloc_map['outs_princp_beg']]
         summed = problem_rows.sum()
         keep_row['princp_paid'] = summed['princp_paid']
         keep_row['int_paid'] = summed['int_paid']
@@ -34,14 +43,13 @@ def merge_dupe_dates(group):
         keep_row['recovs'] = summed['recovs']
         keep_row['recov_fees'] = summed['recov_fees']
         keep_row['all_cash_to_inv'] = summed['all_cash_to_inv']
-            
         to_append = pd.DataFrame(keep_row, index=[ori_index[-1]])
         df_chunks.append(to_append)
     return pd.concat(df_chunks)
 
 
 def find_closest_previous_record(ids, issue_d, first_date, actual_months, month):
-    '''This function finds the closest previous month that is in the group. 
+    '''This function finds the closest previous month that is in the group.
     It is here to handle cases where a record of one month is missing, but the
     record before that missing month is also missing.'''
     offset = pd.DateOffset(months=-1)
@@ -51,19 +59,18 @@ def find_closest_previous_record(ids, issue_d, first_date, actual_months, month)
         return first_date
     elif prev_month in actual_months:
         return prev_month
-    else:
-        find_closest_previous_record(ids, issue_d, first_date, actual_months, prev_month)
+    return find_closest_previous_record(ids, issue_d, first_date, actual_months, prev_month)
 
 csv_path = config.wrk_csv_dir
 # for now its always been one csv. Will have to revisit if they break it out to multiple
 pmt_hist_fnames = [f for f in os.listdir(csv_path) if 'PMTHIST' in f]
 if len(pmt_hist_fnames) > 1:
     sys.exit('more than one payment history file')
-    
-# chunking for smaller development set    
+
+# chunking for smaller development set
 print('chunking for smaller dev set')
 with open(os.path.join(config.data_dir, 'dev_ids.pkl'), "rb") as input_file:
-     dev_ids = pickle.load(input_file)
+    dev_ids = pickle.load(input_file)
 
 reader = pd.read_csv(os.path.join(csv_path, pmt_hist_fnames[0]), chunksize=25000000)
 pmt_hist = pd.concat([chunk.query('LOAN_ID in @dev_ids') for chunk in reader])
@@ -231,7 +238,7 @@ pmt_hist['fico_last'] = pmt_hist['fico_last'].replace(fico_last_fix)
 pmt_hist.loc[pmt_hist['fico_last'] != 'MISSING', 'fico_last'] = (
     pmt_hist.loc[pmt_hist['fico_last'] != 'MISSING', 'fico_last'].str[:3]
     .astype(int) + pmt_hist.loc[pmt_hist['fico_last'] != 'MISSING',
-                               'fico_last'].str[4:].astype(int)) / 2
+                                'fico_last'].str[4:].astype(int)) / 2
 pmt_hist.loc[pmt_hist['fico_last'] == 'MISSING', 'fico_last'] = pmt_hist.loc[
     pmt_hist['fico_last'] == 'MISSING', 'fico_apply']
 pmt_hist['fico_last'] = pmt_hist['fico_last'].astype(int)
@@ -242,7 +249,7 @@ pmt_hist['revol_credit_bal'] = pmt_hist['revol_credit_bal'].astype(
 
 # fix on a few bad rows where I think there is a mistaken amt_paid ____________
 pmt_hist.loc[(pmt_hist['pmt_date'].isnull() & pmt_hist['amt_paid'] > 0),
-            'amt_paid'] = 0
+             'amt_paid'] = 0
 
 # compress memory
 changed_type_cols, pmt_hist = mg.reduce_memory(pmt_hist)
@@ -267,8 +274,8 @@ id_grouped = needs_fixing.groupby('loan_id')
 for ids, group in tqdm(id_grouped):
     if ids in dup_date_ids:
         fixed_dfs.append(merge_dupe_dates(group))
-        
-# combine dfs        
+
+# combine dfs
 fixed_df = pd.concat(fixed_dfs)
 pmt_hist = pd.concat([already_good, fixed_df])
 del already_good, fixed_df
@@ -281,27 +288,29 @@ id_grouped = pmt_hist.groupby('loan_id')
 fixed_dfs = []
 fixed_ids = []
 for ids, group in tqdm(id_grouped):
-        # Copy Paste finished below
-        issue_d = group['issue_d'].min()
-        first_date = group['date'].min()
-        last_date = group['date'].max()
-        expected_months = set(pd.DatetimeIndex(start=first_date, end=last_date, freq='MS'))
-        actual_months = set(group['date'])
-        to_make_months = list(expected_months.symmetric_difference(actual_months))
-        to_make_months.sort()
-        if len(to_make_months) > 1:
-            months_to_copy = []
-            for month in to_make_months:
-                months_to_copy.append(find_closest_previous_record(ids, issue_d, first_date, actual_months, month))
-            copied = group[group['date'].isin(months_to_copy)].copy()
-            copied['amt_paid'] = 0.0
-            copied['date'] = to_make_months
-            copied['amt_due'] = np.where(copied['date'] < first_date, 0, copied['amt_due'])
-            fixed_dfs.append(pd.concat([group, copied]))
-            fixed_ids.append(ids)
-        else:
-            pass
-        
+    # Copy Paste finished below
+    issue_d = group['issue_d'].min()
+    first_date = group['date'].min()
+    last_date = group['date'].max()
+    expected_months = set(pd.DatetimeIndex(start=first_date, end=last_date, freq='MS'))
+    actual_months = set(group['date'])
+    to_make_months = list(expected_months.symmetric_difference(actual_months))
+    to_make_months.sort()
+    if len(to_make_months) > 1:
+        months_to_copy = []
+        for month in to_make_months:
+            months_to_copy.append(
+                find_closest_previous_record(
+                    ids, issue_d, first_date, actual_months, month))
+        copied = group[group['date'].isin(months_to_copy)].copy()
+        copied['amt_paid'] = 0.0
+        copied['date'] = to_make_months
+        copied['amt_due'] = np.where(copied['date'] < first_date, 0, copied['amt_due'])
+        fixed_dfs.append(pd.concat([group, copied]))
+        fixed_ids.append(ids)
+    else:
+        pass
+
 # combine the fixed entries with ones that don't need fixing
 already_good = pmt_hist[~pmt_hist['loan_id'].isin(fixed_ids)]
 fixed_df = pd.concat(fixed_dfs)
