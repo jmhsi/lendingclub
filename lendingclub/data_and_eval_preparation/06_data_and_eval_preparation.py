@@ -88,7 +88,7 @@ eval_flds = ['end_d', 'issue_d', 'maturity_paid', 'maturity_time', 'maturity_tim
              'target_loose', 'target_strict', 'loan_status', 'id']
 strb_flds = ['desc', 'emp_title', 'id']
 base_loan_info = loan_info[list(common_flds)]
-eval_loan_info = loan_info[eval_flds]
+eval_loan_info = loan_info[eval_flds + ['grade']]
 str_loan_info = strings[strb_flds]
 
 # SAVE
