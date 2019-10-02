@@ -69,7 +69,7 @@ licsv_to_api_rename_dict = {
     'funded_amnt': 'funded_amount',
     'il_util': 'i_l_util',
     'inq_last_6mths': 'inq_last_6_mths',
-#     'installment_at_funded': 'installment',
+    # 'installment_at_funded': 'installment',
     'verification_status': 'is_inc_v',
     'verification_status_joint': 'is_inc_v_joint',
     'loan_amnt': 'loan_amount',
@@ -84,8 +84,10 @@ loan_info.reset_index(drop=True, inplace=True)
 loan_info.to_feather(os.path.join(dpath, 'clean_loan_info_api_name_matched.fth'))
 
 # split loan info into dataframes for training off of and evaluating__________
-eval_flds = ['end_d', 'issue_d', 'maturity_paid', 'maturity_time', 'maturity_time_stat_adj', 'maturity_paid_stat_adj', 'rem_to_be_paid', 'roi_simple',
-             'target_loose', 'target_strict', 'loan_status', 'id']
+eval_flds = ['end_d', 'issue_d', 'maturity_paid', 'maturity_time',
+             'maturity_time_stat_adj', 'maturity_paid_stat_adj',
+             'rem_to_be_paid', 'roi_simple', 'target_loose',
+             'target_strict', 'loan_status', 'id']
 strb_flds = ['desc', 'emp_title', 'id']
 base_loan_info = loan_info[list(common_flds)]
 eval_loan_info = loan_info[eval_flds + ['grade']]
@@ -118,10 +120,10 @@ id_grouped = pmt_hist.groupby('id', sort=False)
 funded_amts = []
 for ids, group in tqdm(id_grouped):
     funded_amt = loan_funded_amts[ids]
-    funded_amts.extend([funded_amt]*len(group))    
+    funded_amts.extend([funded_amt]*len(group))
 for col in loan_dollar_cols:
     pmt_hist[col] = pmt_hist[col]/funded_amts
-    
+
 
 # make npv_rois (using various discount rates and actual/known cashflows)_____
 interesting_cols_over_time = [
@@ -135,16 +137,16 @@ interesting_cols_over_time = [
 ]
 pmt_hist = pmt_hist[interesting_cols_over_time]
 npv_roi_holder = {}
-disc_rates = np.arange(.05,.36,.01)
+disc_rates = np.arange(.05, .36, .01)
 id_grouped = pmt_hist.groupby('id')
 for ids, group in tqdm(id_grouped):
     npv_roi_dict = {}
-    funded = group.iat[0,0]
+    funded = group.iat[0, 0]
     cfs = [-funded] + group['all_cash_to_inv'].tolist()
     for rate in disc_rates:
         npv_roi_dict[rate] = np.npv(rate/12, cfs)/funded
     npv_roi_holder[ids] = npv_roi_dict
-    
+
 npv_roi_df = pd.DataFrame(npv_roi_holder).T
 npv_roi_df.columns = npv_roi_df.columns.values.round(2)
 npv_roi_df.index.name = 'id'
@@ -157,11 +159,10 @@ eval_loan_info['target_strict'] = eval_loan_info['target_strict'].fillna(0)
 eval_loan_info.fillna(-1, inplace=True)
 
 
-
 # SAVE
 pmt_hist.reset_index(drop=True, inplace=True)
 _, pmt_hist = mg.reduce_memory(pmt_hist)
-pmt_hist.to_feather(os.path.join(dpath,'scaled_pmt_hist.fth'))
+pmt_hist.to_feather(os.path.join(dpath, 'scaled_pmt_hist.fth'))
 
 # SAVE
 # feather must have string column names

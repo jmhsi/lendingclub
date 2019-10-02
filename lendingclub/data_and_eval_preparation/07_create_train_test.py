@@ -1,26 +1,20 @@
+'''
+this makes the train and test sets as well as bootstrapped sets.
+trainable loans are loans that are "done" enough
+'''
 import os
-import pickle
-import sys
 
 import pandas as pd
-import numpy as np
-import seaborn as sns
 # testing
-from pandas.testing import assert_frame_equal
-from tqdm import tqdm
 
-import j_utils.munging as mg
 from lendingclub import config
-from lendingclub.lc_utils import gen_datasets
-
-pd.set_option('display.max_columns', 999)
 
 dpath = config.data_dir
 base_loan_info = pd.read_feather(os.path.join(dpath, 'base_loan_info.fth'))
 eval_loan_info = pd.read_feather(os.path.join(dpath, 'eval_loan_info.fth'))
 pmt_hist = pd.read_feather(os.path.join(dpath, 'scaled_pmt_hist.fth'))
 
-def check_sample_distribution(df, sample, diff_thrsh=.05, check_cols = [], verbose=True):
+def check_sample_distribution(df, sample, diff_thrsh=.05, check_cols=[], verbose=True):
     '''
     check if the distribution of the sample's col and df's col is sufficiently
     close. Default tolerance is 1% difference
@@ -52,32 +46,28 @@ def check_sample_distribution(df, sample, diff_thrsh=.05, check_cols = [], verbo
             big_pct_diff[col] = temp_diff
     if sample_miss or big_pct_diff:
         print("There is a sampling concern")
-        
-def check_not_same_loans(tr, te, to):
-    if len(set(tr['id']).intersection(set(te['id']))) == 0: return True
-    else: return False
-    
+
+def check_not_same_loans(tr, te):
+    return bool(len(set(tr['id']).intersection(set(te['id']))) == 0)
+
 def check_all_loans_accounted(tr, te, to):
-    if tr.shape[0] + te.shape[0] == to.shape[0]: return True
-    else: return False
-    
+    return bool(tr.shape[0] + te.shape[0] == to.shape[0])
+
 def check_same_n_instances(df1, df2):
-    if df1.shape[0] == df2.shape[0]: return True
-    else: return False
-    
+    return bool(df1.shape[0] == df2.shape[0])
+
 def check_same_n_cols(df1, df2):
-    if df1.shape[1] == df2.shape[1]: return True
-    else: return False    
-    
+    return bool(df1.shape[1] == df2.shape[1])
+
 def check_train_test_testable(train, test, testable, train1, test1, testable1):
     '''
     First set for loan_info, second set for eval_loan_info
     '''
     print(train.shape, test.shape, testable.shape, train1.shape, test1.shape, testable1.shape)
-    assert check_not_same_loans(train, test, testable)
-    assert check_all_loans_accounted(train, test , testable)
-    assert check_not_same_loans(train1, test1, testable1)
-    assert check_all_loans_accounted(train1, test1 , testable1)
+    assert check_not_same_loans(train, test)
+    assert check_all_loans_accounted(train, test, testable)
+    assert check_not_same_loans(train1, test1)
+    assert check_all_loans_accounted(train1, test1, testable1)
     assert check_same_n_instances(train, train1)
     assert check_same_n_instances(test, test1)
     assert check_same_n_instances(testable, testable1)
@@ -103,7 +93,7 @@ check_cols = ['target_strict', 'grade']
 for date, group in issue_d_g:
     if date >= pd.to_datetime('2010-1-1'):
         print('sampling {0} for issue_d group {1}'.format(min(int(len(group)*.1), 2000), date))
-        samp = group.sample(n = min(int(len(group)*.1), 2000))
+        samp = group.sample(n=min(int(len(group)*.1), 2000))
         if check_sample_distribution(group, samp, check_cols=check_cols, verbose=False):
             print()
         test_ids.extend(samp['id'].tolist())
@@ -115,13 +105,13 @@ train_eval_loan_info = train_testable_eval_loan_info.query('id not in @test_ids'
 train_loan_info = train_testable_loan_info.query('id not in @test_ids')
 
 if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_testable_eval_loan_info,
-                          train_loan_info, test_loan_info, train_testable_loan_info):
+                             train_loan_info, test_loan_info, train_testable_loan_info):
     # save
     test_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info.fth'))
     test_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_base_loan_info.fth'))
     train_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_eval_loan_info.fth'))
     train_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_base_loan_info.fth'))
-    
+
     # make 10 bootstrap month-by-month test_loan_infos (and maybe test_eval_loan_infos?)
     issue_d_g = test_eval_loan_info.groupby('issue_d')
     for i in range(10):
