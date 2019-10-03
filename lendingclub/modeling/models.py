@@ -34,6 +34,12 @@ class Model():
         self.mpath = os.path.join(self.basempath, self.name)
         self.m = None
         self.df = None
+        self.seed = 42
+        self.prng = np.random.RandomState(self.seed)
+
+    def increment_prng(self):
+        self.seed += 1
+        self.prng = np.random.RandomState(self.seed)
 
     def score(self, df: pd.DataFrame):
         '''
@@ -43,9 +49,10 @@ class Model():
         '''
         # baselines and grades
         if self.name == 'baseline':
-            return np.random.random(len(df))
+            return self.prng.random(len(df))
         elif self.name in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
-            scores = np.random.random(len(df))
+            self.increment_prng()
+            scores = self.prng.random(len(df), )
             mask = np.where(df['grade'] == self.name, 0, 1).astype(bool)
             scores[mask] = 0
             return scores
@@ -125,3 +132,12 @@ class Model():
         norm_dict = load(os.path.join(self.mpath, 'norm_dict.joblib'))
         self.df = mg.val_test_proc(df, all_train_colnames, max_dict, min_dict,
                                    fill_dict, cats_dict, norm_dict)
+        
+def load_scored_df():
+    '''
+    loads the df with all model scores. If it doesn't exist, creates it
+    '''
+    path = os.path.join(config.data_dir, 'scored_eval_loan_info.fth')
+    if os.path.exists(path):
+        return pd.read_feather(path)
+    return pd.read_feather(os.path.join(config.data_dir, 'eval_loan_info.fth'))
