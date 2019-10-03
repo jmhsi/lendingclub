@@ -51,7 +51,7 @@ class Model():
         if self.name == 'baseline':
             return self.prng.random(len(df))
         elif self.name in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
-            self.increment_prng()
+#             self.increment_prng()
             scores = self.prng.random(len(df), )
             mask = np.where(df['grade'] == self.name, 0, 1).astype(bool)
             scores[mask] = 0

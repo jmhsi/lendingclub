@@ -18,6 +18,7 @@ requirements_bak.txt
 account_info.py
 credentials.json
 sensitive_info.txt
+*.fth
 
 # python stuff
 __pycache__
