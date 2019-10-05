@@ -55,6 +55,12 @@ loan_info = pd.read_feather(os.path.join(dpath, 'raw_loan_info.fth'))
 with open(os.path.join(config.data_dir, 'dev_ids.pkl'), "rb") as input_file:
     dev_ids = pickle.load(input_file)
 loan_info = loan_info.query('id in @dev_ids')
+
+# Mangle grade and subgrade to make them useless since their meaning
+# has changed so much over the years (As of 10/4/2019) LC doesn't
+# have E,F,G grades
+loan_info['grade'] = 'Z'
+loan_info['sub_grade'] = 'Z'
 loan_info.fillna(value=pd.np.nan, inplace=True)
 
 #turn all date columns into pandas timestamp ________________________________
