@@ -8,6 +8,9 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 2) Investigative models are trained on old done loans and validated on newest of old done loans.
 3) Models used in invest scripts are trained on all available training data.
 
+# Notes about the csvs/data
+1) Even though LC only issues loasn A1-D5, they still internally have A1 - G3/5 in the loan info. I checked the interest rates and grades with the information at https://www.lendingclub.com/foliofn/rateDetail.action
+
 # Git Tags
 Various git tags for navigating between datasets and dev/full datasets
 datav0.0.0 <- model/scorer.dataprocessingtype.raw_data_csvs? Each redownload of new data, increment rightmost #?
