@@ -24,3 +24,5 @@
 /test_eval_loan_info_9_bootstrap.fth
 /eval_loan_info_scored.fth
 /bootstrap_test_eval_loan_info_ids.pkl
+/train_test_ids.pkl
+/bootstrap_test_ids.pkl

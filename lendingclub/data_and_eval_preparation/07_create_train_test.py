@@ -8,7 +8,7 @@ import pickle
 import pandas as pd
 # testing
 
-from lendingclub import config
+from lendingclub import config, utils
 
 dpath = config.data_dir
 base_loan_info = pd.read_feather(os.path.join(dpath, 'base_loan_info.fth'))
@@ -84,9 +84,11 @@ train_testable_loan_info = base_loan_info.query('id in @train_testable_ids')
 
 assert train_testable_eval_loan_info.shape[0] == train_testable_loan_info.shape[0]
 
-# save loans useable for training and testing
-train_testable_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_testable_eval_loan_info.fth'))
-train_testable_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_testable_base_loan_info.fth'))
+# # save loans useable for training and testing
+# train_testable_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_testable_eval_loan_info.fth'))
+# train_testable_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_testable_base_loan_info.fth'))
+
+
 
 issue_d_g = train_testable_eval_loan_info.groupby('issue_d')
 test_ids = []
@@ -108,10 +110,17 @@ train_loan_info = train_testable_loan_info.query('id not in @test_ids')
 if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_testable_eval_loan_info,
                              train_loan_info, test_loan_info, train_testable_loan_info):
     # save
-    test_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info.fth'))
-    test_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_base_loan_info.fth'))
-    train_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_eval_loan_info.fth'))
-    train_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_base_loan_info.fth'))
+#     test_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info.fth'))
+#     test_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_base_loan_info.fth'))
+#     train_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_eval_loan_info.fth'))
+#     train_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_base_loan_info.fth'))
+    train_test_ids_dict = {}
+    train_test_ids_dict['train_testable'] = train_testable_ids.tolist()
+    train_test_ids_dict['train'] = train_loan_info['id'].tolist()
+    train_test_ids_dict['test'] = test_loan_info['id'].tolist()
+    with open(os.path.join(dpath, 'train_test_ids.pkl'), 'wb') as file:
+        pickle.dump(train_test_ids_dict, file)
+    
 
     # make 10 bootstrap month-by-month test_loan_infos (and maybe test_eval_loan_infos?)
     bootstrap_sample_ids = {}
@@ -124,5 +133,5 @@ if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_te
 #         df.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info_{0}_bootstrap.fth'.format(i)))
         bootstrap_sample_ids[i] = df['id'].tolist()
     
-    with open(os.path.join(dpath, 'bootstrap_test_eval_loan_info_ids.pkl'), 'wb') as file:
+    with open(os.path.join(dpath, 'bootstrap_test_ids.pkl'), 'wb') as file:
         pickle.dump(bootstrap_sample_ids, file)
