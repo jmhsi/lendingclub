@@ -1,4 +1,4 @@
-md5: 6300530c4f37466d28c8a3c6e7118da5
+md5: 87de03db1803505e4ba5b709641b0332
 cmd: python lendingclub/modeling/09_score.py
 wdir: ..
 deps:
@@ -6,6 +6,8 @@ deps:
   path: lendingclub/modeling/09_score.py
 - md5: f1e441a4f3dfe25168be08cb3452a5c4
   path: data/base_loan_info.fth
+- md5: 533bb013eee68d735381582fbd30f1a1
+  path: data/eval_loan_info.fth
 - md5: 68588f87cbaca06a3c9f7858a717fa96.dir
   path: modeling
 outs:
