@@ -3,6 +3,7 @@ this makes the train and test sets as well as bootstrapped sets.
 trainable loans are loans that are "done" enough
 '''
 import os
+import pickle
 
 import pandas as pd
 # testing
@@ -93,7 +94,7 @@ check_cols = ['target_strict', 'grade']
 for date, group in issue_d_g:
     if date >= pd.to_datetime('2010-1-1'):
         print('sampling {0} for issue_d group {1}'.format(min(int(len(group)*.1), 2000), date))
-        samp = group.sample(n=min(int(len(group)*.1), 2000))
+        samp = group.sample(n=min(int(len(group)*.1), 2000), random_state=42)
         if check_sample_distribution(group, samp, check_cols=check_cols, verbose=False):
             print()
         test_ids.extend(samp['id'].tolist())
@@ -113,10 +114,15 @@ if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_te
     train_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_base_loan_info.fth'))
 
     # make 10 bootstrap month-by-month test_loan_infos (and maybe test_eval_loan_infos?)
+    bootstrap_sample_ids = {}
     issue_d_g = test_eval_loan_info.groupby('issue_d')
     for i in range(10):
         to_concat = []
         for d, g in issue_d_g:
             to_concat.append(g.sample(len(g), replace=True))
         df = pd.concat(to_concat)
-        df.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info_{0}_bootstrap.fth'.format(i)))
+#         df.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info_{0}_bootstrap.fth'.format(i)))
+        bootstrap_sample_ids[i] = df['id'].tolist()
+    
+    with open(os.path.join(dpath, 'bootstrap_test_eval_loan_info_ids.pkl'), 'wb') as file:
+        pickle.dump(bootstrap_sample_ids, file)

@@ -1,8 +1,8 @@
-md5: 9fab7f883e38a3935ec39db8290677ca
+md5: 025d03382bb61ca083d705b0b66fb457
 cmd: python lendingclub/data_and_eval_preparation/07_create_train_test.py
 wdir: ..
 deps:
-- md5: 5caac5e8bf803ed1b3707d930cbaaba6
+- md5: 994c5398eb536ff83cc93ba30c99deca
   path: lendingclub/data_and_eval_preparation/07_create_train_test.py
 - md5: f1e441a4f3dfe25168be08cb3452a5c4
   path: data/base_loan_info.fth
@@ -21,73 +21,28 @@ outs:
   cache: true
   metric: false
   persist: false
-- md5: 563b43ef8dd54cddb588b73141418caa
+- md5: 49b7adb029064961d808398204c6c14a
   path: data/test_eval_loan_info.fth
   cache: true
   metric: false
   persist: false
-- md5: 9b0aa1114c754d02ac3a342542c596c4
+- md5: f21c4239b54318c9d02d0566bb15a1d3
   path: data/train_eval_loan_info.fth
   cache: true
   metric: false
   persist: false
-- md5: db0cc3d53486e30cb4e7c0f80f543174
+- md5: b97062aeb85a2b01002cb59d22cb6bd3
   path: data/test_base_loan_info.fth
   cache: true
   metric: false
   persist: false
-- md5: fd5a9921d233ce4fd086d6f826083398
+- md5: a08b0974def7da78d9d01e49d212fffc
   path: data/train_base_loan_info.fth
   cache: true
   metric: false
   persist: false
-- md5: 96cbedef1911955d17e7633fb07b0088
-  path: data/test_eval_loan_info_0_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 6a860e4154be7a7887784a2d24bcd521
-  path: data/test_eval_loan_info_1_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 55653b4c45666706b1d29d280e02f301
-  path: data/test_eval_loan_info_2_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 9bce7e0acd39719c5ef7552c30d87bff
-  path: data/test_eval_loan_info_3_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 2db361b01d5a1fed05cf22e04f487c0b
-  path: data/test_eval_loan_info_4_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: e4f43bca52c1e679229b07f99f5f7c61
-  path: data/test_eval_loan_info_5_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: a2d1f7c2e137f1a63bccfddaa03e2851
-  path: data/test_eval_loan_info_6_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 5b7fdf1e198b2098ac2af7c19d92ec77
-  path: data/test_eval_loan_info_7_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: a0866b5b4ed6533e9e803daad50ecf2c
-  path: data/test_eval_loan_info_8_bootstrap.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 9f7a61822a01f6da37ea015f5e075ee1
-  path: data/test_eval_loan_info_9_bootstrap.fth
+- md5: 6371b5f579272ebebf833cfb2963d5f9
+  path: data/bootstrap_test_eval_loan_info_ids.pkl
   cache: true
   metric: false
   persist: false
