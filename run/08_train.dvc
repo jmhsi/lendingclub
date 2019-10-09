@@ -1,0 +1,14 @@
+md5: 1d9070f5ac72e3247d3d15eed4fce893
+cmd: python lendingclub/modeling/08_train.py
+wdir: ..
+deps:
+- md5: 18d9a98744b531db2691080e43013b1d
+  path: lendingclub/modeling/08_train.py
+- md5: fd5a9921d233ce4fd086d6f826083398
+  path: data/train_base_loan_info.fth
+outs:
+- md5: 68588f87cbaca06a3c9f7858a717fa96.dir
+  path: modeling
+  cache: true
+  metric: false
+  persist: false
