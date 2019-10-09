@@ -1,8 +1,8 @@
-md5: 025d03382bb61ca083d705b0b66fb457
+md5: 6016c35ab4e75d2cd12dd25cde47822d
 cmd: python lendingclub/data_and_eval_preparation/07_create_train_test.py
 wdir: ..
 deps:
-- md5: 994c5398eb536ff83cc93ba30c99deca
+- md5: b52e2a5fb0715c5c158c0f6ad28190d8
   path: lendingclub/data_and_eval_preparation/07_create_train_test.py
 - md5: f1e441a4f3dfe25168be08cb3452a5c4
   path: data/base_loan_info.fth
@@ -11,38 +11,13 @@ deps:
 - md5: 533bb013eee68d735381582fbd30f1a1
   path: data/eval_loan_info.fth
 outs:
-- md5: 4d2bada9170e1af2c9da69cac43bd9ae
-  path: data/train_testable_eval_loan_info.fth
+- md5: 412b02a540cf1ad53bb733eb9416b6b7
+  path: data/train_test_ids.pkl
   cache: true
   metric: false
   persist: false
-- md5: 3a3cbb595adc96b04a06d6d9b5b8f8d4
-  path: data/train_testable_base_loan_info.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 49b7adb029064961d808398204c6c14a
-  path: data/test_eval_loan_info.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: f21c4239b54318c9d02d0566bb15a1d3
-  path: data/train_eval_loan_info.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: b97062aeb85a2b01002cb59d22cb6bd3
-  path: data/test_base_loan_info.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: a08b0974def7da78d9d01e49d212fffc
-  path: data/train_base_loan_info.fth
-  cache: true
-  metric: false
-  persist: false
-- md5: 6371b5f579272ebebf833cfb2963d5f9
-  path: data/bootstrap_test_eval_loan_info_ids.pkl
+- md5: c0839d36d502290d417233abe10d9755
+  path: data/bootstrap_test_ids.pkl
   cache: true
   metric: false
   persist: false

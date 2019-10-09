@@ -4,7 +4,7 @@ import argparse
 import pickle
 import numpy as np
 import pandas as pd
-from lendingclub import config
+from lendingclub import config, utils
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', '-m', help='specify model(s) to train')
@@ -37,10 +37,10 @@ def export_data_processing(data_proc, model_n):
 if not os.path.isdir(config.modeling_dir):
     os.makedirs(config.modeling_dir)
 
-data = pd.read_feather(os.path.join(config.data_dir, 'train_base_loan_info.fth'))
+train_data, _, _ = utils.load_dataset(ds_type='train')
 
 for model_n in models:
-    procced_data, data_proc = prepare_data(model_n, data)
+    procced_data, data_proc = prepare_data(model_n, train_data)
     m = train_model(model_n)
 #     print(model_n, m, type(m))
     
