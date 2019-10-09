@@ -79,3 +79,5 @@ __pycache__
 # lc_utils.py
 # /data
 possible_removal
+/modeling
+/results
