@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--model', '-m', help='specify model(s) to train')
 
 if not len(sys.argv) > 1:
-    models = ['baseline', 'A', 'B', 'C', 'D', 'E', 'F', 'G']
+    models = ['baseline'] # , 'A', 'B', 'C', 'D', 'E', 'F', 'G'
 
 args = parser.parse_args()
 if args.model:
