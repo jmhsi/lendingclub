@@ -10,14 +10,10 @@ outs:
 - md5: 3a75b55309cc0ea91b98710ec308579b
   path: results/default_rate.json
   cache: false
-  metric:
-    type: json
-    xpath: top_n_default_rate
+  metric: true
   persist: false
 - md5: a7d58345a6d6e93b1511711432b2829e
   path: results/return.json
   cache: false
-  metric:
-    type: json
-    xpath: top_n_return
+  metric: true
   persist: false
