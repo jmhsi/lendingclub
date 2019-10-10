@@ -1,5 +1,6 @@
 import os
 import pickle
+import json
 import sys
 from typing import List
 import argparse
@@ -50,20 +51,22 @@ if not os.path.isdir(config.results_dir):
 scored = pd.read_feather(os.path.join(config.data_dir, 'eval_loan_info_scored.fth'))
 
 for model_n in models:
-    top_n_ret = get_topn_ret(model_n, scored, .5,)
-    top_n_def = get_topn_def_pct(model_n, scored, .5,)
+    top_n_ret = get_topn_ret(model_n, scored, .05,)
+    top_n_def = get_topn_def_pct(model_n, scored, .05,)
+    top_n_ret_d = {'top_n_return': top_n_ret}
+    top_n_def_d = {'top_n_default_rate': top_n_def}
     
     print('{0}'.format(model_n))
     print('topn return: {0}'.format(top_n_ret))
     print('topn default rate: {0}'.format(top_n_def))
     # named stuff is non-tracked by dvc
-    with open(os.path.join(config.results_dir,'{0}_return.txt'.format(model_n)), 'w+') as f:
-        f.write("{0}".format(top_n_ret))
-    with open(os.path.join(config.results_dir,'{0}_default_rate.txt'.format(model_n)), 'w+') as f:
-        f.write("{0}".format(top_n_def))
+    with open(os.path.join(config.results_dir,'{0}_return.json'.format(model_n)), 'w+') as f:
+        json.dump(top_n_ret_d, f)
+    with open(os.path.join(config.results_dir,'{0}_default_rate.json'.format(model_n)), 'w+') as f:
+        json.dump(top_n_def_d, f)
         
     # unnamed version track with dvc
-    with open(os.path.join(config.results_dir,'return.txt'), 'w+') as f:
-        f.write("{0}".format(top_n_ret))
-    with open(os.path.join(config.results_dir,'default_rate.txt'), 'w+') as f:
-        f.write("{0}".format(top_n_def))
+    with open(os.path.join(config.results_dir,'return.json'), 'w+') as f:
+        json.dump(top_n_ret_d, f)
+    with open(os.path.join(config.results_dir,'default_rate.json'), 'w+') as f:
+        json.dump(top_n_def_d, f)
