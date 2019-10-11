@@ -11,7 +11,7 @@ outs:
   path: results/default_rate.json
   cache: false
   metric:
-    type: json
+    type: raw
   persist: false
 - md5: a7d58345a6d6e93b1511711432b2829e
   path: results/return.json
