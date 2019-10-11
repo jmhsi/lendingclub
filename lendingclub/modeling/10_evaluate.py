@@ -60,13 +60,13 @@ for model_n in models:
     print('topn return: {0}'.format(top_n_ret))
     print('topn default rate: {0}'.format(top_n_def))
     # named stuff is non-tracked by dvc
-    with open(os.path.join(config.results_dir,'{0}_return.json'.format(model_n)), 'w+') as f:
+    with open(os.path.join(config.results_dir,'{0}_return.json'.format(model_n)), 'w') as f:
         json.dump(top_n_ret_d, f)
-    with open(os.path.join(config.results_dir,'{0}_default_rate.json'.format(model_n)), 'w+') as f:
+    with open(os.path.join(config.results_dir,'{0}_default_rate.json'.format(model_n)), 'w') as f:
         json.dump(top_n_def_d, f)
         
     # unnamed version track with dvc
-    with open(os.path.join(config.results_dir,'return.json'), 'w+') as f:
+    with open(os.path.join(config.results_dir,'return.json'), 'w') as f:
         json.dump(top_n_ret_d, f)
-    with open(os.path.join(config.results_dir,'default_rate.json'), 'w+') as f:
+    with open(os.path.join(config.results_dir,'default_rate.json'), 'w') as f:
         json.dump(top_n_def_d, f)
