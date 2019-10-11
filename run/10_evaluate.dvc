@@ -11,7 +11,7 @@ outs:
   path: results/default_rate.json
   cache: true
   metric:
-    type: json
+    type: raw
     xpath: top_n_default_rate
   persist: false
 - md5: a7d58345a6d6e93b1511711432b2829e
