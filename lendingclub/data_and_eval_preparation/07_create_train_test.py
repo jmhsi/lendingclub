@@ -13,7 +13,7 @@ from lendingclub import config, utils
 dpath = config.data_dir
 base_loan_info = pd.read_feather(os.path.join(dpath, 'base_loan_info.fth'))
 eval_loan_info = pd.read_feather(os.path.join(dpath, 'eval_loan_info.fth'))
-pmt_hist = pd.read_feather(os.path.join(dpath, 'scaled_pmt_hist.fth'))
+# pmt_hist = pd.read_feather(os.path.join(dpath, 'scaled_pmt_hist.fth'))
 
 def check_sample_distribution(df, sample, diff_thrsh=.05, check_cols=[], verbose=True):
     '''
@@ -80,14 +80,9 @@ def check_train_test_testable(train, test, testable, train1, test1, testable1):
 doneness = .95
 train_testable_eval_loan_info = eval_loan_info.query('maturity_time_stat_adj >= @doneness or maturity_paid_stat_adj >= @doneness')
 train_testable_ids = train_testable_eval_loan_info['id']
-train_testable_loan_info = base_loan_info.query('id in @train_testable_ids')
+# train_testable_loan_info = base_loan_info.query('id in @train_testable_ids')
 
-assert train_testable_eval_loan_info.shape[0] == train_testable_loan_info.shape[0]
-
-# # save loans useable for training and testing
-# train_testable_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_testable_eval_loan_info.fth'))
-# train_testable_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_testable_base_loan_info.fth'))
-
+# assert train_testable_eval_loan_info.shape[0] == train_testable_loan_info.shape[0]
 
 
 issue_d_g = train_testable_eval_loan_info.groupby('issue_d')
@@ -102,36 +97,34 @@ for date, group in issue_d_g:
         test_ids.extend(samp['id'].tolist())
 
 test_eval_loan_info = train_testable_eval_loan_info.query('id in @test_ids')
-test_loan_info = train_testable_loan_info.query('id in @test_ids')
+# test_loan_info = train_testable_loan_info.query('id in @test_ids')
 
 train_eval_loan_info = train_testable_eval_loan_info.query('id not in @test_ids')
-train_loan_info = train_testable_loan_info.query('id not in @test_ids')
+# train_loan_info = train_testable_loan_info.query('id not in @test_ids')
 
-if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_testable_eval_loan_info,
-                             train_loan_info, test_loan_info, train_testable_loan_info):
-    # save
-#     test_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info.fth'))
-#     test_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_base_loan_info.fth'))
-#     train_eval_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_eval_loan_info.fth'))
-#     train_loan_info.reset_index(drop=True).to_feather(os.path.join(dpath, 'train_base_loan_info.fth'))
-    train_test_ids_dict = {}
-    train_test_ids_dict['train_testable'] = train_testable_ids.tolist()
-    train_test_ids_dict['train'] = train_loan_info['id'].tolist()
-    train_test_ids_dict['test'] = test_loan_info['id'].tolist()
-    with open(os.path.join(dpath, 'train_test_ids.pkl'), 'wb') as file:
-        pickle.dump(train_test_ids_dict, file)
-    
+test_eval_loan_info.shape[0] + train_eval_loan_info.shape[0] == train_testable_eval_loan_info.shape[0]
 
-    # make 10 bootstrap month-by-month test_loan_infos (and maybe test_eval_loan_infos?)
-    bootstrap_sample_ids = {}
-    issue_d_g = test_eval_loan_info.groupby('issue_d')
-    for i in range(10):
-        to_concat = []
-        for d, g in issue_d_g:
-            to_concat.append(g.sample(len(g), replace=True))
-        df = pd.concat(to_concat)
-#         df.reset_index(drop=True).to_feather(os.path.join(dpath, 'test_eval_loan_info_{0}_bootstrap.fth'.format(i)))
-        bootstrap_sample_ids[i] = df['id'].tolist()
+# if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_testable_eval_loan_info,
+#                              train_loan_info, test_loan_info, train_testable_loan_info):
+
+
+train_test_ids_dict = {}
+train_test_ids_dict['train_testable'] = train_testable_ids.tolist()
+train_test_ids_dict['train'] = train_eval_loan_info['id'].tolist()
+train_test_ids_dict['test'] = test_eval_loan_info['id'].tolist()
+
+# make 10 bootstrap month-by-month test_loan_infos (and maybe test_eval_loan_infos?)
+bootstrap_sample_idx = {}
+issue_d_g = test_eval_loan_info.groupby('issue_d')
+for i in range(10):
+    to_concat = []
+    for d, g in issue_d_g:
+        to_concat.append(g.sample(len(g), replace=True))
+    df = pd.concat(to_concat)
+    bootstrap_sample_idx[i] = df.index.tolist()
     
-    with open(os.path.join(dpath, 'bootstrap_test_ids.pkl'), 'wb') as file:
-        pickle.dump(bootstrap_sample_ids, file)
+# save
+with open(os.path.join(dpath, 'train_test_ids.pkl'), 'wb') as file:
+    pickle.dump(train_test_ids_dict, file)    
+with open(os.path.join(dpath, 'bootstrap_test_idx.pkl'), 'wb') as file:
+    pickle.dump(bootstrap_sample_idx, file)

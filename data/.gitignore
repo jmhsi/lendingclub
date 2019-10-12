@@ -26,3 +26,4 @@
 /bootstrap_test_eval_loan_info_ids.pkl
 /train_test_ids.pkl
 /bootstrap_test_ids.pkl
+/bootstrap_test_idx.pkl
