@@ -4,6 +4,7 @@ import json
 import sys
 from typing import List
 import argparse
+import tqdm
 
 import numpy as np
 import pandas as pd
@@ -50,7 +51,7 @@ def eval_model(model_n, test, bs_idx):#, verbose=True, top_n=.05
     bsmbm_top_n_ret_d = {}
     bsmbm_top_n_def_d = {}
     
-    for n in top_ns:
+    for n in tqdm(top_ns):
          # overall top_n from whole test population
         top_n_ret = get_topn_ret(model_n, test, n)
         top_n_def = get_topn_def_pct(model_n, test, n)
@@ -65,7 +66,7 @@ def eval_model(model_n, test, bs_idx):#, verbose=True, top_n=.05
         # get bsmbm
         temp_bsmbm = {}
         temp_bsmbm_def = {}
-        for i, idx in enumerate(bs_idx):
+        for i, idx in bs_idx.items():
             temp = {}
             temp_def = {}
             df = test.loc[idx]
@@ -83,8 +84,8 @@ def eval_model(model_n, test, bs_idx):#, verbose=True, top_n=.05
         total_top_n_ret_d[n] = top_n_ret
         total_top_n_def_d[n] = top_n_def
         
-        print(bsmbm_top_n_ret_d)
-        print(mbm_top_n_ret_d)
+#         print(bsmbm_top_n_ret_d)
+#         print(mbm_top_n_ret_d)
 
         
     # SAVING ________________________________________________________________    
