@@ -77,9 +77,11 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             temp_smbm_ret[d] = get_roi_simple(model_n, g, n)
             
         # single mbm return
-        start = 1
+        start = 0
         for d, r in temp_smbm_ret.items():
+#             print(r, np.log(r))
             start += np.log(r)
+        
         smbm_top_n_ret_d[n] = start
         
 #         # get bsmbm
