@@ -22,6 +22,10 @@ parser.add_argument('--model', '-m', help='specify model(s) to train')
 
 if not len(sys.argv) > 1:
     model_n = 'baseline' # , 'A', 'B', 'C', 'D', 'E', 'F', 'G'
+    
+args = parser.parse_args()
+if args.model:
+    models = args.model.split()    
 
 def get_topn_ret(model, eval_df, n, return_col='0.07'): 
     '''
@@ -78,9 +82,10 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             
         # single mbm return
         start = 0
+        err = 10e-10
         for d, r in temp_smbm_ret.items():
 #             print(r, np.log(r))
-            start += np.log(r)
+            start += np.log(r+err)
         
         smbm_top_n_ret_d[n] = start
         
@@ -147,7 +152,8 @@ with open(os.path.join(config.data_dir, 'bootstrap_test_idx.pkl'), 'rb') as f:
     bootstrap_test_ids = pickle.load(f)
 
 # do the evaling
-eval_model(model_n, test, bootstrap_test_ids)
+for model_n in models:
+    eval_model(model_n, test, bootstrap_test_ids)
 
 # # debugging
 # bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d = eval_model(model_n, test, bootstrap_test_ids, debug=True)
