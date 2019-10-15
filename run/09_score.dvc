@@ -1,8 +1,8 @@
-md5: 67c6881101bf5fa6460b454b2b9f01e4
-cmd: python lendingclub/modeling/09_score.py
+md5: 48c437dbc539c6e5884843d54b3c9e57
+cmd: python lendingclub/modeling/09_score.py -m baseline
 wdir: ..
 deps:
-- md5: a0e8ccfb649a4a6e88147b7bcb888338
+- md5: 1c110aa4d9d96ca5d9c6f38bcde7fa8e
   path: lendingclub/modeling/09_score.py
 - md5: 9b14dc81b29a6a35e2edb6246d8175a5
   path: data/base_loan_info.fth
