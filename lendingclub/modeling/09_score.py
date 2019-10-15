@@ -21,6 +21,11 @@ parser.add_argument('--model', '-m', help='specify model(s) to train')
 if not len(sys.argv) > 1:
     models = ['baseline'] # , 'A', 'B', 'C', 'D', 'E', 'F', 'G'
 
+args = parser.parse_args()
+if args.model:
+    models = args.model.split()    
+    
+    
 # load in relevant dataframes
 base_loan_info = pd.read_feather(os.path.join(config.data_dir, 'base_loan_info.fth'))
 try:
