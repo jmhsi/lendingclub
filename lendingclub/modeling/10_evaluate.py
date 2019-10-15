@@ -76,9 +76,9 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
         temp_mbm_def = {}
         temp_smbm_ret = {}
         for d, g in issue_d_gr:
-            temp_mbm[d] = get_topn_ret(model_n, g, n)
-            temp_mbm_def[d] = get_topn_def_pct(model_n, g, n)
-            temp_smbm_ret[d] = get_roi_simple(model_n, g, n)
+            temp_mbm[d] = round(get_topn_ret(model_n, g, n), 4)
+            temp_mbm_def[d] = round(get_topn_def_pct(model_n, g, n), 4)
+            temp_smbm_ret[d] = round(get_roi_simple(model_n, g, n), 4)
             
         # single mbm return
         start = 0
@@ -87,7 +87,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
 #             print(r, np.log(r))
             start += np.log(r+err)
         
-        smbm_top_n_ret_d[n] = start
+        smbm_top_n_ret_d[n] = round(start,4)
         
 #         # get bsmbm
 #         temp_bsmbm = {}
