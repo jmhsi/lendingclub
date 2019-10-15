@@ -1,5 +1,5 @@
-md5: 29731f3200bccbccb6e9f39917530f4d
-cmd: python lendingclub/modeling/08_train.py -m D
+md5: 6b023be10cc8733879b55f67499c7126
+cmd: python lendingclub/modeling/08_train.py -m E
 wdir: ..
 deps:
 - md5: 72115d1ee1de36d5ed7dfa3e2c384c88
@@ -7,7 +7,7 @@ deps:
 - md5: 0f84bf59f621161d221a32210552c859
   path: data/train_test_ids.pkl
 outs:
-- md5: ef518e63d5dc1283fc0eddfe5ba6a177.dir
+- md5: ea867355324efcb0ca228ebe688e80da.dir
   path: modeling
   cache: true
   metric: false
