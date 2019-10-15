@@ -76,9 +76,9 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
         temp_mbm_def = {}
         temp_smbm_ret = {}
         for d, g in issue_d_gr:
-            temp_mbm[d] = round(get_topn_ret(model_n, g, n), 4)
-            temp_mbm_def[d] = round(get_topn_def_pct(model_n, g, n), 4)
-            temp_smbm_ret[d] = round(get_roi_simple(model_n, g, n), 4)
+            temp_mbm[d] = get_topn_ret(model_n, g, n)
+            temp_mbm_def[d] = get_topn_def_pct(model_n, g, n)
+            temp_smbm_ret[d] = get_roi_simple(model_n, g, n)
             
         # single mbm return
         start = 0
@@ -111,8 +111,8 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
         total_top_n_def_d[n] = top_n_def
         
     # summarize to save
-    mbm_top_n_ret_json = pd.DataFrame(mbm_top_n_ret_d).describe().T.to_json()
-    mbm_top_n_def_json = pd.DataFrame(mbm_top_n_def_d).describe().T.to_json()
+    mbm_top_n_ret_json = pd.DataFrame(mbm_top_n_ret_d).describe().round(4).T.to_json()
+    mbm_top_n_def_json = pd.DataFrame(mbm_top_n_def_d).describe().round(4).T.to_json()
 
 
         
