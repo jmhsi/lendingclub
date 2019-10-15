@@ -27,23 +27,27 @@ def get_topn_ret(model, eval_df, n, return_col='0.07'):
     '''
     Picks loans and get returns based on maximizing model_score
     '''
+    return get_topn(model, eval_df, n)['0.07'].mean()
+
+def get_topn(model, eval_df, n):
     assert n <= 1
     assert n >= 0
-    return eval_df.nlargest(int(round(len(eval_df)*n)), f'{model}_score')['0.07'].mean()
+    n_pick = max(1,int(round(len(eval_df)*n)))
+    return eval_df.nlargest(n_pick, f'{model}_score')
+
+def get_roi_simple(model, eval_df, n):
+    return get_topn(model, eval_df, n)['roi_simple'].mean()
 
 def get_topn_def_pct(model, eval_df, n): #, bootstrap=False
     '''
     get the def percents with the top_n
     '''
-    assert n <= 1
-    assert n >= 0
-    n_pick = max(1,int(round(len(eval_df)*n)))
-    return eval_df.nlargest(n_pick, f'{model}_score')['target_strict'].sum()/n_pick
+    return get_topn(model, eval_df, n)['target_strict'].mean()
 
 def dump_named(f_name, dic, m_name, add_m_name=False):
     if add_m_name:
         f_name = '{0}_{1}'.format(m_name, f_name)
-    with open(os.path.join(config.results_dir, f_name), 'w') as f:
+    with open(os.path.join(config.results_dir, f_name), 'w+') as f:
         json.dump(dic, f)
 
 def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
@@ -54,6 +58,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
     total_top_n_def_d = {}
     mbm_top_n_ret_d = {}
     mbm_top_n_def_d = {}
+    smbm_top_n_ret_d = {}
 #     bsmbm_top_n_ret_d = {}
 #     bsmbm_top_n_def_d = {}
     
@@ -65,10 +70,18 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
         # month by month over all of test loans
         temp_mbm = {}
         temp_mbm_def = {}
+        temp_smbm_ret = {}
         for d, g in issue_d_gr:
             temp_mbm[d] = get_topn_ret(model_n, g, n)
             temp_mbm_def[d] = get_topn_def_pct(model_n, g, n)
+            temp_smbm_ret[d] = get_roi_simple(model_n, g, n)
             
+        # single mbm return
+        start = 1
+        for d, r in temp_smbm_ret.items():
+            start += np.log(r)
+        smbm_top_n_ret_d[n] = start
+        
 #         # get bsmbm
 #         temp_bsmbm = {}
 #         temp_bsmbm_def = {}
@@ -107,6 +120,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             dump_named('default_rate.json', total_top_n_def_d, model_n, add_m_name=add_m_name)
             dump_named('mbm_return.json', mbm_top_n_ret_json, model_n, add_m_name=add_m_name)
             dump_named('mbm_default_rate.json', mbm_top_n_def_json, model_n, add_m_name=add_m_name)
+            dump_named('smbm_return.json', smbm_top_n_ret_d, model_n, add_m_name=add_m_name)
         
         metrics = {'accuracy': '99.5'}
         with open(os.path.join(config.results_dir,'test.json'), 'w') as f:
@@ -134,7 +148,7 @@ with open(os.path.join(config.data_dir, 'bootstrap_test_idx.pkl'), 'rb') as f:
 eval_model(model_n, test, bootstrap_test_ids)
 
 # # debugging
-# bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d = eval_model(model_n, test, bootstrap_test_ids)
+# bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d = eval_model(model_n, test, bootstrap_test_ids, debug=True)
     
     
     
