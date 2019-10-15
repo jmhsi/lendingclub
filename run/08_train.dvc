@@ -1,5 +1,5 @@
-md5: 4c7b6b08d2e84ef037ba95f04ad02319
-cmd: python lendingclub/modeling/08_train.py
+md5: 2a7ff9b3301840abb59a63fe7c4cc376
+cmd: python lendingclub/modeling/08_train.py -m baseline
 wdir: ..
 deps:
 - md5: 72115d1ee1de36d5ed7dfa3e2c384c88
