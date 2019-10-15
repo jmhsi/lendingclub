@@ -42,7 +42,7 @@ def get_topn_def_pct(model, eval_df, n): #, bootstrap=False
 
 def dump_named(f_name, dic, m_name, add_m_name=False):
     if add_m_name:
-        f_name = '{0}_{1}.json'.format(m_name, f_name)
+        f_name = '{0}_{1}'.format(m_name, f_name)
     with open(os.path.join(config.results_dir, f_name), 'w') as f:
         json.dump(dic, f)
 
