@@ -68,8 +68,8 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
     
     for n in tqdm(top_ns):
          # overall top_n from whole test population
-        top_n_ret = get_topn_ret(model_n, test, n)
-        top_n_def = get_topn_def_pct(model_n, test, n)
+        top_n_ret = round(get_topn_ret(model_n, test, n), 4)
+        top_n_def = round(get_topn_def_pct(model_n, test, n), 4)
         
         # month by month over all of test loans
         temp_mbm = {}
