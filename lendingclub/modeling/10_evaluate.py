@@ -68,8 +68,8 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
     
     for n in tqdm(top_ns):
          # overall top_n from whole test population
-        top_n_ret = get_topn_ret(model_n, test, n)
-        top_n_def = get_topn_def_pct(model_n, test, n)
+        top_n_ret = round(get_topn_ret(model_n, test, n), 4)
+        top_n_def = round(get_topn_def_pct(model_n, test, n), 4)
         
         # month by month over all of test loans
         temp_mbm = {}
@@ -82,11 +82,12 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             
         # single mbm return
         start = 0
+        err = 10e-10
         for d, r in temp_smbm_ret.items():
 #             print(r, np.log(r))
-            start += np.log(r)
+            start += np.log(r+err)
         
-        smbm_top_n_ret_d[n] = start
+        smbm_top_n_ret_d[n] = round(start,4)
         
 #         # get bsmbm
 #         temp_bsmbm = {}
@@ -110,8 +111,8 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
         total_top_n_def_d[n] = top_n_def
         
     # summarize to save
-    mbm_top_n_ret_json = pd.DataFrame(mbm_top_n_ret_d).describe().T.to_json()
-    mbm_top_n_def_json = pd.DataFrame(mbm_top_n_def_d).describe().T.to_json()
+    mbm_top_n_ret_json = pd.DataFrame(mbm_top_n_ret_d).describe().round(4).T.to_json()
+    mbm_top_n_def_json = pd.DataFrame(mbm_top_n_def_d).describe().round(4).T.to_json()
 
 
         
@@ -128,9 +129,9 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             dump_named('mbm_default_rate.json', mbm_top_n_def_json, model_n, add_m_name=add_m_name)
             dump_named('smbm_return.json', smbm_top_n_ret_d, model_n, add_m_name=add_m_name)
         
-        metrics = {'accuracy': '99.5'}
-        with open(os.path.join(config.results_dir,'test.json'), 'w') as f:
-            json.dump(metrics, f)
+#         metrics = {'accuracy': '99.5'}
+#         with open(os.path.join(config.results_dir,'test.json'), 'w') as f:
+#             json.dump(metrics, f)
         
 #             dump_named('bsmbm_return.json', total_top_n_ret_d, model_n, add_m_name=add_m_name)
 #             dump_named('bsmbm_default_rate.json', total_top_n_def_d, model_n, add_m_name=add_m_name)
