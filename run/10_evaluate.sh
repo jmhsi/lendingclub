@@ -6,4 +6,4 @@ dvc run -d lendingclub/modeling/10_evaluate.py \
     -m results/return.json \
     -m results/smbm_return.json \
     -f run/10_evaluate.dvc \
-    python lendingclub/modeling/10_evaluate.py -m E 
+    python lendingclub/modeling/10_evaluate.py -m F 
