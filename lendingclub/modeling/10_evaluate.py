@@ -87,7 +87,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
 #             print(r, np.log(r))
             start += np.log(r+err)
         
-        smbm_top_n_ret_d[n] = round(start,4)
+        smbm_top_n_ret_d[n] = round(np.exp(start),4)
         
 #         # get bsmbm
 #         temp_bsmbm = {}
