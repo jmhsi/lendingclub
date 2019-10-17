@@ -1,17 +1,17 @@
-md5: 737d98cfcfde7fc2d86ba8fa1cdf2f46
+md5: f2c485ed33be45a136184093a2d25c44
 cmd: python lendingclub/modeling/09_score.py -m A
 wdir: ..
 deps:
 - md5: 1c110aa4d9d96ca5d9c6f38bcde7fa8e
   path: lendingclub/modeling/09_score.py
-- md5: 9b14dc81b29a6a35e2edb6246d8175a5
+- md5: d789d6c8973969a15ea005453c55898d
   path: data/base_loan_info.fth
-- md5: 64f134589bf3c47f4e8579d9ab960fdb
+- md5: e8a76f20133940941511a448eb050b5a
   path: data/eval_loan_info.fth
 - md5: a5e5f0fc5077e174c2b9c42539d51e68.dir
   path: modeling
 outs:
-- md5: 55cbabb14d0846bb56d883e0c2b0298a
+- md5: 9c6464a60354915d2fa924d21e11d16f
   path: data/eval_loan_info_scored.fth
   cache: true
   metric: false
