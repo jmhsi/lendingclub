@@ -1,12 +1,12 @@
-md5: fe7cef720b099b488d954d8ada163faf
+md5: 70fc57d7447f590ec9b795a226dd6a98
 cmd: python lendingclub/data_and_eval_preparation/07_create_train_test.py
 wdir: ..
 deps:
 - md5: 74069c6aac159aca0c6dc064630116e7
   path: lendingclub/data_and_eval_preparation/07_create_train_test.py
-- md5: 9b14dc81b29a6a35e2edb6246d8175a5
+- md5: ec11445de14787f5a107068b49cd4db8
   path: data/base_loan_info.fth
-- md5: 64f134589bf3c47f4e8579d9ab960fdb
+- md5: e8a76f20133940941511a448eb050b5a
   path: data/eval_loan_info.fth
 outs:
 - md5: 0f84bf59f621161d221a32210552c859
@@ -14,7 +14,7 @@ outs:
   cache: true
   metric: false
   persist: false
-- md5: 2df11016e79e545bdace2b5f2bc7456e
+- md5: 731bc277f2e52a01eb8c961fe3384934
   path: data/bootstrap_test_idx.pkl
   cache: true
   metric: false

@@ -1,10 +1,10 @@
-md5: 4f4ce550b6a5fcdc6fcc3576570055e5
+md5: 2e6c1016707b6093be3b72f0d2bc3f16
 cmd: python lendingclub/modeling/10_evaluate.py -m C
 wdir: ..
 deps:
-- md5: e9ccd0378dd32ed3639f7871bddb579b
+- md5: bb5040131877d7efe347a5385d5b9207
   path: lendingclub/modeling/10_evaluate.py
-- md5: 84d362b1bb86e50e3b879f0c81a72400
+- md5: db089f068847a1616fc8ab26b4b10e24
   path: data/eval_loan_info_scored.fth
 outs:
 - md5: 0c8147461b905890d7c9f69022a571ef
@@ -17,7 +17,7 @@ outs:
   cache: true
   metric: true
   persist: false
-- md5: 94bd1327156fac06c6e4395869f5da4b
+- md5: efa28e3c3b28a86011fd14e6862228e3
   path: results/smbm_return.json
   cache: true
   metric: true
