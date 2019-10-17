@@ -40,7 +40,15 @@ def get_topn(model, eval_df, n):
     return eval_df.nlargest(n_pick, f'{model}_score')
 
 def get_roi_simple(model, eval_df, n):
-    return get_topn(model, eval_df, n)['roi_simple'].mean()
+    df = get_topn(model, eval_df, n)
+    # divide roi_simple by weighted average term to get
+    # a rough estimate of the month's return
+    waterm = df['term'].mean()
+    waret = df['roi_simple'].mean() 
+    m_ret = waret/waterm
+#     print(df['issue_d'].max(), df['issue_d'].min())
+#     print(waterm, waret, m_ret)
+    return m_ret
 
 def get_topn_def_pct(model, eval_df, n): #, bootstrap=False
     '''
@@ -67,6 +75,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
 #     bsmbm_top_n_def_d = {}
     
     for n in tqdm(top_ns):
+        print("FOR TOP_N: {0}".format(n))
          # overall top_n from whole test population
         top_n_ret = round(get_topn_ret(model_n, test, n), 4)
         top_n_def = round(get_topn_def_pct(model_n, test, n), 4)
@@ -85,9 +94,10 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
         err = 10e-10
         for d, r in temp_smbm_ret.items():
 #             print(r, np.log(r))
+#             print(start)
             start += np.log(r+err)
         
-        smbm_top_n_ret_d[n] = round(start,4)
+        smbm_top_n_ret_d[n] = round(np.exp(start)**(1/len(temp_smbm_ret)),4)
         
 #         # get bsmbm
 #         temp_bsmbm = {}
@@ -119,7 +129,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
     # SAVING ________________________________________________________________    
     # named and unnamed version for tracking
     if debug:
-        return bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d
+        return bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d, smbm_top_n_ret_d
     
     if not debug:
         for add_m_name in [True, False]:
@@ -155,8 +165,8 @@ with open(os.path.join(config.data_dir, 'bootstrap_test_idx.pkl'), 'rb') as f:
 for model_n in models:
     eval_model(model_n, test, bootstrap_test_ids)
 
-# # debugging
-# bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d = eval_model(model_n, test, bootstrap_test_ids, debug=True)
+# # # debugging
+# bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d, smbm_top_n_ret_d = eval_model(model_n, test, bootstrap_test_ids, debug=True)
     
     
     
