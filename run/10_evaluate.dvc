@@ -1,23 +1,23 @@
-md5: ebe1647423884a1508509caac6b3566f
-cmd: python lendingclub/modeling/10_evaluate.py -m baseline
+md5: 8047756bb0b2c696c81215f1e54a62c7
+cmd: python lendingclub/modeling/10_evaluate.py -m logistic_regr
 wdir: ..
 deps:
 - md5: bb5040131877d7efe347a5385d5b9207
   path: lendingclub/modeling/10_evaluate.py
-- md5: 6ef3a3fbe5286264cf445b19bcc577f7
+- md5: c598d76451d0621b33d233d762eb2ef3
   path: data/eval_loan_info_scored.fth
 outs:
-- md5: c75161565bfb0257e07a59d5d777764a
+- md5: bd57446d901b7cb0abdfb592bb1c39c4
   path: results/default_rate.json
   cache: true
   metric: true
   persist: false
-- md5: fbb2d92f204bcb012108e8e2260d8c87
+- md5: 4601299f6bb7a41bed8aeae2c2765737
   path: results/return.json
   cache: true
   metric: true
   persist: false
-- md5: 954fc0fce4b3703662426a0312e1fa1b
+- md5: e427f42353518b229e07774ea4ea22b8
   path: results/smbm_return.json
   cache: true
   metric: true
