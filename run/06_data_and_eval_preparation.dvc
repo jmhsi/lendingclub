@@ -1,4 +1,4 @@
-md5: d103672009b5099b0cf26cd4dce6c830
+md5: 4b952272de38f511d9d13cb64e565ddb
 cmd: python lendingclub/data_and_eval_preparation/06_data_and_eval_preparation.py
 wdir: ..
 deps:
@@ -16,7 +16,7 @@ outs:
   cache: true
   metric: false
   persist: false
-- md5: d904b16eee6abac648bc75df0e4fec52
+- md5: 0ff79d0ffb63af8d66ebd93422efb5eb
   path: data/base_loan_info.fth
   cache: true
   metric: false
