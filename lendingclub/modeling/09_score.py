@@ -53,5 +53,5 @@ for model_n in models:
     
 print('saving scored dataframe at {0}'.format(os.path.join(config.data_dir,'eval_loan_info_scored.fth')))
 eval_loan_info.to_feather(os.path.join(config.data_dir,'eval_loan_info_scored.fth'))
-print('saving scored dataframe at {0}'.format(os.path.join(config.data_dir,'all_eval_loan_info_scored.fth')))
-eval_loan_info.to_feather(os.path.join(config.data_dir,'eval_loan_info_scored.fth'))
+print('saving dvc non-tracked scored dataframe at {0}'.format(os.path.join(config.data_dir,'all_eval_loan_info_scored.fth')))
+eval_loan_info.to_feather(os.path.join(config.data_dir,'all_eval_loan_info_scored.fth'))
