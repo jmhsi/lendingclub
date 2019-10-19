@@ -1,10 +1,10 @@
-md5: caf67ec7fb7907e0708e753603542ec7
+md5: 1744d713ab486ec4d3f04cbd4db6176e
 cmd: python lendingclub/modeling/10_evaluate.py -m logistic_regr
 wdir: ..
 deps:
 - md5: bb5040131877d7efe347a5385d5b9207
   path: lendingclub/modeling/10_evaluate.py
-- md5: ce0e3cd0527e7ea501f73c7e9ce3164c
+- md5: 666a09c819d4c073801b67a1f78128a5
   path: data/eval_loan_info_scored.fth
 outs:
 - md5: f66a3b8c364f5ceb1c00f7569116938a
