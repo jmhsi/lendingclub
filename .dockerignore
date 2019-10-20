@@ -1,0 +1,13 @@
+.git
+.gitignore
+.dvc
+lendingclub.egg-info
+modeling
+notebooks
+possible_removal
+README.md
+requirements
+results
+test
+user_creds
+data
