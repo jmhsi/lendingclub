@@ -98,23 +98,6 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             start += np.log(r+err)
         
         smbm_top_n_ret_d[n] = round(np.exp(start)**(1/len(temp_smbm_ret)),4)
-        
-#         # get bsmbm
-#         temp_bsmbm = {}
-#         temp_bsmbm_def = {}
-#         for i, idx in bs_idx.items():
-#             temp = {}
-#             temp_def = {}
-#             df = test.loc[idx]
-#             for d, g in df.groupby('issue_d'):
-#                 temp[d] = get_topn_ret(model_n, g, n)
-#                 temp_def[d] = get_topn_def_pct(model_n, g, n)
-#             temp_bsmbm[i] = temp
-#             temp_bsmbm_def[i] = temp_def
-        
-        
-#         bsmbm_top_n_ret_d[n] = temp_bsmbm
-#         bsmbm_top_n_def_d[n] = temp_bsmbm_def
         mbm_top_n_ret_d[n] = temp_mbm
         mbm_top_n_def_d[n] = temp_mbm_def
         total_top_n_ret_d[n] = top_n_ret
@@ -123,8 +106,7 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
     # summarize to save
     mbm_top_n_ret_json = pd.DataFrame(mbm_top_n_ret_d).describe().round(4).T.to_json()
     mbm_top_n_def_json = pd.DataFrame(mbm_top_n_def_d).describe().round(4).T.to_json()
-
-
+    count_d = {'n_test': len(test)}
         
     # SAVING ________________________________________________________________    
     # named and unnamed version for tracking
@@ -137,15 +119,9 @@ def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
             dump_named('default_rate.json', total_top_n_def_d, model_n, add_m_name=add_m_name)
             dump_named('mbm_return.json', mbm_top_n_ret_json, model_n, add_m_name=add_m_name)
             dump_named('mbm_default_rate.json', mbm_top_n_def_json, model_n, add_m_name=add_m_name)
-            dump_named('smbm_return.json', smbm_top_n_ret_d, model_n, add_m_name=add_m_name)
-        
-#         metrics = {'accuracy': '99.5'}
-#         with open(os.path.join(config.results_dir,'test.json'), 'w') as f:
-#             json.dump(metrics, f)
-        
-#             dump_named('bsmbm_return.json', total_top_n_ret_d, model_n, add_m_name=add_m_name)
-#             dump_named('bsmbm_default_rate.json', total_top_n_def_d, model_n, add_m_name=add_m_name)
-    
+            dump_named('summary_mbm_return.json', smbm_top_n_ret_d, model_n, add_m_name=add_m_name)
+            dump_named('count.json', count_d, model_n, add_m_name=add_m_name)
+            
 
 # if results dir doesn't exist, make it
 if not os.path.isdir(config.results_dir):
@@ -169,4 +145,22 @@ for model_n in models:
 # bsmbm_top_n_ret_d, bsmbm_top_n_def_d, mbm_top_n_ret_d, mbm_top_n_def_d, smbm_top_n_ret_d = eval_model(model_n, test, bootstrap_test_ids, debug=True)
     
     
-    
+# BSMBM stuff
+#         # get bsmbm
+#         temp_bsmbm = {}
+#         temp_bsmbm_def = {}
+#         for i, idx in bs_idx.items():
+#             temp = {}
+#             temp_def = {}
+#             df = test.loc[idx]
+#             for d, g in df.groupby('issue_d'):
+#                 temp[d] = get_topn_ret(model_n, g, n)
+#                 temp_def[d] = get_topn_def_pct(model_n, g, n)
+#             temp_bsmbm[i] = temp
+#             temp_bsmbm_def[i] = temp_def
+        
+        
+#         bsmbm_top_n_ret_d[n] = temp_bsmbm
+#         bsmbm_top_n_def_d[n] = temp_bsmbm_def
+#             dump_named('bsmbm_return.json', total_top_n_ret_d, model_n, add_m_name=add_m_name)
+#             dump_named('bsmbm_default_rate.json', total_top_n_def_d, model_n, add_m_name=add_m_name)
