@@ -14,5 +14,6 @@ RUN git clone https://github.com/jmhsi/lendingclub.git \
     && cd lendingclub \
     && git pull
 
+CMD ['/bin/bash']
 #ADD hello.py /home/ubuntu/
 #ADD .bashrc /home/ubuntu/
