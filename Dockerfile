@@ -5,6 +5,10 @@ FROM continuumio/anaconda3
 RUN apt-get update \
     && apt-get install -y tmux nano 
 
+# Pip installs
+RUN pip install --user dvc
+
+
 # add a user called ubuntu for all subsequent layers
 RUN adduser --disabled-password --gecos '' ubuntu \
     && adduser ubuntu sudo \
@@ -14,8 +18,6 @@ USER ubuntu
 WORKDIR /home/ubuntu
 ADD .bashrc /home/ubuntu/
 
-# Pip installs
-RUN pip install --user dvc
 
 # Install j_utils
 ADD https://api.github.com/repos/jmhsi/j_utils/git/refs/heads/master j_utils_version.json
