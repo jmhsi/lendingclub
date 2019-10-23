@@ -8,6 +8,7 @@ RUN apt-get update \
 # Pip installs
 RUN pip install dvc
 
+WORKDIR /home/ubuntu
 
 
 # Install j_utils
@@ -30,8 +31,6 @@ RUN adduser --disabled-password --gecos '' ubuntu \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
 USER ubuntu
-WORKDIR /home/ubuntu
-
 
 # Expose port for jupyter notebook
 EXPOSE 3224 
