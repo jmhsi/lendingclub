@@ -1,9 +1,9 @@
 # Anaconda3 base image
 FROM continuumio/anaconda3
 
-# Update?, install tmux
+# Update?, install tmux and sudo
 RUN apt-get update \
-    && apt-get install -y tmux
+    && apt-get install -y tmux sudo
 
 # Pip installs
 RUN pip install dvc
