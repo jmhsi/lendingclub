@@ -19,7 +19,7 @@ WORKDIR /home/ubuntu
 #RUN which python
 
 # Clone the lendingclub repo
-RUN git clone --branch master https://github.com/jmhsi/lendingclub.git \
+RUN git clone https://github.com/jmhsi/lendingclub.git \
     && cd lendingclub \
     && git pull
 
