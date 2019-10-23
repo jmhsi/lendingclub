@@ -18,7 +18,9 @@ WORKDIR /home/ubuntu
 
 # Install j_utils
 ADD https://api.github.com/repos/jmhsi/j_utils/git/refs/heads/master j_utils_version.json
-RUN git clone https://github.com/jmhsi/j_utils.git
+RUN git clone https://github.com/jmhsi/j_utils.git \
+    && cd j_utils \
+    && pip install -e .
 
 # Run below uses github api to make sure docker build doesn't use cached version of git cloned repo
 ADD https://api.github.com/repos/jmhsi/lendingclub/git/refs/heads/master lendingclub_version.json
