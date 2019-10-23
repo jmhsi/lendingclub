@@ -8,13 +8,7 @@ RUN apt-get update \
 # Pip installs
 RUN pip install dvc
 
-# add a user called ubuntu for all subsequent layers
-RUN adduser --disabled-password --gecos '' ubuntu \
-    && adduser ubuntu sudo \
-    && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
-USER ubuntu
-WORKDIR /home/ubuntu
 
 # Install j_utils
 ADD https://api.github.com/repos/jmhsi/j_utils/git/refs/heads/master j_utils_version.json
@@ -29,6 +23,15 @@ ADD https://api.github.com/repos/jmhsi/lendingclub/git/refs/heads/master lending
 RUN git clone https://github.com/jmhsi/lendingclub.git \
     && cd lendingclub \
     && git pull
+
+# add a user called ubuntu for all subsequent layers
+RUN adduser --disabled-password --gecos '' ubuntu \
+    && adduser ubuntu sudo \
+    && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
+
+USER ubuntu
+WORKDIR /home/ubuntu
+
 
 # Expose port for jupyter notebook
 EXPOSE 3224 
