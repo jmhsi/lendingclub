@@ -3,7 +3,7 @@ FROM continuumio/anaconda3
 
 # Update?, install tmux and sudo
 RUN apt-get update \
-    && apt-get install -y tmux sudo
+    && apt-get install -y tmux nano 
 
 # Pip installs
 RUN pip install dvc
