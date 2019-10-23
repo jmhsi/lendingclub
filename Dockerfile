@@ -18,6 +18,9 @@ WORKDIR /home/ubuntu
 
 #RUN which python
 
+# Run below uses github api to make sure docker build doesn't use cached version of git cloned repo
+ADD https://api.github.com/repos/jmhsi/lendingclub/git/refs/heads/master version.json
+
 # Clone the lendingclub repo
 RUN git clone https://github.com/jmhsi/lendingclub.git \
     && cd lendingclub \
