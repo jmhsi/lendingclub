@@ -1,17 +1,17 @@
-md5: fa7e6f90bb98b5f0be187eefa113db1a
+md5: f7d2ffb8e7ca8a74dbd3ff814b14d5d3
 cmd: python lendingclub/modeling/08_train.py -m logistic_regr
 wdir: ..
 deps:
 - md5: 8739e1ce51a4e2627fbf5b672ac4e252
   path: lendingclub/modeling/08_train.py
-- md5: 3e03d74baf8ac76a34fd785acf096968
+- md5: 53047248246c1a567b3595246d619666
   path: data/train_test_ids.pkl
-- md5: d8e188c5ba13eb92602451ce9b05640d
+- md5: 856d7ef6595d00e84b130b116086aeab
   path: data/base_loan_info.fth
-- md5: 640ce0588ccbd5d02a57ab03aa4b3012
+- md5: a9a122db4d2cda462cf83151cc1a1983
   path: data/eval_loan_info.fth
 outs:
-- md5: 760e0c4f17105d0251f410e3cef07af4.dir
+- md5: 5296cba82743ab830003e6efb5b66ad5.dir
   path: modeling
   cache: true
   metric: false
