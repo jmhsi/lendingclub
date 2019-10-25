@@ -1,17 +1,17 @@
-md5: 10915749cf5be788595c313482938a7a
-cmd: python lendingclub/modeling/09_score.py -m logistic_regr
+md5: e92693d9726c5755b8a21635cc401c43
+cmd: python lendingclub/modeling/09_score.py -m catboost_clf
 wdir: ..
 deps:
 - md5: 4085e75f5c107b314cae059c13b65329
   path: lendingclub/modeling/09_score.py
-- md5: d8e188c5ba13eb92602451ce9b05640d
+- md5: aa43ba3a3151b754ec00485ab2d0ad3f
   path: data/base_loan_info.fth
-- md5: 640ce0588ccbd5d02a57ab03aa4b3012
+- md5: a9a122db4d2cda462cf83151cc1a1983
   path: data/eval_loan_info.fth
-- md5: 760e0c4f17105d0251f410e3cef07af4.dir
+- md5: 33bf853f5c01ed6e2a2782d4711190bb.dir
   path: modeling
 outs:
-- md5: 817ceeabf8c176257d109cd4f321c59e
+- md5: a6af4c66e9c4b26a006a9c24695bb2c2
   path: data/eval_loan_info_scored.fth
   cache: true
   metric: false
