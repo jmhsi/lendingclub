@@ -33,7 +33,7 @@ class Model():
     def __init__(self, name: str):
         self.name = name
         self.basempath = os.path.join(ppath, 'models')
-        self.mpath = os.path.join(self.basempath, self.name)
+        self.mpath = mpath
         self.proc_arti = None
         self.m = None
         self.df = None
@@ -46,7 +46,10 @@ class Model():
         elif self.name == 'logistic_regr':
             self.m = load(os.path.join(mpath, '{0}_model.pkl'.format(self.name)))
             self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
-            
+        elif self.name == 'catboost_clf':
+            self.m = CatBoostClassifier()
+            self.m.load_model(os.path.join(mpath,'{0}_model.cb'.format(self.name)))
+            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))            
 
     def score(self, df: pd.DataFrame):
         '''
@@ -68,7 +71,7 @@ class Model():
                 mask = np.where(df['grade'] == self.name, 0, 1).astype(bool)
                 scores[mask] = 0
             return scores
-        elif self.name == 'logistic_regr':
+        elif self.name in ['logistic_regr', 'catboost_clf']:
             self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             # return probability of not default
             return self.m.predict_proba(self.proc_df)[:, 0]
