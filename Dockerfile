@@ -30,8 +30,8 @@ RUN git clone https://github.com/jmhsi/j_utils.git \
 ADD https://api.github.com/repos/jmhsi/lendingclub/git/refs/heads/master lendingclub_version.json
 
 # Clone the lendingclub repo and cythonize inside csv_preparation, move cython to csv_prep dir
-#RUN git clone https://github.com/jmhsi/lendingclub.git \
-RUN git clone git@github.com:jmhsi/lendingclub.git \
+RUN git clone https://github.com/jmhsi/lendingclub.git \
+#RUN git clone git@github.com:jmhsi/lendingclub.git \
     && cd lendingclub \
     && git pull \
     && pip install --user -e . \
