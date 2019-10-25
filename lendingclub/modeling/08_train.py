@@ -43,7 +43,29 @@ def train_model(model_n, X_train, y_train, X_valid=None, y_valid=None):
         lr_model.fit(X_train, y_train)
         return lr_model
     elif model_n == 'catboost_regr':
-        pass
+        # basic params for regressor
+        params = {
+            'iterations': 50000,
+        #     'one_hot_max_size': 45,
+        #     'learning_rate': 0.01,
+        #     'has_time': True,
+            'loss_function': 'RMSE',
+            'eval_metric': 'RMSE',#'Recall',
+            'random_seed': 42,
+            'use_best_model': True,
+            'task_type': 'GPU',
+        #     'boosting_type': 'Ordered',
+        #     'loss_function': 'Log',
+            'custom_metric': ['MAE', 'RMSE', 'MAPE', 'Quantile'],
+            'od_type': 'Iter',
+            'od_wait': 300,
+        }
+        obj_cols = X_train.select_dtypes(['object', 'datetime']).columns
+        categorical_features_indices = [X_train.columns.get_loc(col) for col in obj_cols]
+        catboost_regr = CatBoostRegressor(**params)
+        catboost_regr.fit(X_train, y_train, cat_features=categorical_features_indices,
+                        eval_set=(X_valid, y_valid,), logging_level='Verbose', plot=True) #
+        return catboost_regr
     elif model_n == 'catboost_clf':
         # basic params
         params = {
@@ -76,14 +98,14 @@ def export_models(m, model_n):
             pickle.dump(m, file)
     elif model_n == 'logistic_regr':
         joblib.dump(m,os.path.join(config.modeling_dir, '{0}_model.pkl'.format(model_n)))
-    elif model_n == 'catboost_clf':
+    elif model_n in ['catboost_clf', 'catboost_regr']:
         m.save_model(os.path.join(config.modeling_dir, '{0}_model.cb'.format(model_n)))
     
 def export_data_processing(proc_arti, model_n):
     if model_n in ['baseline', 'A', 'B', 'C', 'D', 'E', 'F', 'G']:
         with open(os.path.join(config.modeling_dir, '{0}_model_proc_arti.pkl'.format(model_n)), 'wb') as file:
             pickle.dump(proc_arti, file)
-    elif model_n in ['logistic_regr', 'catboost_clf']:
+    elif model_n in ['logistic_regr', 'catboost_clf', 'catboost_regr']:
         joblib.dump(proc_arti, os.path.join(config.modeling_dir, '{0}_model_proc_arti.pkl'.format(model_n)))
 
 

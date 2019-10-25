@@ -5,8 +5,9 @@ FROM continuumio/anaconda3
 RUN apt-get update \
     && apt-get install -y tmux nano gcc 
 
-# Pip installs
-RUN pip install dvc pyarrow pause pandas_summary
+# Pip installs from requirements.txt
+COPY requirements.txt .
+RUN pip install -r requirements.txt 
 
 
 # add a user called ubuntu for all subsequent layers
@@ -16,7 +17,7 @@ RUN adduser --disabled-password --gecos '' ubuntu \
 
 USER ubuntu
 WORKDIR /home/ubuntu
-ADD .bashrc /home/ubuntu/
+COPY .bashrc /home/ubuntu/
 
 
 
