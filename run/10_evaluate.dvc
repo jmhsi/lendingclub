@@ -1,28 +1,28 @@
-md5: ef3997174632e579978fbf652c449135
+md5: 80bdd834ea54f57e9aef6dc527a73c79
 cmd: python lendingclub/modeling/10_evaluate.py -m catboost_clf
 wdir: ..
 deps:
 - md5: c77b610090121b21cdad427c7ef64a7b
   path: lendingclub/modeling/10_evaluate.py
-- md5: a6af4c66e9c4b26a006a9c24695bb2c2
+- md5: 1ca602b291b876385ca23221c3bb8ae5
   path: data/eval_loan_info_scored.fth
 outs:
-- md5: 559ea952e8a7a2e46c46232f633907a3
+- md5: 40e8340001318f2200d25d6c5a59bd58
   path: results/default_rate.json
   cache: true
   metric: true
   persist: false
-- md5: 20c57bc91e3da078ae1e694e5d2889e3
+- md5: 21d1c070a925d8ae3ceb6848ba440652
   path: results/return.json
   cache: true
   metric: true
   persist: false
-- md5: 90533cbb8ccf39a38728126a30de7750
+- md5: 08c543bbee32f08811a373472d7cd9f9
   path: results/summary_mbm_return.json
   cache: true
   metric: true
   persist: false
-- md5: 6d1c7cdb26927c112ffbe1b5b534c24a
+- md5: de3c8d4b2f582b4b60ff4dff8ed2cdf0
   path: results/count.json
   cache: true
   metric: true
