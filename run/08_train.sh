@@ -6,4 +6,4 @@ dvc run -d lendingclub/modeling/08_train.py \
     -d data/eval_loan_info.fth \
     -o modeling/ \
     -f run/08_train.dvc \
-    python lendingclub/modeling/08_train.py -m catboost_clf 
+    python lendingclub/modeling/08_train.py -m catboost_regr 
