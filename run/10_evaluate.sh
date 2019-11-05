@@ -7,4 +7,4 @@ dvc run -d lendingclub/modeling/10_evaluate.py \
     -m results/summary_mbm_return.json \
     -m results/count.json \
     -f run/10_evaluate.dvc \
-    python lendingclub/modeling/10_evaluate.py -m catboost_clf 
+    python lendingclub/modeling/10_evaluate.py -m catboost_regr 
