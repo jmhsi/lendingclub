@@ -46,8 +46,11 @@ class Model():
         elif self.name == 'logistic_regr':
             self.m = load(os.path.join(mpath, '{0}_model.pkl'.format(self.name)))
             self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
-        elif self.name == 'catboost_clf':
-            self.m = CatBoostClassifier()
+        elif self.name in ['catboost_clf', 'catboost_regr']:
+            if self.name == 'catboost_clf':
+                self.m = CatBoostClassifier()
+            elif self.name == 'catboost_regr':
+                self.m = CatBoostRegressor()
             self.m.load_model(os.path.join(mpath,'{0}_model.cb'.format(self.name)))
             self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))            
 
@@ -71,10 +74,13 @@ class Model():
                 mask = np.where(df['grade'] == self.name, 0, 1).astype(bool)
                 scores[mask] = 0
             return scores
-        elif self.name in ['logistic_regr', 'catboost_clf']:
+        elif self.name in ['logistic_regr', 'catboost_clf', 'catboost_regr']:
             self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             # return probability of not default
-            return self.m.predict_proba(self.proc_df)[:, 0]
+            if self.name in ['logistic_regr', 'catboost_clr']:
+                return self.m.predict_proba(self.proc_df)[:, 0]
+            elif self.name in ['catboost_regr']:
+                return self.m.predict(self.proc_df)
         print('unknown model??')
         return None
         
