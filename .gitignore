@@ -30,54 +30,6 @@ __pycache__
 *-checkpoint.ipynb
 *.ipynb_checkpoints
 
-
-# .DS_Store
-# justin_credit_card/
-# char-rnn/
-# justin_tinker/
-# **/to_delete
-# to_delete/
-# **/lendingclub_csvs
-# **/*.h5
-# **/*.pkl
-
-# **/*.zip
-# **/LCDataDictionary.xlsx
-# **/account_info.py
-# checking_imports.ipynb
-# hello.txt
-# test_cron.py
-# bfg-1.12.15.jar
-# passwords.txt
-# myserver.cron
-# **/*.pyc
-# **/exploratory_bayesian_updates.ipynb
-# account_info.py
-# account_info.pyc
-# **/config_file_wip.ini
-# **/config_data_wip.py
-# **/figuring_out_working_with_LC_api.ipynb
-# chromedriver
-# hacker_rank_to_copy.ipynb
-# **/data
-# .ipynb_checkpoints
-# */.ipynb_checkpoints/*
-# **/train
-# **/val
-# **/valid
-# **/test
-# **/faces
-# randoms/
-# zenbot/
-# **/model_dump/
-# **/tmp/
-# sensitive_info.txt
-# */tmp/*
-# **/*.pyc
-# credentials.json
-# dataprep_and_modeling
-# lc_utils.py
-# /data
+# Stuff to sort into proper area later
 possible_removal
 /modeling
-/results
