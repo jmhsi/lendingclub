@@ -1,8 +1,8 @@
-md5: 033296b18a4f474c945d79b91cacf533
+md5: 5a580974d1199ffb4c94a24f73a9cb11
 cmd: python lendingclub/modeling/10_evaluate.py -m catboost_regr
 wdir: ..
 deps:
-- md5: c77b610090121b21cdad427c7ef64a7b
+- md5: a8c08761f087b64b82ace7600b97d0cc
   path: lendingclub/modeling/10_evaluate.py
 - md5: 23f5567b9e1db85db4e1f45acccb71d9
   path: data/eval_loan_info_scored.fth
