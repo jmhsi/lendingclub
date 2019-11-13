@@ -17,13 +17,15 @@ from lendingclub.modeling.models import Model
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', '-m', help='specify model(s) to train')
+parser.add_argument('--combine', '-c', help='Boolean, if model scores need to be combined in some way')
 
 if not len(sys.argv) > 1:
     models = ['baseline'] # , 'A', 'B', 'C', 'D', 'E', 'F', 'G'
 
 args = parser.parse_args()
 if args.model:
-    models = args.model.split()    
+    models = args.model.split()
+    combine = args.combine
     
     
 # load in relevant dataframes
@@ -50,6 +52,9 @@ for model_n in models:
     scores = m.score(base_loan_info)
     eval_loan_info['{0}_score'.format(model_n)] = scores
     all_scores['{0}_score'.format(model_n)] = scores
+    
+# one more step if using combination scores:
+print(combine)
     
 print('saving scored dataframe at {0}'.format(os.path.join(config.data_dir,'eval_loan_info_scored.fth')))
 eval_loan_info.to_feather(os.path.join(config.data_dir,'eval_loan_info_scored.fth'))

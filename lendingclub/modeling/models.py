@@ -52,7 +52,13 @@ class Model():
             elif self.name == 'catboost_regr':
                 self.m = CatBoostRegressor()
             self.m.load_model(os.path.join(mpath,'{0}_model.cb'.format(self.name)))
-            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))            
+            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
+        elif self.name == 'catboost_both':
+            self.m_clf = CatBoostClassifier()
+            self.m_clf.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_clf')))
+            self.m_regr = CatBoostRegressor()
+            self.m_regr.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_regr')))
+            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
 
     def score(self, df: pd.DataFrame):
         '''
@@ -77,10 +83,19 @@ class Model():
         elif self.name in ['logistic_regr', 'catboost_clf', 'catboost_regr']:
             self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             # return probability of not default
-            if self.name in ['logistic_regr', 'catboost_clr']:
+            if self.name in ['logistic_regr', 'catboost_clf']:
                 return self.m.predict_proba(self.proc_df)[:, 0]
             elif self.name in ['catboost_regr']:
                 return self.m.predict(self.proc_df)
+        elif self.name in ['catboost_both']:
+            self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
+            clf_scores = self.m_clf.predict_proba(self.proc_df)[:, 0]
+            regr_scores = self.m_regr.predict(self.proc_df)
+            # for now just do a simple cutoff where if clf_score is too low,
+            # 0 the regr score
+            mask = np.where(clf_scores < .95, 0, 1).astype(bool)
+            regr_scores[mask] = 0
+            return regr_scores
         print('unknown model??')
         return None
         
