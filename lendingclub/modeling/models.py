@@ -58,7 +58,8 @@ class Model():
             self.m_clf.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_clf')))
             self.m_regr = CatBoostRegressor()
             self.m_regr.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_regr')))
-            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
+            # can take either for proc data, its same process
+            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format('catboost_regr')))
 
     def score(self, df: pd.DataFrame):
         '''
