@@ -45,10 +45,13 @@ def train_model(model_n, X_train, y_train, X_valid=None, y_valid=None):
     elif model_n == 'catboost_regr':
         # basic params for regressor
         params = {
-            'iterations': 50000,
-        #     'one_hot_max_size': 45,
+            'iterations': 100000,
+            'one_hot_max_size': 10,
         #     'learning_rate': 0.01,
         #     'has_time': True,
+            'depth': 7,
+            'l2_leaf_reg': .5,
+            'random_strength': 5,
             'loss_function': 'RMSE',
             'eval_metric': 'RMSE',#'Recall',
             'random_seed': 42,
@@ -69,11 +72,14 @@ def train_model(model_n, X_train, y_train, X_valid=None, y_valid=None):
     elif model_n == 'catboost_clf':
         # basic params
         params = {
-            'iterations': 5000,
-        #     'one_hot_max_size': 45,
-        #     'learning_rate': 0.01,
+            'iterations': 100000,
+            'one_hot_max_size': 10,
+            'learning_rate': 0.01,
+            'depth': 7,
+            'l2_leaf_reg': .5,
+            'random_strength': 5,
         #     'has_time': True,
-            'eval_metric': 'AUC',#'Recall',
+            'eval_metric': 'Logloss',#'Recall',
             'random_seed': 42,
             'logging_level': 'Silent',
             'use_best_model': True,
@@ -123,6 +129,7 @@ if args.model:
 
 if not os.path.isdir(config.modeling_dir):
     os.makedirs(config.modeling_dir)
+    
 
 tr_val_base_data, tr_val_eval_data, _ = utils.load_dataset(ds_type='train')
 # ensure ordering is correct for time series split
