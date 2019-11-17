@@ -70,7 +70,7 @@ class Model():
         HIGHER SCORES SHOULD BE BETTER (for classification, want prob of
         not defaulting)
         '''
-        if (self.df and not self.df.equals(df)) or (not self.df):
+        if ((self.df is not None) and not self.df.equals(df)) or (self.df is None):
             self.df = df
             
         # baselines and grades
@@ -94,8 +94,8 @@ class Model():
             regr_scores = self.m_regr.predict(self.proc_df)
             # for now just do a simple cutoff where if clf_score is too low,
             # 0 the regr score
-            mask = np.where(clf_scores < .95, 0, 1).astype(bool)
-            regr_scores[mask] = 0
+            mask = clf_scores < .95
+            regr_scores[mask] = -999
             return regr_scores
         print('unknown model??')
         return None
