@@ -33,7 +33,7 @@ class Model():
     def __init__(self, name: str):
         self.name = name
         self.basempath = os.path.join(ppath, 'models')
-        self.mpath = os.path.join(self.basempath, self.name)
+        self.mpath = mpath
         self.proc_arti = None
         self.m = None
         self.df = None
@@ -46,7 +46,20 @@ class Model():
         elif self.name == 'logistic_regr':
             self.m = load(os.path.join(mpath, '{0}_model.pkl'.format(self.name)))
             self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
-            
+        elif self.name in ['catboost_clf', 'catboost_regr']:
+            if self.name == 'catboost_clf':
+                self.m = CatBoostClassifier()
+            elif self.name == 'catboost_regr':
+                self.m = CatBoostRegressor()
+            self.m.load_model(os.path.join(mpath,'{0}_model.cb'.format(self.name)))
+            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format(self.name)))
+        elif self.name == 'catboost_both':
+            self.m_clf = CatBoostClassifier()
+            self.m_clf.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_clf')))
+            self.m_regr = CatBoostRegressor()
+            self.m_regr.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_regr')))
+            # can take either for proc data, its same process
+            self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format('catboost_regr')))
 
     def score(self, df: pd.DataFrame):
         '''
@@ -57,7 +70,7 @@ class Model():
         HIGHER SCORES SHOULD BE BETTER (for classification, want prob of
         not defaulting)
         '''
-        if (self.df and not self.df.equals(df)) or (not self.df):
+        if ((self.df is not None) and not self.df.equals(df)) or (self.df is None):
             self.df = df
             
         # baselines and grades
@@ -68,10 +81,22 @@ class Model():
                 mask = np.where(df['grade'] == self.name, 0, 1).astype(bool)
                 scores[mask] = 0
             return scores
-        elif self.name == 'logistic_regr':
+        elif self.name in ['logistic_regr', 'catboost_clf', 'catboost_regr']:
             self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             # return probability of not default
-            return self.m.predict_proba(self.proc_df)[:, 0]
+            if self.name in ['logistic_regr', 'catboost_clf']:
+                return self.m.predict_proba(self.proc_df)[:, 0]
+            elif self.name in ['catboost_regr']:
+                return self.m.predict(self.proc_df)
+        elif self.name in ['catboost_both']:
+            self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
+            clf_scores = self.m_clf.predict_proba(self.proc_df)[:, 0]
+            regr_scores = self.m_regr.predict(self.proc_df)
+            # for now just do a simple cutoff where if clf_score is too low,
+            # 0 the regr score
+            mask = clf_scores < .95
+            regr_scores[mask] = -999
+            return regr_scores
         print('unknown model??')
         return None
         

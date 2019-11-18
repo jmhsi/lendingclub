@@ -59,8 +59,11 @@ def get_topn_def_pct(model, eval_df, n): #, bootstrap=False
 def dump_named(f_name, dic, m_name, add_m_name=False):
     if add_m_name:
         f_name = '{0}_{1}'.format(m_name, f_name)
-    with open(os.path.join(config.results_dir, f_name), 'w+') as f:
-        json.dump(dic, f)
+        with open(os.path.join(config.results_dir_all, f_name), 'w+') as f:
+            json.dump(dic, f)
+    else:
+        with open(os.path.join(config.results_dir, f_name), 'w+') as f:
+            json.dump(dic, f)
 
 def eval_model(model_n, test, bs_idx, debug=False):#, verbose=True, top_n=.05
     top_ns = [0.01, 0.02, 0.03, 0.04, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3]

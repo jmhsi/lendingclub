@@ -1,0 +1,5 @@
+dvc==0.66.9
+pyarrow==0.14.1
+pause==0.1.2
+pandas-summary==0.0.7
+catboost==0.17.4
