@@ -11,6 +11,9 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 # Notes about the csvs/data
 1) Even though LC only issues loasn A1-D5, they still internally have A1 - G3/5 in the loan info. I checked the interest rates and grades with the information at https://www.lendingclub.com/foliofn/rateDetail.action
 
+
+# Strange loans are separated out after all cleaning steps
+
 # Git Tags
 Various git tags for navigating between datasets and dev/full datasets
 datav0.0.0 <- model/scorer.dataprocessingtype.raw_data_csvs? Each redownload of new data, increment rightmost #?

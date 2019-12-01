@@ -7,115 +7,44 @@ import pickle
 
 import pandas as pd
 # testing
-
 from lendingclub import config, utils
+from lendingclub.data_and_eval_preparation import create_train_test as ctt
+from sklearn.model_selection import train_test_split
 
 dpath = config.data_dir
 base_loan_info = pd.read_feather(os.path.join(dpath, 'base_loan_info.fth'))
 eval_loan_info = pd.read_feather(os.path.join(dpath, 'eval_loan_info.fth'))
-# pmt_hist = pd.read_feather(os.path.join(dpath, 'scaled_pmt_hist.fth'))
+print(base_loan_info.shape, eval_loan_info.shape)
 
-def check_sample_distribution(df, sample, diff_thrsh=.05, check_cols=[], verbose=True):
-    '''
-    check if the distribution of the sample's col and df's col is sufficiently
-    close. Default tolerance is 1% difference
-    '''
-    if not check_cols:
-        check_cols = df.columns
-    pop_n = len(df)
-    s_n = len(sample)
-    sample_miss = {}
-    big_pct_diff = {}
-    for col in check_cols:
-        pop_group = df[col].value_counts(dropna=False)/pop_n
-        s_group = sample[col].value_counts(dropna=False)/s_n
-        temp_miss = {}
-        temp_diff = {}
-        for k in pop_group.keys():
-            if k not in s_group.keys():
-                if verbose:
-                    print('{0} group for {2} column is missing entirely from the sample \
-                      while population has {1}'.format(k, pop_group[k], col))
-                temp_miss[k] = pop_group[k]
-            else:
-                pct_diff = abs(pop_group[k] - s_group[k])/pop_group[k]
-                if pct_diff > diff_thrsh:
-                    temp_diff[k] = pct_diff
-        if temp_miss:
-            sample_miss[col] = temp_miss
-        if temp_diff:
-            big_pct_diff[col] = temp_diff
-    if sample_miss or big_pct_diff:
-        print("There is a sampling concern")
+with open(os.path.join(config.data_dir, 'strange_pmt_hist_ids.pkl'), 'rb') as f:
+    strange_pmt_hist_ids = pickle.load(f)
+    
+print('dropping {0} strange loans based on strange_pmt_hist_ids.pkl'.format(len(strange_pmt_hist_ids)))
+base_loan_info = base_loan_info.query('id not in @strange_pmt_hist_ids')
+eval_loan_info = eval_loan_info.query('id not in @strange_pmt_hist_ids')
+print(base_loan_info.shape, eval_loan_info.shape)
 
-def check_not_same_loans(tr, te):
-    return bool(len(set(tr['id']).intersection(set(te['id']))) == 0)
-
-def check_all_loans_accounted(tr, te, to):
-    return bool(tr.shape[0] + te.shape[0] == to.shape[0])
-
-def check_same_n_instances(df1, df2):
-    return bool(df1.shape[0] == df2.shape[0])
-
-def check_same_n_cols(df1, df2):
-    return bool(df1.shape[1] == df2.shape[1])
-
-def check_train_test_testable(train, test, testable, train1, test1, testable1):
-    '''
-    First set for loan_info, second set for eval_loan_info
-    '''
-    print(train.shape, test.shape, testable.shape, train1.shape, test1.shape, testable1.shape)
-    assert check_not_same_loans(train, test)
-    assert check_all_loans_accounted(train, test, testable)
-    assert check_not_same_loans(train1, test1)
-    assert check_all_loans_accounted(train1, test1, testable1)
-    assert check_same_n_instances(train, train1)
-    assert check_same_n_instances(test, test1)
-    assert check_same_n_instances(testable, testable1)
-    assert check_same_n_cols(train, test)
-    assert check_same_n_cols(train1, test1)
-    return True
-
-#from 2010-1-1 onward, take out min(10%, 2000) loans to set aside as train
+#from 2010-1-1 onward, take out min(10%, 2000) loans to set aside as test
 doneness = .95
 train_testable_eval_loan_info = eval_loan_info.query('maturity_time_stat_adj >= @doneness or maturity_paid_stat_adj >= @doneness')
 train_testable_ids = train_testable_eval_loan_info['id']
-# train_testable_loan_info = base_loan_info.query('id in @train_testable_ids')
-
-# assert train_testable_eval_loan_info.shape[0] == train_testable_loan_info.shape[0]
-
-
-issue_d_g = train_testable_eval_loan_info.groupby('issue_d')
-test_ids = []
-check_cols = ['target_strict', 'grade']
-for date, group in issue_d_g:
-    if date >= pd.to_datetime('2010-1-1'):
-        print('sampling {0} for issue_d group {1}'.format(min(int(len(group)*.1), 2000), date))
-        samp = group.sample(n=min(int(len(group)*.1), 2000), random_state=42)
-        if check_sample_distribution(group, samp, check_cols=check_cols, verbose=False):
-            print()
-        test_ids.extend(samp['id'].tolist())
-
-test_eval_loan_info = train_testable_eval_loan_info.query('id in @test_ids')
-# test_loan_info = train_testable_loan_info.query('id in @test_ids')
-
-train_eval_loan_info = train_testable_eval_loan_info.query('id not in @test_ids')
-# train_loan_info = train_testable_loan_info.query('id not in @test_ids')
-
-test_eval_loan_info.shape[0] + train_eval_loan_info.shape[0] == train_testable_eval_loan_info.shape[0]
-
-# if check_train_test_testable(train_eval_loan_info, test_eval_loan_info, train_testable_eval_loan_info,
-#                              train_loan_info, test_loan_info, train_testable_loan_info):
-
+X_train, X_test, _, _ = train_test_split(train_testable_eval_loan_info, train_testable_eval_loan_info['target_strict'].values, stratify=train_testable_eval_loan_info['grade'], test_size=0.1)
+# remove loans before 2010-1-1 from test and add them to train
+add_to_train = X_test.query('issue_d < "2010-1-1"')
+X_train = pd.concat([X_train, add_to_train])
+train_ids = X_train['id'].tolist()
+X_test = X_test.query('id not in @train_ids')
+test_ids = X_test['id'].tolist()
+assert len(set(train_ids).intersection(test_ids)) == 0
 
 train_test_ids_dict = {}
 train_test_ids_dict['train_testable'] = train_testable_ids.tolist()
-train_test_ids_dict['train'] = train_eval_loan_info['id'].tolist()
-train_test_ids_dict['test'] = test_eval_loan_info['id'].tolist()
+train_test_ids_dict['train'] = train_ids
+train_test_ids_dict['test'] = test_ids
 
 # make 10 bootstrap month-by-month test_loan_infos (and maybe test_eval_loan_infos?)
 bootstrap_sample_idx = {}
-issue_d_g = test_eval_loan_info.groupby('issue_d')
+issue_d_g = X_test.groupby('issue_d')
 for i in range(10):
     to_concat = []
     for d, g in issue_d_g:
