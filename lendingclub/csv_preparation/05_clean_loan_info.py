@@ -36,17 +36,16 @@ import os
 import pickle
 import re
 import sys
-
 import numpy as np
 import pandas as pd
 from pandas.api.types import is_string_dtype
 from tqdm import tqdm
-
 import j_utils.munging as mg
+sys.path.append('/home/justin/projects/lendingclub/lendingclub/csv_preparation')
 import rem_to_be_paid as rtbp
 from lendingclub import config
+from lendingclub.csv_preparation import clean_loan_info as cli
 
-sys.path.append('/home/justin/projects/lendingclub/lendingclub/csv_preparation')
 
 # load data, turn python Nones into np.nans
 dpath = config.data_dir
@@ -58,20 +57,7 @@ loan_info = loan_info.query('id in @dev_ids')
 loan_info.fillna(value=pd.np.nan, inplace=True)
 
 #turn all date columns into pandas timestamp ________________________________
-month_dict = {
-    'jan': '1',
-    'feb': '2',
-    'mar': '3',
-    'apr': '4',
-    'may': '5',
-    'jun': '6',
-    'jul': '7',
-    'aug': '8',
-    'sep': '9',
-    'oct': '10',
-    'nov': '11',
-    'dec': '12'
-}
+
 # date cols
 date_cols = [
     'issue_d', 'earliest_cr_line', 'last_pymnt_d', 'last_credit_pull_d',
@@ -80,12 +66,7 @@ date_cols = [
     'settlement_date',
 ]
 for col in date_cols:
-    loan_info[col] = loan_info[col].str.strip()
-    loan_info[col] = loan_info[col].str.lower()
-    loan_info[col] = pd.to_datetime(
-        loan_info[col].str[:3].str.lower().replace(month_dict) +
-        loan_info[col].str[3:],
-        format='%m-%Y')
+    cli.loan_info_fmt_date(loan_info, col)
 
 # Cleanups ___________________________________________________________________
 # int_rate
@@ -190,34 +171,12 @@ loan_info['installment_at_funded'] = np.pmt(
 max_date = loan_info['last_pymnt_d'].max()
 
 # end_d to me means the date we can stop tracking things about the loan. Should be defunct
-def apply_end_d(status, group):
-    '''
-    based on last known payment from loan_info, figure out end_d based on
-    status
-    '''
-    if status == 'charged_off':
-        #split the group into two groups, one which has paid something,
-        #and other which has paid nothing
-        never_paid = group[group['last_pymnt_d'].isnull()]
-        has_paid = group[group['last_pymnt_d'].notnull()]
-
-        # 4 months of late (1-120) and then 1 month of chargeoff, so 5 months
-        never_paid['end_d'] = never_paid['issue_d'] + pd.DateOffset(months=+5)
-        has_paid['end_d'] = has_paid['last_pymnt_d'] + pd.DateOffset(months=+5)
-
-        group.loc[never_paid.index.values, 'end_d'] = never_paid['end_d']
-        group.loc[has_paid.index.values, 'end_d'] = has_paid['end_d']
-        return group['end_d']
-    elif status == 'paid':
-        return group['last_pymnt_d']
-    return pd.Series([max_date] * len(group), index=group.index.values)
-
 # make end_d
 status_grouped = loan_info.groupby('loan_status')
 end_d_series = pd.Series([])
 for status, group in status_grouped:
     end_d_series = end_d_series.append(
-        apply_end_d(status, group), verify_integrity=True)
+        cli.apply_end_d(status, group, max_date), verify_integrity=True)
 loan_info['end_d'] = end_d_series
 loan_info.loc[loan_info['end_d'] > max_date, 'end_d'] = max_date
 
@@ -324,8 +283,6 @@ loan_info = loan_info[loan_info['tax_liens'].notnull()]
 # drop loans that have this null
 loan_info = loan_info[loan_info['inq_last_6mths'].notnull()]
 
-# !!!!!!!!!!!!!!!!!!!!!!!!
-print(loan_info.shape)
 
 # Drop columns _______________________________________________________________
 # Dropping these since I don't want them and they might confuse me.

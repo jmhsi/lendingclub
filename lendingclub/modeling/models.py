@@ -28,18 +28,25 @@ mpath = config.modeling_dir
 class Model():
     '''
     Model class loads appropriate model based on name in constructor
-    Also handles preprocessing
+    Also handles data preprocessing
     '''
     def __init__(self, name: str):
         self.name = name
         self.basempath = os.path.join(ppath, 'models')
         self.mpath = mpath
         self.proc_arti = None
+        self.data_is_procced = False
+        self.proc_df = None
         self.m = None
         self.df = None
+        self.m_clf = None
+        self.m_regr = None
         self.load_model()
         
     def load_model(self):
+        '''
+        Loads a model based on which model (self.name)
+        '''
         if self.name in ['baseline', 'A', 'B', 'C', 'D', 'E', 'F', 'G']:
             with open(os.path.join(mpath, '{0}_model.pkl'.format(self.name)), 'rb') as file:
                 self.m = pickle.load(file)
@@ -60,8 +67,15 @@ class Model():
             self.m_regr.load_model(os.path.join(mpath,'{0}_model.cb'.format('catboost_regr')))
             # can take either for proc data, its same process
             self.proc_arti = load(os.path.join(mpath, '{0}_model_proc_arti.pkl'.format('catboost_regr')))
+            
+    def proc_data(self):
+        '''
+        Process dataframe appropriately for the model type, set self.proc_df
+        '''
+        self.proc_df = mg.val_test_proc(self.df.copy(), *self.proc_arti)
+        self.data_is_procced = True
 
-    def score(self, df: pd.DataFrame):
+    def score(self, df: pd.DataFrame, return_all=False, random_penalty=False, clf_cutoff = .90):
         '''
         Given a dataframe (base_loan_info, non imputed or scaled or normalized)
         return scores. Imputation, Scaling, and Normalizing will be handled
@@ -70,33 +84,47 @@ class Model():
         HIGHER SCORES SHOULD BE BETTER (for classification, want prob of
         not defaulting)
         '''
-        if ((self.df is not None) and not self.df.equals(df)) or (self.df is None):
+        if (self.df is None) or ((self.df is not None) and not self.df.equals(df)):
+            # if there is no previous df, or if previous df doesn't match
+            # the df that was just passed to be scored
             self.df = df
+            self.data_is_procced = False
             
+        if not self.data_is_procced and any(n in self.name for n in ['regr', 'clf', 'both']):
+            self.proc_data()
+        
         # baselines and grades
         if self.name in ['baseline', 'A', 'B', 'C', 'D', 'E', 'F', 'G']:
             self.prng = np.random.RandomState(self.m)
-            scores = self.prng.random(len(df))
+            scores = self.prng.random(len(self.df))
             if self.name in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
                 mask = np.where(df['grade'] == self.name, 0, 1).astype(bool)
                 scores[mask] = 0
             return scores
         elif self.name in ['logistic_regr', 'catboost_clf', 'catboost_regr']:
-            self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
+#             self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             # return probability of not default
             if self.name in ['logistic_regr', 'catboost_clf']:
                 return self.m.predict_proba(self.proc_df)[:, 0]
             elif self.name in ['catboost_regr']:
                 return self.m.predict(self.proc_df)
         elif self.name in ['catboost_both']:
-            self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
+#             if self.proc_df is None:
+#                 self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             clf_scores = self.m_clf.predict_proba(self.proc_df)[:, 0]
             regr_scores = self.m_regr.predict(self.proc_df)
             # for now just do a simple cutoff where if clf_score is too low,
             # 0 the regr score
-            mask = clf_scores < .95
-            regr_scores[mask] = -999
-            return regr_scores
+            mask = clf_scores < clf_cutoff
+            comb_scores = np.copy(regr_scores)
+            if not random_penalty:
+                comb_scores[mask] = -999
+            else:
+                penalty_scores = np.random.uniform(-10, -9, size=len(clf_scores))
+                comb_scores[mask] = penalty_scores[mask]
+            if return_all:
+                return comb_scores, regr_scores, clf_scores
+            return comb_scores
         print('unknown model??')
         return None
         

@@ -6,13 +6,9 @@ makes a scaled pmt_history and other various targets for evaluation of models
 import os
 
 import numpy as np
-# %load ../../lendingclub/data_and_eval_preparation/data_and_eval_preparation.py
 import pandas as pd
 from tqdm import tqdm
 
-# import gspread
-# from google.oauth2 import service_account
-# from google.auth.transport.requests import AuthorizedSession
 import j_utils.munging as mg
 import lendingclub.config as config
 import lendingclub.investing.investing_utils as investing_utils
@@ -90,7 +86,7 @@ eval_flds = ['end_d', 'issue_d', 'maturity_paid', 'maturity_time',
              'target_strict', 'loan_status', 'id']
 strb_flds = ['desc', 'emp_title', 'id']
 base_loan_info = loan_info[list(common_flds)]
-eval_loan_info = loan_info[eval_flds + ['grade', 'term']]
+eval_loan_info = loan_info[eval_flds + ['grade', 'sub_grade', 'term', 'int_rate']]
 str_loan_info = strings[strb_flds]
 
 # SAVE
