@@ -1,4 +1,4 @@
-md5: d46e1d13a23aa7f050ee601b0914aa4c
+md5: cae6b92765cd08473a1f98e7e7d3efbc
 cmd: python lendingclub/modeling/09_score.py -m catboost_both
 wdir: ..
 deps:
@@ -12,8 +12,10 @@ deps:
   path: lendingclub/modeling/models.py
 - md5: 85ff1f2c1e32e6d5d223ffcfe0dc7830
   path: lendingclub/modeling/08_train.py
+- md5: 211b1e25f329d7f2780f716e34e8e415.dir
+  path: modeling
 outs:
-- md5: 78042d4dfe818ab56a12c2bc7c62778c
+- md5: 65da47183539d58508aaf4a20431ec5b
   path: data/eval_loan_info_scored.fth
   cache: true
   metric: false
