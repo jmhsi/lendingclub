@@ -20,6 +20,9 @@ credentials.json
 sensitive_info.txt
 *.fth
 
+# lc_api_loans.db
+*.db
+
 # python stuff
 __pycache__
 

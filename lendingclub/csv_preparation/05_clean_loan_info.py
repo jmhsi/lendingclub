@@ -1,3 +1,4 @@
+# %load ../../lendingclub/csv_preparation/05_clean_loan_info.py
 '''
 maturity time and maturity paid are floats from 0 to 1 that express how "done"
 a loan is either time-wise, or money wise. There are loan-status adjusted versions as well.
@@ -69,8 +70,6 @@ for col in date_cols:
     cli.loan_info_fmt_date(loan_info, col)
 
 # Cleanups ___________________________________________________________________
-# int_rate
-loan_info['int_rate'] = loan_info['int_rate'] / 100
 # installment funded
 rename_dict = {'installment': 'installment_currently'}
 loan_info.rename(rename_dict, inplace=True, axis=1)
@@ -78,14 +77,14 @@ loan_info.rename(rename_dict, inplace=True, axis=1)
 loan_info['emp_title'] = loan_info['emp_title'].str.lower()
 # home_ownership
 dic_home_ownership = {
-    'mortgage': 'mortgage',
-    'rent': 'rent',
-    'own': 'own',
-    'other': 'other',
-    'none': 'none',
-    'any': 'none'
+    'MORTGAGE': 'MORTGAGE',
+    'RENT': 'RENT',
+    'OWN': 'OWN',
+    'OTHER': 'OTHER',
+    'NONE': 'NONE',
+    'ANY': 'NONE'
 }
-loan_info['home_ownership'] = loan_info['home_ownership'].str.lower().replace(
+loan_info['home_ownership'] = loan_info['home_ownership'].str.upper().replace(
     dic_home_ownership)
 # verification_status and verification_status_joint
 dic_verification_status = {
@@ -119,41 +118,56 @@ loan_info['loan_status'] = loan_info['loan_status'].replace(dic_status)
 loan_info['hardship_loan_status'] = loan_info['hardship_loan_status'].replace(dic_status)
 #title
 loan_info['title'] = loan_info['title'].str.lower()
-#application_type
-loan_info['application_type'] = loan_info['application_type'].str.lower()
+
+
+# 12/14/2019 CORRECTIONS TO LOAN INFO TO MATCH DATA
+# COMING THROUGH LENDINGCLUB API
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#application_type, remap to be same as api_loan
+dic_app_type = {
+    'JOINT APP': 'JOINT',
+}
+loan_info['application_type'] = loan_info['application_type'].str.upper().replace(dic_app_type)
+
+loan_info['initial_list_status'] = loan_info['initial_list_status'].str.upper()
+
+# # int_rate
+# loan_info['int_rate'] = loan_info['int_rate'] / 100
+
 #revol_util
 loan_info['revol_util'] = loan_info['revol_util'].apply(
-    lambda x: float(x.strip('%')) / 100 if pd.notnull(x) else np.nan)
-#all_util
-loan_info['all_util'] = loan_info['all_util'] / 100.
-# pct_tl_nvr_dlq
-loan_info['pct_tl_nvr_dlq'] = loan_info['pct_tl_nvr_dlq'] / 100.
-# percent_bc_gt_75
-loan_info['percent_bc_gt_75'] = loan_info['percent_bc_gt_75'] / 100.
-# dti
-loan_info['dti'] = loan_info['dti'] / 100.
+    lambda x: float(x.strip('%')) if pd.notnull(x) else np.nan)
+# #all_util
+# loan_info['all_util'] = loan_info['all_util'] / 100.
+# # pct_tl_nvr_dlq
+# loan_info['pct_tl_nvr_dlq'] = loan_info['pct_tl_nvr_dlq'] / 100.
+# # percent_bc_gt_75
+# loan_info['percent_bc_gt_75'] = loan_info['percent_bc_gt_75'] / 100.
+# # dti
+# loan_info['dti'] = loan_info['dti'] / 100.
 # dti_joint
-loan_info['dti_joint'] = loan_info['dti_joint'] / 100.
+# loan_info['dti_joint'] = loan_info['dti_joint'] / 100.
 # il_util
-loan_info['il_util'] = loan_info['il_util'] / 100.
-# bc_util
-loan_info['bc_util'] = loan_info['bc_util'] / 100.
-# sec_app_revol_util
-loan_info['sec_app_revol_util'] = loan_info['sec_app_revol_util'] / 100.
-# settlement_percentage
-loan_info['settlement_percentage'] = loan_info['settlement_percentage'] / 100.
+# loan_info['il_util'] = loan_info['il_util'] / 100.
+# # bc_util
+# loan_info['bc_util'] = loan_info['bc_util'] / 100.
+# # sec_app_revol_util
+# loan_info['sec_app_revol_util'] = loan_info['sec_app_revol_util'] / 100.
+# # settlement_percentage
+# loan_info['settlement_percentage'] = loan_info['settlement_percentage'] / 100.
 
-# check that percents are between 0 and 1, not 0 and 100
-pct_cols = []
-for col in loan_info.columns:
-    if any(x in col for x in ['pct', 'percent', 'util', 'dti', 'rate']):
-        pct_cols.append(col)
+# # check that percents are between 0 and 1, not 0 and 100
+# pct_cols = []
+# for col in loan_info.columns:
+#     if any(x in col for x in ['pct', 'percent', 'util', 'dti', 'rate']):
+#         pct_cols.append(col)
 
-for col in pct_cols:
-    if loan_info[col].mean() > 1:
-        print('this col needs to be turned into a decimal form of percent: ', col)
-    if loan_info[col].median() > 1:
-        print('this col needs to be turned into a decimal form of percent: ', col)
+# for col in pct_cols:
+#     if loan_info[col].mean() > 1:
+#         print('this col needs to be turned into a decimal form of percent: ', col)
+#     if loan_info[col].median() > 1:
+#         print('this col needs to be turned into a decimal form of percent: ', col)
 
 # Adding columns of interest _________________________________________________
 # unreceived principal, not overwriting out_prncp
@@ -201,7 +215,7 @@ loan_info['maturity_time'] = np.where(loan_info['maturity_time'] >= 1, 1,
 # make rem_to_be_paid
 loan_info['rem_to_be_paid'] = rtbp.apply_rem_to_be_paid(
     loan_info['unreceived_prncp'].values, loan_info['installment_currently'].values,
-    loan_info['int_rate'].values)
+    loan_info['int_rate'].values/100)
 
 loan_info['maturity_paid'] = loan_info['total_pymnt'] / (
     loan_info['total_pymnt'] + loan_info['rem_to_be_paid'])

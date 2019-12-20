@@ -1,17 +1,17 @@
-md5: b3eee26896f814ec68bbb5378518f1d2
+md5: 7c787482a9bf07a8d1ceb7df3a4a546e
 cmd: python lendingclub/modeling/08_train.py -m "catboost_regr catboost_clf"
 wdir: ..
 deps:
 - md5: 85ff1f2c1e32e6d5d223ffcfe0dc7830
   path: lendingclub/modeling/08_train.py
-- md5: 634b26a3b36ff97f3b6f80998ee6c189
+- md5: 11a897769688f55c90b6fc3d357c9a7a
   path: data/train_test_ids.pkl
-- md5: d4a6259ac8bb88af711a7a4ec492ccc4
+- md5: efdc06731e86eb9d83bb49203f9d9f86
   path: data/base_loan_info.fth
-- md5: 0ca536bda4548eafdd1b2991e6610917
+- md5: 27bc7e32a302fa2b3880a37de4bdadf7
   path: data/eval_loan_info.fth
 outs:
-- md5: e3af41ecd660a8066a13b903b4e0c7b3.dir
+- md5: 6c844e3899df987caabae80afc9d1fc7.dir
   path: modeling
   cache: true
   metric: false

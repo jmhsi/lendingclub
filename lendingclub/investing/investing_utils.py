@@ -1,3 +1,4 @@
+# %load ../../lendingclub/investing/investing_utils
 import requests
 import json
 import re
@@ -6,12 +7,10 @@ import numpy as np
 import datetime as dt
 import user_creds.account_info as acc_info
 import pause
-# from fastai.imports import *
-# from fastai.structured import *
-# from fastai.column_data import *
+import smtplib
 from sklearn.base import TransformerMixin, BaseEstimator
 from pandas_summary import DataFrameSummary
-from sklearn.externals import joblib
+# from sklearn.externals import joblib
 
 class StandardScalerJustin(TransformerMixin, BaseEstimator):
     def __init__(self, copy=True, with_mean=True, with_std=True):
@@ -153,8 +152,8 @@ def eval_models(trials, port_size, available_loans, regr_version, X_test, y_test
            names=['discount_rate', 'model'])
     return results_df
 
-def load_RF():
-    return joblib.load(f'{PATH_RF}{regr_version_RF}_{training_type}.pkl')
+# def load_RF():
+#     return joblib.load(f'{PATH_RF}{regr_version_RF}_{training_type}.pkl')
     
 def add_dateparts(df):
     '''Uses the fastai add_datepart to turn datetimes into numbers to process
@@ -181,11 +180,9 @@ def pause_until_time(test=False):
 #         now.strftime('%H:%M:%S'), pause_until.strftime('%H:%M:%S')))
     pause.until(pause_until)
 
-
 def convert_to_underscore(name):
     s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
     return re.sub('([a-z0-9])([0-9A-Z])', r'\1_\2', s1).lower()
-
 
 def get_already_invested_filter_id(header):
     filters_list = json.loads(requests.get(
@@ -194,7 +191,6 @@ def get_already_invested_filter_id(header):
     # I manually made a single filter that excludes loans already invested in.
     # Not sure if there is a way to do this entirely through the api.
     return filters_df[filters_df['name'] == 'exclude_already_invested'].iloc[0, 0]
-
 
 def get_loans_and_ids(header, exclude_already=True):
     '''Gets loans from lendingclub with the single filter of exclude loans already invested in.'''
@@ -216,7 +212,6 @@ def get_loans_and_ids(header, exclude_already=True):
     # save the loan ids
     loan_ids = api_loans['id']
     return api_loans, loan_ids
-
 
 def match_col_names(api_loans):
     # cols to add
@@ -272,7 +267,6 @@ def match_col_names(api_loans):
     api_loans.rename(columns=rename_dict, inplace=True)
     return api_loans
 
-
 def match_existing_cols_to_csv(api_loans):
     api_loans.fillna(value=np.nan, inplace=True)
     api_loans['all_util'] = api_loans['all_util'] / 100.0
@@ -308,7 +302,6 @@ def match_existing_cols_to_csv(api_loans):
     api_loans['revol_util'] = api_loans['revol_util'] / 100.0
     return api_loans
 
-
 def make_missing_cols_and_del_dates(api_loans):
     # probably something with earliest credit line, fico range high/low
     # need to add line_history_m, orig_amt_due, fico
@@ -330,7 +323,6 @@ def make_missing_cols_and_del_dates(api_loans):
                     'fico_range_low'], axis=1, inplace=True)
     return api_loans
 
-
 def verify_df_base_cols(api_loans, test_loans):
     api_cols = api_loans.columns.values.copy()
     api_cols.sort()
@@ -351,6 +343,23 @@ def make_CIs(preds):
     df['mean'] = means
     df['std_dev'] = std_devs
     return df
+
+def submit_lc_order(cash_to_invest, cash_limit, order_url, header, payload):
+    if cash_to_invest >= cash_limit:
+        order_response = requests.post(order_url, headers=header, data=payload)
+        return order_response
+    return None
+
+def send_emails(now, my_gmail_account, my_gmail_password, msg): #, my_recipients
+#     subject = now.strftime("%Y-%m-%d %H:%M:%S.%f") + ' Investment Round'
+    smtpserver = smtplib.SMTP('smtp.gmail.com',587)
+    smtpserver.ehlo()
+    smtpserver.starttls()
+    smtpserver.login(my_gmail_account, my_gmail_password)
+#     msg = """From: %s\nTo: %s\nSubject: %s\n\n%s""" % (my_gmail_account, my_recipients, subject, message)
+#     smtpserver.sendmail(msg)#my_gmail_account, my_recipients, 
+    smtpserver.send_message(msg)
+    smtpserver.close()
 
 # constants
 inv_acc_id = acc_info.investor_id
