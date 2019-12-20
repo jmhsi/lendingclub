@@ -7,6 +7,8 @@ import os
 
 import numpy as np
 import pandas as pd
+import pickle
+from pandas.api.types import is_string_dtype, is_numeric_dtype
 from tqdm import tqdm
 
 import j_utils.munging as mg
@@ -75,9 +77,7 @@ licsv_to_api_rename_dict = {
 }
 loan_info.rename(licsv_to_api_rename_dict, axis=1, inplace=True)
 
-# SAVE this version of loan info
 loan_info.reset_index(drop=True, inplace=True)
-loan_info.to_feather(os.path.join(dpath, 'clean_loan_info_api_name_matched.fth'))
 
 # split loan info into dataframes for training off of and evaluating__________
 eval_flds = ['end_d', 'issue_d', 'maturity_paid', 'maturity_time',
@@ -89,8 +89,7 @@ base_loan_info = loan_info[list(common_flds)]
 eval_loan_info = loan_info[eval_flds + ['grade', 'sub_grade', 'term', 'int_rate']]
 str_loan_info = strings[strb_flds]
 
-# SAVE
-base_loan_info.to_feather(os.path.join(dpath, 'base_loan_info.fth'))
+
 # save it at bottom of script
 # eval_loan_info.to_feather(os.path.join(dpath, 'eval_loan_info.fth'))
 # str_loan_info.reset_index(drop=True, inplace=True)
@@ -155,6 +154,13 @@ eval_loan_info['target_strict'] = eval_loan_info['target_strict'].fillna(0)
 eval_loan_info.fillna(-1, inplace=True)
 
 
+# SAVE this version of loan info
+loan_info.to_feather(os.path.join(dpath, 'clean_loan_info_api_name_matched.fth'))
+# SAVE
+base_loan_info.to_feather(os.path.join(dpath, 'base_loan_info.fth'))
+with open(os.path.join(dpath, 'base_loan_info_dtypes.pkl'), 'wb') as f:
+    pickle.dump(base_loan_info.dtypes.to_dict(), f)
+    
 # SAVE
 pmt_hist.reset_index(drop=True, inplace=True)
 _, pmt_hist = mg.reduce_memory(pmt_hist)
