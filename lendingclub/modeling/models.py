@@ -19,6 +19,7 @@ import pickle
 
 import j_utils.munging as mg
 from lendingclub import config
+from lendingclub.modeling import score_utils as scr_util
 
 ppath = config.prj_dir
 dpath = config.data_dir
@@ -75,7 +76,7 @@ class Model():
         self.proc_df = mg.val_test_proc(self.df.copy(), *self.proc_arti)
         self.data_is_procced = True
 
-    def score(self, df: pd.DataFrame, return_all=False, random_penalty=False, clf_cutoff = .90):
+    def score(self, df: pd.DataFrame, return_all=False, random_penalty=False, clf_cutoff = .90, optimized=True):
         '''
         Given a dataframe (base_loan_info, non imputed or scaled or normalized)
         return scores. Imputation, Scaling, and Normalizing will be handled
@@ -83,6 +84,10 @@ class Model():
         
         HIGHER SCORES SHOULD BE BETTER (for classification, want prob of
         not defaulting)
+        
+        optimized is only for catboost_both where notebooks 11/12 have been
+        used to choose how to properly combine scores and what
+        percentiles of score to invest in
         '''
         if (self.df is None) or ((self.df is not None) and not self.df.equals(df)):
             # if there is no previous df, or if previous df doesn't match
@@ -113,15 +118,13 @@ class Model():
 #                 self.proc_df = mg.val_test_proc(self.df, *self.proc_arti)
             clf_scores = self.m_clf.predict_proba(self.proc_df)[:, 0]
             regr_scores = self.m_regr.predict(self.proc_df)
-            # for now just do a simple cutoff where if clf_score is too low,
-            # 0 the regr score
-            mask = clf_scores < clf_cutoff
-            comb_scores = np.copy(regr_scores)
-            if not random_penalty:
-                comb_scores[mask] = -999
-            else:
-                penalty_scores = np.random.uniform(-10, -9, size=len(clf_scores))
-                comb_scores[mask] = penalty_scores[mask]
+
+            # linearly combine clf and regr scaled, using clf_wt of 29%
+            clf_wt_29_scorer = scr_util.combined_score(.29)
+            self.proc_df['catboost_clf'] = clf_scores
+            self.proc_df['catboost_regr'] = regr_scores            
+            self.proc_df['catboost_regr_scl'] = scr_util.scale_cb_regr_score(regr_scores)
+            comb_scores = clf_wt_29_scorer('catboost_clf', 'catboost_regr_scl', self.proc_df)
             if return_all:
                 return comb_scores, regr_scores, clf_scores
             return comb_scores
