@@ -1,11 +1,13 @@
 '''
 Some utility functions for combining scores for catboost clf and regr
-constants updated on 2019-12-09 21:30:04 
+constants updated on 
+2019-12-22 13:39:40 
+using FULL datasets
+Using 20 clf_wt and 80th percentile and above
 '''
-import pandas as pd
-
-min_comb_29_score = 0.8292615853334968 #this version based off test_scores only
-# min_comb_29_score = 0.825562573351525 #this version based off all_scores
+clf_wt = .2
+min_comb_score = 0.7867735270069716 #this version based off test_scores only
+# min_comb_16_score = 0.7874522706199785 #this version based off all_scores
 
 def scale_cb_regr_score(df):
     '''
@@ -13,13 +15,11 @@ def scale_cb_regr_score(df):
     predictions (all known loans, not just done, at time of model creation which as of 12.9.2019)
     is around 2.6 million loans.)
     '''
-    cb_regr_min = -1.0514865667720885
-    cb_regr_max = 0.3253468660329166
-    if isinstance(df, pd.DataFrame):
-        return (df['catboost_regr'] - cb_regr_min)/(cb_regr_max - cb_regr_min)
-    else:
-        return (df - cb_regr_min)/(cb_regr_max - cb_regr_min)
-    
+    cb_regr_max, cb_regr_min = 0.371186609868726, -1.138707443906103
+    # print(df)
+    # print(type(df))
+    return (df['catboost_regr'] - cb_regr_min)/(cb_regr_max - cb_regr_min)
+
 def combined_score(clf_wt):
     '''
     returns a function that makes a linear combination of scores with passed

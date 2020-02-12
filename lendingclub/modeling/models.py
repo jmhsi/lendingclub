@@ -119,12 +119,12 @@ class Model():
             clf_scores = self.m_clf.predict_proba(self.proc_df)[:, 0]
             regr_scores = self.m_regr.predict(self.proc_df)
 
-            # linearly combine clf and regr scaled, using clf_wt of 29%
-            clf_wt_29_scorer = scr_util.combined_score(.29)
+            # linearly combine clf and regr scaled, using clf_wt in scr_utils 
+            clf_wt_scorer = scr_util.combined_score(scr_util.clf_wt)
             self.proc_df['catboost_clf'] = clf_scores
             self.proc_df['catboost_regr'] = regr_scores            
-            self.proc_df['catboost_regr_scl'] = scr_util.scale_cb_regr_score(regr_scores)
-            comb_scores = clf_wt_29_scorer('catboost_clf', 'catboost_regr_scl', self.proc_df)
+            self.proc_df['catboost_regr_scl'] = scr_util.scale_cb_regr_score(self.proc_df)
+            comb_scores = clf_wt_scorer('catboost_clf', 'catboost_regr_scl', self.proc_df)
             if return_all:
                 return comb_scores, regr_scores, clf_scores
             return comb_scores

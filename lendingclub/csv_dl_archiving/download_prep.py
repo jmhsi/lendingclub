@@ -28,7 +28,12 @@ from selenium.webdriver.chrome import webdriver as chrome_webdriver
 from selenium.webdriver.support.ui import Select
 import user_creds.account_info as acc_info
 from lendingclub import config
+from selenium.webdriver.remote.webelement import WebElement
 
+def send_keys(el: WebElement, keys: str):
+    for i in range(len(keys)):
+        el.send_keys(keys[i])
+        pause.milliseconds(200)
 
 # import to grab user_creds
 sys.path.append(config.prj_dir)
@@ -104,16 +109,20 @@ class DriverBuilder():
             print("result:" + key + ":" + str(command_result[key]))
 
 
-def download_csvs(download_path, pause_len=2500):
+def get_screenshot(driver):
+    now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    driver.get_screenshot_as_file('screenshot-%s.png' % now)
+
+def download_csvs(download_path, pause_len=3000, debug=False):
     '''
     downloads all loan_info csvs and pmt_history csv
     '''
-    print('downloading csvs to {0}'.format(os.path.abspath(download_path)))
-
+    print('attempting to download csvs to {0}'.format(os.path.abspath(download_path)))
+    
     try:
         # setup constants
-        email = acc_info.email_throwaway
-        password = acc_info.password_throwaway
+        email = acc_info.lc_dl_email_throwaway
+        password = acc_info.lc_dl_pw_throwaway
         url_dl = "https://www.lendingclub.com/info/download-data.action"
         url_signin = "https://www.lendingclub.com/auth/login"
         url_pmt_hist = "https://www.lendingclub.com/site/additional-statistics"
@@ -127,12 +136,12 @@ def download_csvs(download_path, pause_len=2500):
         pause.milliseconds(pause_len)
         email_box = driver.find_element_by_name('email')
         password_box = driver.find_element_by_name('password')
-        # password_box = driver.find_element_by_xpath(
-        #     '/html/body/div[2]/div[1]/div[2]/form[1]/label[2]/input')
-
-        pause.milliseconds(pause_len)
         email_box.send_keys(email)
+        if debug:
+            get_screenshot(driver)
         password_box.send_keys(password)
+        if debug:
+            get_screenshot(driver)
 
         # button = driver.find_element_by_xpath(
         #     '/html/body/div[2]/div[1]/div[2]/form[1]/button')

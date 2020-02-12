@@ -2,17 +2,14 @@
 Script to run every time there is an investment round
 '''
 import os
-import sys
 import argparse
 import requests
 import math
 import datetime
-import pytz
 import pickle
 import json
 import numpy as np
 import pandas as pd
-from sqlalchemy import create_engine
 # trying to embed matplotlib plots into emails
 from email.message import EmailMessage
 from email.utils import make_msgid
@@ -26,16 +23,16 @@ from lendingclub import config
 from lendingclub.modeling.models import Model
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--test', '-t', help='Boolean, if True will invest fast and not wait', action='store_true')
+parser.add_argument('--test', '-t', help='Instant invest or wait invest? Bool')
+if not len(sys.argv) > 1:
+    test = True
 args = parser.parse_args()
-test = args.test
-    
-# print(test)
-# print(type(test))
+if args.test:
+    test = args.test
     
 
 # lendingclub account + API related constants
-inv_amt = 250.00
+inv_amt = 25.00
 cash_limit = 0.00
 
 token = acc_info.token
@@ -61,15 +58,15 @@ cash_to_invest = summary_dict['availableCash']
 n_to_pick = int(math.floor(cash_to_invest / inv_amt))
 
 # other constants
-now = datetime.datetime.now(pytz.FixedOffset(-480))
+now = datetime.datetime.now()
 
 
 # setup for model
 with open(os.path.join(config.data_dir, 'base_loan_info_dtypes.pkl'), 'rb') as f:
     base_loan_dtypes = pickle.load(f)
 cb_both = Model('catboost_both')
-# clf_wt_scorer will combine the regr and clf scores, with clf wt of 20%
-clf_wt_scorer = scr_util.combined_score(scr_util.clf_wt)
+# clf_wt_29_scorer will combine the regr and clf scores, with clf wt of 29%
+clf_wt_29_scorer = scr_util.combined_score(.29)
 
 # WAIT UNTIL LOANS RELEASED. I'm rate limited to 1 call a second
 inv_util.pause_until_time(test=test)    
@@ -92,15 +89,14 @@ api_loans = api_loans.astype(base_loan_dtypes)
 # make raw scores and combined scores
 _, api_loans['catboost_regr'], api_loans['catboost_clf'] = cb_both.score(api_loans, return_all=True)
 api_loans['catboost_regr_scl'] = scr_util.scale_cb_regr_score(api_loans)
-catboost_comb_col = f'catboost_comb_{int(scr_util.clf_wt*100)}'
-api_loans[catboost_comb_col] = clf_wt_scorer('catboost_clf', 'catboost_regr_scl', api_loans)
+api_loans['catboost_comb_29'] = clf_wt_29_scorer('catboost_clf', 'catboost_regr_scl', api_loans)
 
 # get loans that pass the investing criteria
-investable_loans = api_loans.query(f"{catboost_comb_col} >= {scr_util.min_comb_score}")
-# investable_loans = investable_loans.sort_values('catboost_comb', ascending=False)
+investable_loans = api_loans.query("catboost_comb_29 >= {0}".format(scr_util.min_comb_29_score))
+# investable_loans = investable_loans.sort_values('catboost_comb_29', ascending=False)
 
 # Set up order and submit order
-to_order_loan_ids = investable_loans.nlargest(n_to_pick, catboost_comb_col)['id']
+to_order_loan_ids = investable_loans.nlargest(n_to_pick, "catboost_comb_29")['id']
 orders_dict = {'aid': inv_acc_id}
 orders_list = [{'loanId': int(loan_ids),
                         'requestedAmount': int(inv_amt),
@@ -110,33 +106,13 @@ payload = json.dumps(orders_dict)
 # place order
 order_resp = inv_util.submit_lc_order(cash_to_invest, cash_limit, order_url, header, payload)
 
-# some date related columns to add before writing to db
-# convert existing date cols
-to_datify = [col for col in api_loans.columns if '_d' in col and api_loans[col].dtype == 'object']
-for col in to_datify:
-    api_loans[col] = pd.to_datetime(api_loans[col])
-# add date cols: date, year, month, week of year, day, hour
-api_loans['last_seen_list_d'] = now
-api_loans['list_d_year'] = api_loans['list_d'].dt.year
-api_loans['list_d_month'] = api_loans['list_d'].dt.month
-api_loans['list_d_day'] = api_loans['list_d'].dt.day
-api_loans['list_d_week'] = api_loans['list_d'].dt.week
-api_loans['list_d_hour'] = api_loans['list_d'].dt.hour
-api_loans['last_seen_list_d_year'] = api_loans['last_seen_list_d'].dt.year
-api_loans['last_seen_list_d_month'] = api_loans['last_seen_list_d'].dt.month
-api_loans['last_seen_list_d_day'] = api_loans['last_seen_list_d'].dt.day
-api_loans['last_seen_list_d_week'] = api_loans['last_seen_list_d'].dt.week
-api_loans['last_seen_list_d_hour'] = api_loans['last_seen_list_d'].dt.hour
-
-
 msg = EmailMessage()
 # email headers
-email_cols = ['id', 'int_rate', 'term', 'catboost_clf', 'catboost_regr', 'catboost_regr_scl', catboost_comb_col]
 msg['Subject'] = now.strftime("%Y-%m-%d %H:%M:%S.%f") + ' Investment Round'
 msg['From'] = 'justindlrig <{0}>'.format(my_gmail_account)
 msg['To'] = 'self <{0}>'.format(my_recipients[0])
 # set the plain text body
-msg.set_content("test investment round \n LC API Response: {0} \n Response Contents: {1} \n {2} \n {3}".format(order_resp, order_resp.content, investable_loans[email_cols], api_loans[email_cols]))
+msg.set_content("test investment round \n LC API Response: {0} \n Response Contents: {1} \n {2}".format(order_resp, order_resp.content, investable_loans[['id', 'int_rate', 'term', 'catboost_clf', 'catboost_regr', 'catboost_regr_scl', 'catboost_comb_29']]))
 # now create a Content-ID for the image
 image_cid = make_msgid(domain='xyz.com')#
 # if `domain` argument isn't provided, it will 
@@ -166,10 +142,6 @@ image_cid = make_msgid(domain='xyz.com')#
 #                                          cid=image_cid)
 inv_util.send_emails(now, my_gmail_account, my_gmail_password, msg)
 
-
-# write api_loans out to db
-disk_engine = create_engine(f'sqlite:///{config.lc_api_db}')
-api_loans.to_sql('lc_api_loans', disk_engine, if_exists='append', index=False)
 
 # below for google account stuff
 
