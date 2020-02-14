@@ -7,7 +7,8 @@ For data driven loan selection on lendingclub. Important packages are sklearn, p
 3) Models used in invest scripts are trained on all available training data.
 
 # TODOS:
-1) Add timings to invest script, speed up as much as possible
+1) ~~Add timings to invest script~~
+1a) speed up as much as possible
 2) Compare speed when retraining single model on prediction of ensembled model
 3) Compare loans captured through API (in database) to information coming on csvs and ensure that all data matches (grade and subgrade in particular)
 4) Continue to build out Dash dashboard
