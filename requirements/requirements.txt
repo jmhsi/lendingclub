@@ -50,7 +50,7 @@ isort==4.3.21
 itsdangerous==1.1.0
 -e git+git@github.com:jmhsi/j_utils.git@dcef6bc0079d75f03dbc85db7f2359f237cda85c#egg=j_utils
 jedi==0.15.1
-Jinja2==2.10.1
+Jinja2==2.11.3
 joblib==0.13.2
 jsonpath-ng==1.4.3
 jsonschema==3.0.2
