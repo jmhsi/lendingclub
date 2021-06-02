@@ -137,7 +137,7 @@ tqdm==4.36.1
 traitlets==4.3.2
 treelib==1.5.5
 typed-ast==1.4.0
-urllib3==1.25.6
+urllib3==1.26.5
 wcwidth==0.1.7
 webencodings==0.5.1
 websocket-client==0.56.0
